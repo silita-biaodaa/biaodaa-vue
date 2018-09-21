@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta charset=utf-8><meta content=yes name=apple-mobile-web-app-capable><meta content=yes name=apple-touch-fullscreen><meta content="telephone=no,email=no" name=format-detection><meta name=mobile-web-app-capable content=yes><link href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css rel=stylesheet><script src=http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js></script><script src=http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/makegrid.js></script><script src=http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js></script><script src=http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js></script><title>标大大分享页面</title><link href=/static/css/app.84c2745a404de7d8b74c51792bad50e6.css rel=stylesheet></head><body><div id=app></div><nav class="navbar navbar-default navbar-fixed-bottom"><div class=bdd_one><img class=bdd_img src=src/assets/logo.png></div><div class=bdd_two><div class=bdd_g>标大大</div><div class=bdd_n>打开App了解更多资讯</div></div><div class=bdd_foo><div onclick=openApp() class=bdd_x>立即打开</div></div></nav><script type=text/javascript>window.onload = function () {
+<!DOCTYPE html><html><head><meta charset=utf-8><meta content=yes name=apple-mobile-web-app-capable><meta content=yes name=apple-touch-fullscreen><meta content="telephone=no,email=no" name=format-detection><meta name=mobile-web-app-capable content=yes><link href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css rel=stylesheet><script src=http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js></script><script src=http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/makegrid.js></script><script src=http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js></script><script src=http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js></script><title>标大大分享页面</title><link href=/static/css/app.26d369f974af1cd51ce5f47f1c5cbb2a.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript>window.onload = function () {
 
       var type = $("#type").val();
       var id = $("#id").val();
@@ -65,10 +65,30 @@
       //移动端
       if (browser.versions.mobile || browser.versions.android || browser.versions.ios) {
         var localUrl = window.location.href;
-        var openAppUrl = "com.yaobang.biaodada://?type=" + GetQueryString("type") + "&id=" + GetQueryString("id") +
-          "&source=" + GetQueryString("source");
+        var type = GetQueryString("type");
+        var id = GetQueryString("id");
+       var source = GetQueryString("source");
+       if(!id){
+         localStorage.setItem("id",id);
+       }else{
+        id = localStorage.getItem("id");
+       }
+       if(!type){
+         localStorage.setItem("type",type);
+       }else{
+        type = localStorage.getItem("type");
+       }
+       if(!source){
+         localStorage.setItem("source",source);
+       }else{
+        source = localStorage.getItem("source");
+       }
+        var openAppUrl = "com.yaobang.biaodada://?type=" + type + "&id=" + id + "&source=" +source;
+          if(!openAppUrl){
+            openAppUrl = "com.yaobang.biaodada://";
+          }
         window.location.href = openAppUrl;
       }else{
         alert("请用手机打开此页面");
       }
-    }</script><script type=text/javascript src=/static/js/manifest.ca6f5da33d6f86e524bd.js></script><script type=text/javascript src=/static/js/vendor.ad5ea81f538cffd5292b.js></script><script type=text/javascript src=/static/js/app.0e3df53719ac2cfefe64.js></script></body></html>
+    }</script><script type=text/javascript src=/static/js/manifest.bb8c817710c1adcfebfe.js></script><script type=text/javascript src=/static/js/vendor.ae15f6f8a015f4c79812.js></script><script type=text/javascript src=/static/js/app.7d33cfbfdae46473f838.js></script></body></html>
