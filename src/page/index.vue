@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div style="margin-left:36px;margin-right:28px;margin-top:40px;" clss="bdd_news"><span class="bdd_span">{{comBaseData?comBaseData.comName:"-"}}</span></div>
+    <div style="margin-left:16px;margin-right:28px;margin-top:40px;" clss="bdd_news"><span class="bdd_span">{{comBaseData?comBaseData.comName:"-"}}</span></div>
     <div class="bdd_c"><span class="bdd_a">{{comBaseData.legalPerson?comBaseData.legalPerson:"--"}}</span><span class="bdd_b">{{comBaseData.regisCapital?comBaseData.regisCapital:"--"}}</span></div>
     <div class="bdd_plone">联系电话</div>
     <div class="bdd_v"><span class="bdd_pl">联系电话</span><span class="bdd_k">{{comBaseData.phone?comBaseData.phone:"-"|phoneFilter}}</span></div>
@@ -11,12 +11,12 @@
     <div class="bdd_hr"></div>
     <div style="width: 100%;overflow: hidden">
       <div class="bdd_s "><span class="bdd_pl">公司地址</span>
-        <div style='margin-right:32px;' class="bdd_o">{{comBaseData.comAddress?comBaseData.comAddress:"-"}}</div>
+        <div style='margin-right:13px;' class="bdd_o">{{comBaseData.comAddress?comBaseData.comAddress:"-"}}</div>
       </div>
     </div>
     <div class="bdd_d"></div>
-    <div  style='margin-top:60px;'>
-    <div><span class='bdd_plone'>资质信息</span><span style='font-size:28px;'>({{qualityList.length}})</span>
+    <div  style='margin-top:10px;'>
+    <div><span class='bdd_plone'>资质信息</span><span style='font-size:14px;'>({{qualityList.length}})</span>
       </div>
       </div>
     <div class="bdd_zi" v-for="item in qualityList" :key="item.pkid">{{item.qualName}} </div>
@@ -28,9 +28,13 @@
         <div class="bdd_o">{{comBaseData.economicType?comBaseData.economicType:"-"}}</div>
       </div>
     </div>
-      <div class="bdd_s bdd_color"><span class="bdd_time">安许证号&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="bdd_ri">{{comBaseData.certNo?comBaseData.certNo:"--"}}</span></div>
+      <div style="width:100%;overflow: hidden">
+        <div class="bdd_s "><span class="bdd_time bdd_spc">安许证号</span>
+          <div class="bdd_o">{{comBaseData.certNo?comBaseData.certNo:"--"}}</div>
+        </div>
+      </div>
       <div class="bdd_s "><span  class="bdd_time ">有&nbsp;效&nbsp;期&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="bdd_ri">{{comBaseData.validDate?comBaseData.validDate:"-"}}</span></div>
-      <div class="bdd_color" style="width: 100%;overflow: hidden;padding-bottom: 50px;">
+      <div class="bdd_color" style="width: 100%;overflow: hidden;padding-bottom:32px;">
         <div class="bdd_s "><span class="bdd_time">经营范围</span>
           <div class="bdd_o">{{shortComRange?shortComRange:"-"}}<button class="bdd_h" v-show="isShowAllBtn" @click="showAll()">{{textBtn}}</button></div>
         </div>
