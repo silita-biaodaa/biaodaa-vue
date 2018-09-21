@@ -11,7 +11,7 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/',
+      path: '/:type/:id/:source',
       name: 'index',
       component: index
     },
@@ -21,12 +21,12 @@ export default new Router({
       component: surroundinglist
     },
     {
-      path: '/dynamic',
+      path: '/dynamic/:type/:id/:source',
       name: 'dynamic',
       component: dynamic
     },
     {
-      path: '/allList',
+      path: '/allList/:type/:id/:source',
       name: 'allList',
       component: allList
     },

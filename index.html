@@ -21,17 +21,7 @@
 <body>
   <!-- 构建文件将会注入这里 -->
   <div id="app"></div>
-  <nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="bdd_one">
-      <img class="bdd_img" src="src/assets/logo.png"  /> </div>
-    <div class="bdd_two">
-      <div class="bdd_g">标大大</div>
-      <div class="bdd_n">打开App了解更多资讯</div>
-    </div>
-    <div class="bdd_foo">
-      <div onclick='openApp()' class="bdd_x">立即打开</div>
-    </div>
-  </nav>
+ 
   <script type="text/javascript">
     window.onload = function () {
 
@@ -100,8 +90,28 @@
       //移动端
       if (browser.versions.mobile || browser.versions.android || browser.versions.ios) {
         var localUrl = window.location.href;
-        var openAppUrl = "com.yaobang.biaodada://?type=" + GetQueryString("type") + "&id=" + GetQueryString("id") +
-          "&source=" + GetQueryString("source");
+        var type = GetQueryString("type");
+        var id = GetQueryString("id");
+       var source = GetQueryString("source");
+       if(!id){
+         localStorage.setItem("id",id);
+       }else{
+        id = localStorage.getItem("id");
+       }
+       if(!type){
+         localStorage.setItem("type",type);
+       }else{
+        type = localStorage.getItem("type");
+       }
+       if(!source){
+         localStorage.setItem("source",source);
+       }else{
+        source = localStorage.getItem("source");
+       }
+        var openAppUrl = "com.yaobang.biaodada://?type=" + type + "&id=" + id + "&source=" +source;
+          if(!openAppUrl){
+            openAppUrl = "com.yaobang.biaodada://";
+          }
         window.location.href = openAppUrl;
       }else{
         alert("请用手机打开此页面");

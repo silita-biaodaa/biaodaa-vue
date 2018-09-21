@@ -6,6 +6,7 @@
   font-weight:400;
   color:rgba(153,153,153,1);
   line-height:24px;
+  margin-left:40px;
 }
 .bdd_r_si{
   width: 100%;
@@ -56,6 +57,7 @@
   font-weight:500;
   color:rgba(51,51,51,1);
   line-height:36px;
+
  }
 .bdd_r_sever{
   width:100%;
@@ -70,4 +72,49 @@
 }
 .bdd_size{
   font-size: 32px;
+}
+.bdd_span{
+  font-size:36px;
+  font-family:PingFangSC-Medium;
+  color:rgba(51,51,51,1);
+  margin-left:32px;
+  margin-top:32px;
+
+}
+.bdd_ri{
+  margin-left:30px;
+}
+.bdd_v-img{
+  position: relative;
+}
+.bdd_k_img{
+  width:24px;
+  height:24px;
+  position:absolute;
+  top:0px;
+  left:0px;
+}
+.bdd_r_head{
+  padding-left:32px;
+  padding-right:32px;
+  margin-top:20px;
+  text-align:left;
+
+}
+.bdd_p{
+  clear:both;
+  overflow:hidden;
+  width: 90%;
+  font-size:36px;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(51,51,51,1);
+  margin-left:32px;
+  margin-right:32px;
+
+}
+.bdd_r_g{
+  float:left;
+  line-height:60px;
+  display: inline-block;
 }
