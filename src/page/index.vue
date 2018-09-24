@@ -6,13 +6,11 @@
     <div class="bdd_v"><span class="bdd_pl">联系电话</span><span class="bdd_k">{{comBaseData.phone?comBaseData.phone:"-"|phoneFilter}}</span></div>
     <div class="bdd_v"><span class="bdd_pl">官网地址</span><span class="bdd_k">{{comBaseData.comUrl?comBaseData.comUrl:"-"}}</span></div>
     <div class="bdd_v"><span class="bdd_pl">邮箱地址</span><span class="bdd_k">{{comBaseData.email?comBaseData.email:"-"}}</span></div>
-    <!--<div style="width: 100%;overflow: hidden">-->
-    <!--<div class="bdd_s "><span class="bdd_pl">公司地址</span>-->
-    <!--<div style='padding-right:20px;' class="bdd_o">{{comBaseData.comAddress?comBaseData.comAddress:"-"}}</div>-->
-    <!--</div>-->
-    <!--</div>-->
-
-    <div class="bdd_v"><span class="bdd_pl">公司地址</span><span style="white-space:normal;" class="bdd_k">{{comBaseData.comAddress?comBaseData.comAddress:"-"}}</span></div>
+    <!--<div class="bdd_v"><span class="bdd_pl">公司地址</span><span style="white-space:normal;" class="bdd_k">{{comBaseData.comAddress?comBaseData.comAddress:"-"}}</span></div>-->
+    <div class="bdd_main">
+      <span class="bdd_title">公司地址</span>
+      <span class="bdd_content">{{comBaseData.comAddress?comBaseData.comAddress:"-"}}</span>
+    </div>
     <div class="bdd_d"></div>
     <div style='padding-top:25px;'>
       <div><span class='bdd_plone'>资质信息</span><span class="bdd_p_kip">({{qualityList.length}})</span>
@@ -21,34 +19,26 @@
     <div class="bdd_zi" v-for="item in qualityList" :key="item.pkid">{{item.qualName}} </div>
     <div class="bdd_plone">基本信息</div>
     <div class="bdd_ji">
-      <div class="bdd_s bdd_color"><span class="bdd_time ">注&nbsp;册&nbsp;号 </span><span class="bdd_ri">{{comBaseData.orgCode?comBaseData.orgCode:"-"}}</span></div>
-      <div class="bdd_p"><span class="bdd_time">企业类型</span><span class="bdd_ri">{{comBaseData.economicType?comBaseData.economicType:"-"}}</span></div>
-      <!--<div style="width: 100%;overflow: hidden">-->
-      <!--<div class="bdd_s "><span class="bdd_time bdd_spc">企业类型</span>-->
-      <!--<div class="bdd_o">{{comBaseData.economicType?comBaseData.economicType:"-"}}</div>-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--<div style="width:100%;overflow: hidden">-->
-      <!--<div class="bdd_s bdd_color "><span class="bdd_time bdd_spc">安许证号</span>-->
-      <!--<div class="bdd_o">{{comBaseData.certNo?comBaseData.certNo:"&#45;&#45;"}}</div>-->
-      <!--</div>-->
-      <!--</div>-->
+      <div class="bdd_s bdd_color"><span class="bdd_time ">注&nbsp;册&nbsp;号&nbsp;&nbsp;&nbsp;</span><span class="bdd_ri">{{comBaseData.orgCode?comBaseData.orgCode:"-"}}</span></div>
+      <div class="bdd_main_u">
+        <span class="bdd_title bdd_i_color">企业类型</span>
+        <span class="bdd_content bdd_i_po">{{comBaseData.economicType?comBaseData.economicType:"-"}}</span>
+      </div>
       <div class="bdd_s bdd_color"><span class="bdd_time ">安许证号</span><span class="bdd_ri">{{comBaseData.certNo?comBaseData.certNo:"&#45;&#45;"}}</span></div>
-      <div class="bdd_s "><span class="bdd_time ">有&nbsp;效&nbsp;期&nbsp;</span><span class="bdd_ri">{{comBaseData.validDate?comBaseData.validDate:"-"}}</span></div>
-      <!--<div class="bdd_color" style="width: 100%;overflow: hidden;padding-bottom:32px;">-->
-      <!--<div class="bdd_s "><span class="bdd_time">经营范围</span>-->
-      <!--<div class="bdd_o">{{shortComRange?shortComRange:"-"}}<button class="bdd_h" v-show="isShowAllBtn" @click="showAll()">{{textBtn}}</button></div>-->
+      <div class="bdd_s "><span class="bdd_time ">有&nbsp;效&nbsp;期&nbsp; </span><span class="bdd_ri">{{comBaseData.validDate?comBaseData.validDate:"-"}}</span></div>
+      <!--<div class="bdd_s bdd_color "><span class="bdd_time ">经营范围</span><span style="" class="bdd_ri">{{shortComRange?shortComRange:"-"}}<span class="bdd_h" v-show="isShowAllBtn" @click="showAll()">{{textBtn}}</span></span>-->
       <!--</div>-->
-      <!--</div>-->
-      <div class="bdd_s bdd_color "><span class="bdd_time ">经营范围</span><span style="" class="bdd_ri">{{shortComRange?shortComRange:"-"}}<span class="bdd_h" v-show="isShowAllBtn" @click="showAll()">{{textBtn}}</span></span>
+      <div class="bdd_main_u">
+        <span class="bdd_title bdd_i_color">经营范围</span>
+        <span class="bdd_content bdd_i_po">{{shortComRange?shortComRange:"-"}}<span class="bdd_h" v-show="isShowAllBtn" @click="showAll()">{{textBtn}}</span></span>
       </div>
     </div>
     <div class="bdd_plone">分支机构</div>
-    <div class="bdd_f">该公司有<span class="bdd_size bdd_col">{{bddList.branchCompanyTotal?bddList.branchCompanyTotal:"-"}} </span>家分支机构，打开标大大app可查看详情</div>
+    <div class="bdd_f">该公司有 <span class="bdd_size bdd_col">{{bddList.branchCompanyTotal?bddList.branchCompanyTotal:"-"}} </span>家分支机构，打开标大大app可查看详情</div>
     <div class="bdd_plone">人员信息</div>
-    <div class="bdd_f">该公司有<span class="bdd_size bdd_col"> {{bddList.personTotal?bddList.personTotal:"-" }}</span>家人员信息，打开标大大app可查看详情</div>
+    <div class="bdd_f">该公司有 <span class="bdd_size bdd_col"> {{bddList.personTotal?bddList.personTotal:"-" }} </span>家人员信息，打开标大大app可查看详情</div>
     <div class="bdd_plone">业绩信息</div>
-    <div style="margin-bottom: 64px" class="bdd_f">该公司有<span class="bdd_size" style="color:#CEA63F "> {{bddList.projectTotal?bddList.projectTotal:'-'}} </span>家业绩信息，打开标大大app可查看详情</div>
+    <div style="margin-bottom: 64px" class="bdd_f">该公司有 <span class="bdd_size" style="color:#CEA63F "> {{bddList.projectTotal?bddList.projectTotal:'-'}} </span>家业绩信息，打开标大大app可查看详情</div>
     <div class="bdd_i_fot"></div>
     <nav class="navbar navbar-default navbar-fixed-bottom">
       <div class="bdd_one">
@@ -86,34 +76,38 @@
       }
     },
     mounted() {
-       this.getParams();
+      this.getParams();
       this.gocollection();
       this.getSecondData();
       this.getUp();
     },
     methods: {
       getParams:function(){
-         let id = this.$route.params.id;
-         let type = this.$route.params.type;
-         let source = this.$route.params.source;
-         let title = this.$route.params.title;
-         if(!id){
-         localStorage.setItem("id",id);
-       }
-       if(!type){
-         localStorage.setItem("type",type);
-       }
-       if(!source){
-         localStorage.setItem("source",source);
-       }
-
-       if(!title){
-         localStorage.setItem("title",title);
-       }
+//         let id = this.$route.params.id;
+//         let type = this.$route.params.type;
+//         let source = this.$route.params.source;
+//         let title = this.$route.params.title;
+         let comId = this.$route.params.comId;
+//         if(!id){
+//         localStorage.setItem("id",id);
+//       }
+//       if(!type){
+//         localStorage.setItem("type",type);
+//       }
+//       if(!source){
+//         localStorage.setItem("source",source);
+//       }
+//
+//       if(!title){
+//         localStorage.setItem("title",title);
+//       }
+        if(!comId){
+          localStorage.setItem("comId",comId);
+        }
       },
       gocollection: function() {
-       let id = this.$route.params.id;
-        getJsonData("/company/"+id).then(res => {
+       let comId =this.$route.params.comId;
+        getJsonData("/company/"+comId).then(res => {
           let baseData = res.data;
           this.comBaseData = baseData;
           let longComRange = baseData.comRange;

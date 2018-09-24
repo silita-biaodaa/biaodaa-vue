@@ -1,39 +1,43 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import index from '@/page/index'
-import surroundinglist from '@/page/surrounding/surroundingList'
-import dynamic from '@/page/dynamic/dynamic'
-import allList from '@/page/all/allList'
-import listDetails from '@/page/all/listDetails'
-
+import industry from '@/page/industry/industry'
+import tenders from '@/page/tenders/tenders'
+import win from '@/page/win/win'
+import platform from '@/page/platform/platform'
+import lawworks from '@/page/lawworks/lawworks'
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/:type/:id/:source',
+      path: '/company/:comId',
       name: 'index',
       component: index
     },
     {
-      path: '/surroundinglist',
-      name: 'surroundinglist',
-      component: surroundinglist
+      path: '/industry',
+      name: 'industry',
+      component: industry
     },
     {
-      path: '/dynamic/:type/:id/:source',
-      name: 'dynamic',
-      component: dynamic
+      path: '/tenders/:type/:id/:source',
+      name: 'tenders',
+      component: tenders
     },
     {
-      path: '/allList/:type/:id/:source',
-      name: 'allList',
-      component: allList
+      path: '/win/:type/:id/:source',
+      name: 'win',
+      component: win
     },
     {
-      path: '/listDetails',
-      name: 'listDetails',
-      component: listDetails
+      path: '/platform',
+      name: 'platform',
+      component: platform
+    },{
+      path: '/lawworks',
+      name: 'lawworks',
+      component: lawworks
     }
   ]
 })
