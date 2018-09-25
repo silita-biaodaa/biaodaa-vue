@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta charset=utf-8><meta content=yes name=apple-mobile-web-app-capable><meta content=yes name=apple-touch-fullscreen><meta content="telephone=no,email=no" name=format-detection><meta name=mobile-web-app-capable content=yes><link href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css rel=stylesheet><script src=http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js></script><script src=http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/makegrid.js></script><script src=http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js></script><script src=http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js></script><title>标大大分享页面</title><link href=/static/css/app.47ca80cae78befaeafb83c06ed048652.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript>window.onload = function () {
+<!DOCTYPE html><html><head><meta charset=utf-8><meta content=yes name=apple-mobile-web-app-capable><meta content=yes name=apple-touch-fullscreen><meta content="telephone=no,email=no" name=format-detection><meta name=mobile-web-app-capable content=yes><link href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css rel=stylesheet><script src=http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js></script><script src=http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/makegrid.js></script><script src=http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js></script><script src=http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js></script><title>标大大分享页面</title><div id=IOSGuide class="col-xs-12 col-sm-12 hidden-lg hidden-md" style="display: none"><img src=src/assets/IOS_guide.png></div><div id=andriodGuide class="col-xs-12 col-sm-12 hidden-lg hidden-md" style="display: none"><img src=src/assets/andriod_guide.png></div><div id=phoneBrowserGuide class="col-xs-12 col-sm-12 com-md-12 com-lg-12" style="display: none"><div class="col-xs-12 col-sm-12"><img class=img-responsive style="height: 600px;" src=src/assets/bg.png></div><div class="col-xs-12 col-sm-12" style="position: relative;top: -80px;"><div class="col-xs-8 col-sm-8 col-sm-3 col-lg-3" style="padding-left: 0px;"><img src=src/assets/guide_bottom.png></div><div class="col-xs-4 col-sm-4 col-sm-1 col-lg-1" style="padding-left: 10px;"><a class="btn btn-warning" style="color: #cea63f;background-color: #cea63f;" role=button onclick=downloadApp()><font color=#ffffff>立即下载</font></a></div></div></div><link href=/static/css/app.6b8ceaf603bd8da3a0d697efba6e4777.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript>window.onload = function () {
 
       var type = $("#type").val();
       var id = $("#id").val();
@@ -91,4 +91,21 @@
       }else{
         alert("请用手机打开此页面");
       }
-    }</script><script type=text/javascript src=/static/js/manifest.590510c35d759adfadec.js></script><script type=text/javascript src=/static/js/vendor.dc8e97682d571a5829d4.js></script><script type=text/javascript src=/static/js/app.90883c5153194522ff08.js></script></body></html>
+    }
+    /**
+     * 下载按钮点击
+     */
+    function downloadApp() {
+      var u = navigator.userAgent;
+      //IOS
+      var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+      var isAndroid = u.indexOf('Android') > -1 ; /*android终端或者uc浏览器*/
+      if (isIOS) {
+        window.location.href = 'https://itunes.apple.com/cn/app/标大大/id1278802484?mt=8'
+      } else if(isAndroid){
+        window.location.href = 'http://www.biaodaa.com/file/biaodaa.apk'
+      } else {
+        $("#phoneBrowserGuide").hide();
+        $("#companyGuide").show();
+      }
+    }</script><script type=text/javascript src=/static/js/manifest.657756e30e83a7d3cd7b.js></script><script type=text/javascript src=/static/js/vendor.8ed68125e83225435417.js></script><script type=text/javascript src=/static/js/app.ffcd9bd35a1bf7c5a3b7.js></script></body></html>
