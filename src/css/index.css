@@ -41,7 +41,6 @@
 }
 .bdd_plone{
   margin-top:60px;
-  width:192px;
   height:48px;
   font-size:48px;
   font-family:PingFangSC-Regular;
@@ -298,6 +297,7 @@
   margin-left:32px;
   margin-right:32px;
   padding-bottom:23px;
+
 }
 .bdd_i_color{
   height:32px;
@@ -315,3 +315,4 @@
   color:rgba(102,102,102,1);
   line-height:40px;
 }
+

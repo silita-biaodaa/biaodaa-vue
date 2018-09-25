@@ -6,9 +6,8 @@
     <div class="bdd_v"><span class="bdd_pl">联系电话</span><span class="bdd_k">{{comBaseData.phone?comBaseData.phone:"-"|phoneFilter}}</span></div>
     <div class="bdd_v"><span class="bdd_pl">官网地址</span><span class="bdd_k">{{comBaseData.comUrl?comBaseData.comUrl:"-"}}</span></div>
     <div class="bdd_v"><span class="bdd_pl">邮箱地址</span><span class="bdd_k">{{comBaseData.email?comBaseData.email:"-"}}</span></div>
-    <!--<div class="bdd_v"><span class="bdd_pl">公司地址</span><span style="white-space:normal;" class="bdd_k">{{comBaseData.comAddress?comBaseData.comAddress:"-"}}</span></div>-->
     <div class="bdd_main">
-      <span class="bdd_title">公司地址</span>
+      <span class="bdd_title bdd_i_color">公司地址</span>
       <span class="bdd_content">{{comBaseData.comAddress?comBaseData.comAddress:"-"}}</span>
     </div>
     <div class="bdd_d"></div>
@@ -19,17 +18,15 @@
     <div class="bdd_zi" v-for="item in qualityList" :key="item.pkid">{{item.qualName}} </div>
     <div class="bdd_plone">基本信息</div>
     <div class="bdd_ji">
-      <div class="bdd_s bdd_color"><span class="bdd_time ">注&nbsp;册&nbsp;号&nbsp;&nbsp;&nbsp;</span><span class="bdd_ri">{{comBaseData.orgCode?comBaseData.orgCode:"-"}}</span></div>
+      <div class="bdd_s bdd_color"><span class="bdd_time ">注&nbsp;册&nbsp;号&nbsp;&nbsp;&nbsp;</span><span class="bdd_ri">{{comBaseData.businessNum?comBaseData.businessNum:"-"}}</span></div>
       <div class="bdd_main_u">
         <span class="bdd_title bdd_i_color">企业类型</span>
         <span class="bdd_content bdd_i_po">{{comBaseData.economicType?comBaseData.economicType:"-"}}</span>
       </div>
       <div class="bdd_s bdd_color"><span class="bdd_time ">安许证号</span><span class="bdd_ri">{{comBaseData.certNo?comBaseData.certNo:"&#45;&#45;"}}</span></div>
       <div class="bdd_s "><span class="bdd_time ">有&nbsp;效&nbsp;期&nbsp; </span><span class="bdd_ri">{{comBaseData.validDate?comBaseData.validDate:"-"}}</span></div>
-      <!--<div class="bdd_s bdd_color "><span class="bdd_time ">经营范围</span><span style="" class="bdd_ri">{{shortComRange?shortComRange:"-"}}<span class="bdd_h" v-show="isShowAllBtn" @click="showAll()">{{textBtn}}</span></span>-->
-      <!--</div>-->
       <div class="bdd_main_u">
-        <span class="bdd_title bdd_i_color">经营范围</span>
+        <span class="bdd_title  bdd_i_color">经营范围</span>
         <span class="bdd_content bdd_i_po">{{shortComRange?shortComRange:"-"}}<span class="bdd_h" v-show="isShowAllBtn" @click="showAll()">{{textBtn}}</span></span>
       </div>
     </div>
@@ -137,27 +134,25 @@
       },
       //资质信息接口
       getSecondData: function() {
-        let id=this.$route.params.id;
-        getJsonData("company/qual/"+id).then(res => {
+        let comId=this.$route.params.comId;
+        getJsonData("company/qual/"+comId).then(res => {
           console.log(res);
           this.qualityList = res.data[0].list;
         });
       },
       // 分支机构接口
       getUp: function() {
-        let id=this.$route.params.id;
+        let comId=this.$route.params.comId;
         let dataParam = JSON.stringify({
-          comId: id
+              'comId':comId
         });
         getJsonData("/company/shareTotal", dataParam).then(res => {
-          console.log(res);
+          console.log(666);
           this.bddList = res.data;
 
         });
       },
-      btn: function() {
 
-      }
     },
 
   }

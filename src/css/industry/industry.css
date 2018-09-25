@@ -26,7 +26,7 @@
   line-height:24px;
 
 }
-.bdd_p_le{
+.bdd_p_leo{
   clear:both;
   overflow:hidden;
   width: 90%;
@@ -38,6 +38,8 @@
   margin-right:25px;
   line-height:32px;
   margin-top:48px;
+  padding-bottom:338px;
+
 }
 .bdd_r_g_ro{
   float:left;

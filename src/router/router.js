@@ -16,7 +16,7 @@ export default new Router({
       component: index
     },
     {
-      path: '/industry',
+      path: '/industry/:id',
       name: 'industry',
       component: industry
     },
@@ -35,7 +35,7 @@ export default new Router({
       name: 'platform',
       component: platform
     },{
-      path: '/lawworks',
+      path: '/lawworks/:id',
       name: 'lawworks',
       component: lawworks
     }

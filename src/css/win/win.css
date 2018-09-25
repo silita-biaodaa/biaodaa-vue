@@ -33,7 +33,6 @@
   vertical-align: middle;
 }
 .bdd_p_o{
-  width:232px;
   height:28px;
   font-size:28px;
   font-family:PingFangSC-Regular;
@@ -94,4 +93,12 @@
 }
 .bdd_i_fot{
   margin-top:200px;
+}
+.bdd_w_yi{
+  margin-left:40px;
+  font-size:28px;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(212,97,93,1);
+  line-height:28px;
 }

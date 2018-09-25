@@ -4,15 +4,15 @@
     <div class="bdd_l_loge">
       <div class="main">
       <span class="title">标题</span>
-      <span class="content">中国人民万岁中国人民万岁中国人民万岁中国人民万中国人民万岁中国</span>
+      <span class="content">{{bddList.title?bddList.title:"-" }}</span>
      </div>
-      <div><span class="bdd_l_mews">法院</span><span class="bdd_l_mess">湖南长沙市中级人民大院</span></div>
-      <div><span class="bdd_l_mews">按号</span><span  class="bdd_l_mess">(2018)湘01民初585号</span></div>
-      <div><span class="bdd_l_mews">时间</span><span  class="bdd_l_mess">2018-01-01</span></div>
+      <div><span class="bdd_l_mews">法院</span><span class="bdd_l_mess">{{bddList.court?bddList.court:"-" }}</span></div>
+      <div><span class="bdd_l_mews">按号</span><span style="margin-left: 25px;" class="bdd_l_mess">{{bddList.caseNo?bddList.caseNo:"-" }}</span></div>
+      <div><span class="bdd_l_mews">时间</span><span class="bdd_l_mess">{{bddList.dateStr?bddList.dateStr:"-" }}</span></div>
   </div>
   </div>
   <div class="bdd_l_h">原文详情:</div>
-  <div class="bdd_l_hold">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</div>
+  <div class="bdd_l_hold"><span  v-html="bddList.content"></span></div>
 </div>
 </template>
 <script>
@@ -20,28 +20,29 @@
   import {
     getJsonData
   } from "../../api/index.js";
-
   export default {
     name:"platform",
     data () {
       return {
-        bddList: {}
+        bddList: {},
       }
     },
     mounted() {
       this.getUp();
     },
     methods: {
-      //公示文章详情
+      //法务详情
       getUp: function() {
+        let id = this.$route.params.id;
+        if(!id){
+          localStorage.setItem("id",id);
+        }
         let dataParam = JSON.stringify({
-          "id":""
-
+          "id":id
         });
-        getJsonData("/notice/queryArticleDetail", dataParam).then(res => {
-          console.log(222);
-          this.bddList = res.data[0];
-
+        getJsonData("/law/detail", dataParam).then(res => {
+          console.log(777);
+          this.bddList = res.data;
         });
       }
     }

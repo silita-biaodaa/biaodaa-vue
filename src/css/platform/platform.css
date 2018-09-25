@@ -60,12 +60,14 @@
 }
 
 .bdd_p_th_o{
-  font-weight: 700;
+  font-weight: 500;
 
 }
 .bdd_p_th_l{
-  font-weight: 500;
   padding-top:40px;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+
 }
 .bdd_p_foo{
   height:50px;

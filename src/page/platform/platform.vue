@@ -10,7 +10,7 @@
       <th style="width: 23%" class="bdd_p_th_o">中标个数  </th>
       </tr>
       <tr>
-        <td style="width: 17%" class="bdd_p_th_l">00</td>
+        <td style="width: 17%;" class="bdd_p_th_l">00</td>
         <td style="width: 60%" class="bdd_p_th_l">湖南思利他网络科技有限公司</td>
         <td style="width: 23%" class="bdd_p_th_l">00</td>
       </tr>
@@ -83,15 +83,16 @@
       this.getUp();
     },
     methods: {
-      //公示文章详情
+      //平台公示列表
       getUp: function() {
         let dataParam = JSON.stringify({
-          "id":""
+          "pageSize": 12,
+          "pageNum": 1
 
         });
-        getJsonData("/notice/queryArticleDetail", dataParam).then(res => {
-          console.log(222);
-          this.bddList = res.data[0];
+        getJsonData("/notice/queryArticleList", dataParam).then(res => {
+          console.log(666);
+          this.bddList = res.data;
 
         });
       }
