@@ -30,8 +30,8 @@
 
 
   <!-- IOS -->
-  <div id="IOSGuide" class="col-xs-12 col-sm-12  hidden-lg hidden-md img-responsive" style="display: none">
-    <img id="IOSGuideImg" src="/static/img/IOS_guide.png">
+  <div id="IOSGuide" class="col-xs-12 col-sm-12" style="display: none">
+    <img id="IOSGuideImg" src="/static/img/ios_guide.png">
   </div>
 
   <!-- andriod -->
@@ -39,148 +39,166 @@
     <img id="andriodGuideImg" src="/static/img/andriod_guide.png">
   </div>
 
-
-
-
-
   <script type="text/javascript">
     console.log(111)
     var openAppUrl = "";
     window.onload = function () {
 
-      window.browser = {
-        /*判断访问终端*/
-        versions: function () {
-          var u = navigator.userAgent,
-            app = navigator.appVersion;
-          return {
-            trident: u.indexOf('Trident') > -1,
-            /*IE内核*/
-            presto: u.indexOf('Presto') > -1,
-            /*opera内核*/
-            webKit: u.indexOf('AppleWebKit') > -1,
-            /*苹果、谷歌内核*/
-            gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1,
-            /*火狐内核*/
-            mobile: !!u.match(/AppleWebKit.*Mobile.*/),
-            /*是否为移动终端*/
-            ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),
-            /*ios终端*/
-            android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1,
-            /*android终端或者uc浏览器*/
-            iPhone: u.indexOf('iPhone') > -1,
-            /*是否为iPhone或者QQHD浏览器*/
-            iPad: u.indexOf('iPad') > -1,
-            /*是否iPad*/
-            webApp: u.indexOf('Safari') == -1,
-            /*是否web应该程序，没有头部与底部*/
-            weixin: u.toLowerCase().indexOf('micromessenger') > -1,
-            /*是否是微信*/
-            dingtalk: u.toLowerCase().indexOf('dingtalk') > -1,
-            /*是否是顶顶*/
-            qq: u.toLowerCase().match(/QQ/i) == "qq",
-            /*qq*/
-            safari: u.indexOf("Safari") > -1,
-            /*safari*/
-            qqBrowser: !!u.toLowerCase().match(/mqqbrowser|qzone|qqbrowser/i)
-          };
-        }(),
-        language: (navigator.browserLanguage || navigator.language).toLowerCase()
-      };
+       window.browser = {
+            /*判断访问终端*/
+            versions: function () {
+                var u = navigator.userAgent, app = navigator.appVersion;
+                return {
+                    trident: u.indexOf('Trident') > -1, /*IE内核*/
+                    presto: u.indexOf('Presto') > -1, /*opera内核*/
+                    webKit: u.indexOf('AppleWebKit') > -1, /*苹果、谷歌内核*/
+                    gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, /*火狐内核*/
+                    mobile: !!u.match(/AppleWebKit.*Mobile.*/), /*是否为移动终端*/
+                    ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), /*ios终端*/
+                    android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, /*android终端或者uc浏览器*/
+                    iPhone: u.indexOf('iPhone') > -1, /*是否为iPhone或者QQHD浏览器*/
+                    iPad: u.indexOf('iPad') > -1, /*是否iPad*/
+                    webApp: u.indexOf('Safari') == -1, /*是否web应该程序，没有头部与底部*/
+                    weixin: u.toLowerCase().indexOf('micromessenger') > -1, /*是否是微信*/
+                    dingtalk: u.toLowerCase().indexOf('dingtalk') > -1, /*是否是顶顶*/
+                    qq: u.toLowerCase().match(/QQ/i) == "qq", /*qq*/
+                    safari: u.indexOf("Safari") > -1,    /*safari*/
+                    qqBrowser:!!u.toLowerCase().match(/mqqbrowser|qzone|qqbrowser/i)
+                };
+            }(),
+            language: (navigator.browserLanguage || navigator.language).toLowerCase()
+        };
+      // alert(browser.versions);
 
 
-
-    }
-
-
-    function openApp() {
+     // alert(openAppUrl);
       //移动端
-      openAppUrl = localStorage.getItem("openAppUrl");
-      if (!openAppUrl) {
-        openAppUrl = "com.yaobang.biaodada://";
+      if (browser.versions.mobile || browser.versions.android || browser.versions.ios) {
+        if (browser.versions.weixin) {
+          //微信
+          if (browser.versions.android) {
+            $("#andriodGuide").show();
+            $("#andriodGuideImg").css("width","100%");
+            $("#app").hide();
+          } else if (browser.versions.ios) {
+            $("#IOSGuide").show();
+            $("#IOSGuideImg").css("width","100%");
+            $("#app").hide();
+          }
+        } else if (browser.versions.dingtalk) {
+          //顶顶
+          if (browser.versions.android) {
+            $("#andriodGuide").show();
+            $("#andriodGuideImg").css("width","100%");
+            $("#app").hide();
+          } else if (browser.versions.ios) {
+            $("#IOSGuide").show();
+            $("#IOSGuideImg").css("width","100%");
+            $("#app").hide();
+          }
+        } else if (browser.versions.qq) {
+          //qq
+          if (browser.versions.android) {
+            $("#andriodGuide").show();
+            $("#andriodGuideImg").css("width","100%");
+            $("#app").hide();
+          } else if (browser.versions.ios) {
+            $("#IOSGuide").show();
+            $("#IOSGuideImg").css("width","100%");
+            $("#app").hide();
+          }
+        } else if (browser.versions.ios && browser.versions.safari) {
+          //IOS Safari
+         // window.location.href = openAppUrl;
+         jumpToApp()
+        } else if (browser.versions.android) {
+          //安卓
+         // window.location.href = openAppUrl;
+         jumpToApp();
+        }
+
+        var localTime = new Date();
+        var setT = window.setTimeout(function () {
+          var outTime = new Date();
+          if (outTime - localTime < 5000) {
+            //IOS 非微信、QQ、顶顶
+            if (browser.versions.ios && !browser.versions.weixin && !browser.versions.dingtalk && !browser.versions
+              .qq) {
+               // openToApp(3);
+              $("#app").show();
+              $("#appDownload").hide();
+            } else if (browser.versions.android && browser.versions.qqBrowser) {
+              // alert("321");
+              $("#andriodGuide").show();
+              $("#andriodGuideImg").css("width","100%");
+              $("#app").hide();
+            } else if (browser.versions.android &&
+              (browser.versions.qqBrowser || browser.versions.trident || browser.versions.webKit || browser.versions
+                .gecko) &&
+              !browser.versions.dingtalk && !browser.versions.weixin) {
+              // alert("123");
+              $("#andriodGuide").hide();
+              $("#app").show();
+              //openToApp(4);
+            }else if(browser.versions.ios&&(browser.versions.weixin||browser.versions.dingtalk||browser.versions
+              .qq)){
+            $("#IOSGuide").show();
+            $("#IOSGuideImg").css("width","100%");
+            $("#app").hide();
+            }
+          }
+        }, 1000);
+      } else {
+        //PC
+        $("#app").show();
       }
-      // 通过iframe的方式试图打开APP，如果能正常打开，会直接切换到APP，并自动阻止a标签的默认行为
-      // 否则打开a标签的href链接
-      var ifr = document.createElement('iframe');
-      ifr.src = openAppUrl;
-      ifr.style.display = 'none';
-      document.body.appendChild(ifr);
-      window.setTimeout(function () {
-        document.body.removeChild(ifr);
-      }, 2000);
+
     }
+
 
     function downloadApp() {
-
-      // if(browser.versions.ios||browser.versions.iPhone){
-      //     $("#andriodGuide").hide();
-      //     $("#app").hide();
-      //     $("#IOSGuide").show();
-      //     $("#IOSGuideImg").css("width", "100%")
-      // }else 
-
-      if (browser.versions.weixin || browser.versions.dingtalk || browser.versions.qq) {
-        //微信
-        if (browser.versions.android) {
-          $("#app").hide();
-          $("#IOSGuide").hide();
-          $("#andriodGuide").show();
-          $("#andriodGuideImg").css("width", "100%")
-        } else {
-          $("#andriodGuide").hide();
-          $("#app").hide();
-          $("#IOSGuide").show();
-          $("#IOSGuideImg").css("width", "100%")
+        if(jumpToApp()){
+          jumpToApp();
+        }else{
+          window.setTimeout(function(){
+            openToApp();
+           },2000);
         }
-      } else {
-        $("#andriodGuide").hide();
-        $("#app").show();
-        $("#IOSGuide").hide();
-        //判断浏览器
-        var u = navigator.userAgent;
-        var d = new Date();
-        var t0 = d.getTime();
-        if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {
-          //Android
-          if (openApp()) {
-            openApp();
-          } else {
-            //由于打开需要1～2秒，利用这个时间差来处理－－打开app后，返回h5页面会出现页面变成app下载页面，影响用户体验
-            var delay = setInterval(function () {
-              var d = new Date();
-              var t1 = d.getTime();
-              if (t1 - t0 < 3000 && t1 - t0 > 2000) {
 
-                window.location.href = 'http://www.biaodaa.com/file/biaodaa.apk';
-              }
-              if (t1 - t0 >= 3000) {
-                clearInterval(delay);
-              }
-            }, 1000);
-          }
-        } else if (u.indexOf('iPhone') > -1) {
-          //IOS
-          if (openApp()) {
-            openApp();
-          } else {
-            var delay = setInterval(function () {
-              var d = new Date();
-              var t1 = d.getTime();
-              if (t1 - t0 < 3000 && t1 - t0 > 2000) {
-
-                window.location.href = 'https://itunes.apple.com/cn/app/标大大/id1278802484?mt=8';
-              }
-              if (t1 - t0 >= 3000) {
-                clearInterval(delay);
-              }
-            }, 1000);
-          }
-        } else {
-          window.location.href = 'http://www.biaodaa.com/file/biaodaa.apk';
-        }
-      }
     }
 
+
+    function openToApp() {
+    // 通过iframe的方式试图打开APP，如果能正常打开，会直接切换到APP，并自动阻止a标签的默认行为
+    // 否则打开a标签的href链接
+    //alert(parNum+":"+openAppUrl)
+    var u = navigator.userAgent;
+      //IOS
+      var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+      var isAndroid = u.indexOf('Android') > -1; /*android终端或者uc浏览器*/
+      if (isIOS) {
+        window.location.href = 'https://itunes.apple.com/cn/app/标大大/id1278802484?mt=8'
+      } else if (isAndroid) {
+        window.location.href = 'http://www.biaodaa.com/file/biaodaa.apk'
+      } else {
+        window.location.href = 'http://www.biaodaa.com/file/biaodaa.apk';
+      }
+}
+
+function jumpToApp(){
+   openAppUrl = localStorage.getItem("openAppUrl");
+       if (!openAppUrl) {
+         openAppUrl = "com.yaobang.biaodada://";
+       }
+  // var ifr = document.createElement('iframe');
+  //    ifr.src = openAppUrl;
+  //    ifr.style.display = 'none';
+  //    document.body.appendChild(ifr);
+  //     window.setTimeout(function(){
+  //           document.body.removeChild(ifr);
+  //     },1000);
+  window.location.href = openAppUrl;
+}
   </script>
 
 </body>
