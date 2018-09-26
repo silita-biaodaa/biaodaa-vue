@@ -65,7 +65,6 @@
     </nav>
   </div>
 </template>
-
 <script>
   import shuffling from '../../components/shuffling.vue';
   import {
@@ -86,7 +85,6 @@
     mounted() {
       this.getParams();
       this.getUp();
-
     },
     methods: {
       getParams: function() {
@@ -136,7 +134,6 @@
             .replace(/&#39;/g, "\'");
         }
         });
-
       },
       getWeekDay: function(dateStr) {
         if (dateStr) {

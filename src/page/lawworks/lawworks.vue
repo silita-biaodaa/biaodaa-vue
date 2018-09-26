@@ -13,6 +13,17 @@
   </div>
   <div class="bdd_l_h">原文详情:</div>
   <div class="bdd_l_hold"><span  v-html="bddList.content"></span></div>
+  <nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="bdd_one">
+      <img class="bdd_img" src="../assets/logo.png" /> </div>
+    <div class="bdd_two">
+      <div class="bdd_g">标大大</div>
+      <div class="bdd_n">打开App了解更多资讯</div>
+    </div>
+    <div class="bdd_foo">
+      <div onclick='downloadApp()' class="bdd_x">立即打开</div>
+    </div>
+  </nav>
 </div>
 </template>
 <script>
@@ -21,7 +32,7 @@
     getJsonData
   } from "../../api/index.js";
   export default {
-    name:"platform",
+    name:"lawworks",
     data () {
       return {
         bddList: {},
@@ -41,11 +52,13 @@
         if (!type) {
           localStorage.setItem("type", type);
         }
-        let openAppUrl = "com.yaobang.biaodada://?type="+type+"&id=" + id;
+        let openAppUrl = "com.yaobang.biaodada://?type="+type+"&id="+id;
         localStorage.setItem("openAppUrl",openAppUrl);
+
         let dataParam = JSON.stringify({
           "id":id
         });
+        console.log(222);
         getJsonData("/law/detail", dataParam).then(res => {
           console.log(777);
           this.bddList = res.data;
