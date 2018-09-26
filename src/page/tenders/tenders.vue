@@ -5,12 +5,12 @@
     <div class="bdd_r_si">
       <div class="bdd_r_one">
         <div>
-          <div class="bdd_s bdd_m "><span class="bdd_time bdd_spc">项目金额</span><span class="bdd_ri">{{bddList.projSum?bddList.projSum:"-"}}万元</span></div>
+          <div class="bdd_s bdd_m "><span class="bdd_time bdd_spc">项目金额</span><span class="bdd_ri">{{bddList.projSum?bddList.projSum+"万元":"-"}}</span></div>
           <div class="bdd_s bdd_m "><span class="bdd_time bdd_let">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;区</span><span class="bdd_ri">{{bddList.projDq?bddList.projDq:"-"}}</span></div>
           <div class="bdd_s bdd_m "><span class="bdd_time">评标办法</span><span class="bdd_ri">{{bddList.pbMode?bddList.pbMode:"-"}}</span></div>
           <div class="bdd_main_u">
-            <span class="bdd_title">资质要求</span>
-            <span class="bdd_content">{{bddList.zzRank?bddList.zzRank:"-"}}</span>
+            <span class="bdd_title bdd_t_yo">资质要求</span>
+            <span class="bdd_content bdd_t_conter">{{bddList.zzRank?bddList.zzRank:"-"}}</span>
           </div>
         </div>
       </div>
@@ -18,7 +18,6 @@
       <div class="bdd_r_one">
         <div>
           <div class="bdd_v-img"><img class="bdd_k_img" src="../../assets/bdd_one.png" /></div>
-
           <div class="bdd_s bdd_m "><span class="bdd_time bdd_spc">报名截止</span><span class="bdd_ri">{{bddList.bmEndDate?bddList.bmEndDate:"-"}}&nbsp;{{bmEndWeek}}&nbsp;{{bddList.bmEndTime?bddList.bmEndTime:"-"}}</span></div>
           <div class="bdd_s bdd_m "><span class="bdd_time bdd_spc">报名地址</span><span class="bdd_ri">{{bddList.bmSite?bddList.bmSite:"&#45;&#45;"}}</span></div>
         </div>
@@ -27,7 +26,7 @@
         <div>
           <div class="bdd_v-img"><img class="bdd_k_img" src="../../assets/bdd_tow.png" /></div>
           <div class="bdd_s bdd_m "><span class="bdd_time bdd_spc">保证金截止</span><span class="bdd_ri">{{bddList.tbAssureEndDate?bddList.tbAssureEndDate:"-"}}&nbsp;{{tbAssureEndWeek}}&nbsp;{{bddList.tbAssureEndTime?bddList.tbAssureEndTime:""}}</span></div>
-          <div class="bdd_s bdd_m "><span class="bdd_time bdd_spc">金&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;额</span><span class="bdd_ri">{{bddList.tbAssureSum?bddList.tbAssureSum:"-"}}万元</span></div>
+          <div class="bdd_s bdd_m "><span class="bdd_time bdd_spc">金&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;额</span><span class="bdd_ri">{{bddList.tbAssureSum?bddList.tbAssureSum+"万元":"-"}}</span></div>
           <div class="bdd_s bdd_m "><span class="bdd_time bdd_spc">递交方式</span><span class="bdd_ri">保证金</span></div>
         </div>
       </div>
@@ -37,18 +36,18 @@
           <div class="bdd_s bdd_m "><span class="bdd_time bdd_spc">开标截止</span><span class="bdd_ri">{{bddList.kbDate?bddList.kbDate:""}}&nbsp;{{kbWeek}}&nbsp;{{bddList.kbTime?bddList.kbTime:""}}</span></div>
           <div class="bdd_s bdd_m "><span class="bdd_time bdd_spc">开标人员</span><span class="bdd_ri">{{bddList.kbStaffAsk?bddList.kbStaffAsk:"-"}}</span></div>
           <div class="bdd_main_u">
-            <span class="bdd_title">开标地址</span>
-            <span class="bdd_content">{{bddList.kbSite?bddList.kbSite:"-"}}</span>
+            <span class="bdd_title bdd_t_yo">开标地址</span>
+            <span class="bdd_content bdd_t_conter">{{bddList.kbSite?bddList.kbSite:"-"}}</span>
           </div>
         </div>
       </div>
-      <div class="bdd_r_footer">共 <span class="bdd_size" style="color:#CEA63F;"> {{bddList.data?bddList.data:"--"}} </span> 个标段，打开标大大app可查看更多详情</div>
+      <div class="bdd_r_footer">共 <span class="bdd_size" style="color:#CEA63F;"> {{bdNum}} </span> 个标段，打开标大大app可查看更多详情</div>
 
     </div>
     <div class="bdd_r_one bdd_r_foo">
       <div style="width: 100%;height: 100%;">
         <div class="bdd_s bdd_m "><span class="bdd_time bdd_spc bdd_r_aise">公告原文：</span></div>
-        <div class="bdd_s bdd_m "><span v-html="bddList.content"></span></div>
+        <div  class="bdd_s bdd_m "><span  v-html="bddList.content"></span></div>
       </div>
     </div>
     <div class="bdd_i_fot"></div>
@@ -60,7 +59,7 @@
         <div class="bdd_n">打开App了解更多资讯</div>
       </div>
       <div class="bdd_foo">
-        <div onclick='openApp()' class="bdd_x">立即打开</div>
+        <div onclick='downloadApp()' class="bdd_x">立即打开</div>
       </div>
     </nav>
   </div>
@@ -76,6 +75,7 @@
     name: "tenders",
     data() {
       return {
+        bdNum:0,
         bddList: {},
         bmEndWeek: '',
         tbAssureEndWeek: '',
@@ -113,7 +113,9 @@
         let id = this.$route.params.id;
         getJsonData("/notice/detail/" + id, dataParam).then(res => {
           console.log(111);
+        if(res.data&&res.data.length>0) {
           let bddList = res.data[0];
+          this.bdNum = res.data.length;
           this.bddList = bddList;
           let content = bddList.content;
           let bmEndWeek = this.getWeekDay(bddList.bmEndDate);
@@ -129,7 +131,9 @@
             .replace(/&gt;/g, ">")
             .replace(/&quot;/g, "\"")
             .replace(/&#39;/g, "\'");
+        }
         });
+
       },
       getWeekDay: function(dateStr) {
         if (dateStr) {

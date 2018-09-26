@@ -2,31 +2,35 @@
   <div>
     <div class="bdd_i_o" style="margin-top:20px;" ><span class="bdd_k_o">{{comBaseData?comBaseData.comName:"-"}}</span></div>
     <div class="bdd_c"><span class="bdd_a">{{comBaseData.legalPerson?comBaseData.legalPerson:"--"}}</span><span class="bdd_b">{{comBaseData.regisCapital?comBaseData.regisCapital:"--"}}</span></div>
-    <div class="bdd_plone">联系电话</div>
+    <div class="bdd_plone">联系信息</div>
     <div class="bdd_v"><span class="bdd_pl">联系电话</span><span class="bdd_k">{{comBaseData.phone?comBaseData.phone:"-"|phoneFilter}}</span></div>
     <div class="bdd_v"><span class="bdd_pl">官网地址</span><span class="bdd_k">{{comBaseData.comUrl?comBaseData.comUrl:"-"}}</span></div>
     <div class="bdd_v"><span class="bdd_pl">邮箱地址</span><span class="bdd_k">{{comBaseData.email?comBaseData.email:"-"}}</span></div>
     <div class="bdd_main">
-      <span class="bdd_title bdd_i_color">公司地址</span>
-      <span class="bdd_content">{{comBaseData.comAddress?comBaseData.comAddress:"-"}}</span>
+      <span class="bdd_pl bdd_title">公司地址</span>
+      <span class="bdd_content bdd_k">{{comBaseData.comAddress?comBaseData.comAddress:"-"}}</span>
     </div>
     <div class="bdd_d"></div>
     <div style='padding-top:25px;'>
-      <div><span class='bdd_plone'>资质信息</span><span class="bdd_p_kip">({{qualityList.length}})</span>
+      <div><span class='bdd_plone'>资质信息</span><span class="bdd_p_kip">({{dataList.length}})</span>
       </div>
     </div>
-    <div class="bdd_zi" v-for="item in qualityList" :key="item.pkid">{{item.qualName}} </div>
+    <div class="bdd_zi" v-for="item in dataList" :key="item.qualName">
+
+          {{item.qualName}}
+
+    </div>
     <div class="bdd_plone">基本信息</div>
     <div class="bdd_ji">
-      <div class="bdd_s bdd_color"><span class="bdd_time ">注&nbsp;册&nbsp;号&nbsp;&nbsp;&nbsp;</span><span class="bdd_ri">{{comBaseData.businessNum?comBaseData.businessNum:"-"}}</span></div>
+      <div class="bdd_s bdd_color"><span class="bdd_time ">注&nbsp;册&nbsp;号 </span><span class="bdd_ri">{{comBaseData.businessNum?comBaseData.businessNum:"-"}}</span></div>
       <div class="bdd_main_u">
         <span class="bdd_title bdd_i_color">企业类型</span>
         <span class="bdd_content bdd_i_po">{{comBaseData.economicType?comBaseData.economicType:"-"}}</span>
       </div>
       <div class="bdd_s bdd_color"><span class="bdd_time ">安许证号</span><span class="bdd_ri">{{comBaseData.certNo?comBaseData.certNo:"&#45;&#45;"}}</span></div>
-      <div class="bdd_s "><span class="bdd_time ">有&nbsp;效&nbsp;期&nbsp; </span><span class="bdd_ri">{{comBaseData.validDate?comBaseData.validDate:"-"}}</span></div>
+      <div class="bdd_s "><span class="bdd_time ">有&nbsp;效&nbsp;期&nbsp;</span><span class="bdd_ri">{{comBaseData.validDate?comBaseData.validDate:"-"}}</span></div>
       <div class="bdd_main_u">
-        <span class="bdd_title  bdd_i_color">经营范围</span>
+        <span class="bdd_title  bdd_i_color ">经营范围</span>
         <span class="bdd_content bdd_i_po">{{shortComRange?shortComRange:"-"}}<span class="bdd_h" v-show="isShowAllBtn" @click="showAll()">{{textBtn}}</span></span>
       </div>
     </div>
@@ -45,7 +49,7 @@
         <div class="bdd_n">打开App了解更多资讯</div>
       </div>
       <div class="bdd_foo">
-        <div onclick='openApp()' class="bdd_x">立即打开</div>
+        <div onclick='downloadApp()' class="bdd_x">立即打开</div>
       </div>
     </nav>
   </div>
@@ -64,6 +68,7 @@
         id:'',
         comBaseData: {},
         qualityList: [],
+        dataList:[],
         bddList: {},
         shortComRange: '',
         longComRange: '',
@@ -106,6 +111,7 @@
        let comId =this.$route.params.comId;
         getJsonData("/company/"+comId).then(res => {
           let baseData = res.data;
+          console.log(111)
           this.comBaseData = baseData;
           let longComRange = baseData.comRange;
           this.longComRange = longComRange;
@@ -138,6 +144,23 @@
         getJsonData("company/qual/"+comId).then(res => {
           console.log(res);
           this.qualityList = res.data[0].list;
+          let dataArr = res.data;
+        let dataList = new Array();
+        if(dataArr&&dataArr.length>0){
+          for(let i=0;i<dataArr.length;i++){
+            let dataItem = dataArr[i];
+            let dataItemList = dataItem.list;
+            if(dataItemList&&dataItemList.length>0){
+              for(let j=0;j<dataItemList.length;j++){
+                let obj = new Object();
+                obj.qualName = dataItemList[j].qualName;
+                dataList.push(obj);
+              }
+            }
+          }
+        }
+        this.dataList = dataList;
+
         });
       },
       // 分支机构接口
