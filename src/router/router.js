@@ -31,7 +31,7 @@ export default new Router({
       component: win
     },
     {
-      path: '/platform/:statDate',
+      path: '/platform',
       name: 'platform',
       component: platform
     },{

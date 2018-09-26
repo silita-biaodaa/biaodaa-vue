@@ -44,9 +44,8 @@
 
 
   <script type="text/javascript">
-
-    let iosFirstClick = false;
     console.log(111)
+    var openAppUrl = "";
     window.onload = function () {
 
       window.browser = {
@@ -88,22 +87,22 @@
         }(),
         language: (navigator.browserLanguage || navigator.language).toLowerCase()
       };
-     
-      
+
+
 
     }
 
 
-    function openApp(src) {
-        //移动端
-        src =  localStorage.getItem("openAppUrl");
+    function openApp() {
+      //移动端
+      openAppUrl = localStorage.getItem("openAppUrl");
       if (!openAppUrl) {
         openAppUrl = "com.yaobang.biaodada://";
       }
       // 通过iframe的方式试图打开APP，如果能正常打开，会直接切换到APP，并自动阻止a标签的默认行为
       // 否则打开a标签的href链接
       var ifr = document.createElement('iframe');
-      ifr.src = src;
+      ifr.src = openAppUrl;
       ifr.style.display = 'none';
       document.body.appendChild(ifr);
       window.setTimeout(function () {
@@ -112,7 +111,7 @@
     }
 
     function downloadApp() {
-     
+
       // if(browser.versions.ios||browser.versions.iPhone){
       //     $("#andriodGuide").hide();
       //     $("#app").hide();
@@ -143,8 +142,8 @@
         var t0 = d.getTime();
         if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {
           //Android
-          if (openApp(openAppUrl)) {
-            openApp(openAppUrl);
+          if (openApp()) {
+            openApp();
           } else {
             //由于打开需要1～2秒，利用这个时间差来处理－－打开app后，返回h5页面会出现页面变成app下载页面，影响用户体验
             var delay = setInterval(function () {
@@ -161,8 +160,8 @@
           }
         } else if (u.indexOf('iPhone') > -1) {
           //IOS
-          if (openApp(openAppUrl)) {
-            openApp(openAppUrl);
+          if (openApp()) {
+            openApp();
           } else {
             var delay = setInterval(function () {
               var d = new Date();

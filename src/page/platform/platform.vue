@@ -10,8 +10,7 @@
       <th style="width: 23%" class="bdd_p_th_o">中标个数  </th>
       </tr>
       <tr v-for="(item,index) in bddList.list"  :key="item.comName">
-
-      <td style="width: 17%;" class="bdd_p_th_l">{{index+1}}</td>
+        <td style="width: 17%;" class="bdd_p_th_l">{{index+1}}</td>
         <td style="width: 60%" class="bdd_p_th_l">{{item.comName}}</td>
         <td style="width: 23%" class="bdd_p_th_l">{{item.num}}</td>
       </tr>

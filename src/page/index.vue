@@ -85,8 +85,9 @@
     },
     methods: {
       getParams:function(){
+        console.log(5555);
          let comId = this.$route.params.comId;
-         let openAppUrl = "com.yaobang.biaodada://?type=3"+"&id=" + comId ;
+         let openAppUrl = "com.yaobang.biaodada://?type=3&id=" + comId ;
          localStorage.setItem("openAppUrl",openAppUrl);
       },
       gocollection: function() {
