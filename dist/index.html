@@ -1,8 +1,7 @@
 <html><head><meta charset=utf-8><meta content=yes name=apple-mobile-web-app-capable><meta content=yes name=apple-touch-fullscreen><meta content="telephone=no,email=no" name=format-detection><meta name=mobile-web-app-capable content=yes><link href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css rel=stylesheet><script src=http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js></script><script src=http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/makegrid.js></script><script src=http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js></script><script src=http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js></script><title>标大大分享页面</title><style>body {
       overflow-x: hidden;
       overflow-y: auto;
-    }</style><link href=/static/css/app.7c21c17b9de704aaddb9e929f314d3c6.css rel=stylesheet></head><body><div id=app></div><div id=IOSGuide class="col-xs-12 col-sm-12 hidden-lg hidden-md img-responsive" style="display: none"><img id=IOSGuideImg src=/static/img/IOS_guide.png></div><div id=andriodGuide class="col-xs-12 col-sm-12 hidden-lg hidden-md img-responsive" style="display: none"><img id=andriodGuideImg src=/static/img/andriod_guide.png></div><script type=text/javascript>var openAppUrl = "";
-    let iosFirstClick = false;
+    }</style><link href=/static/css/app.7c21c17b9de704aaddb9e929f314d3c6.css rel=stylesheet></head><body><div id=app></div><div id=IOSGuide class="col-xs-12 col-sm-12 hidden-lg hidden-md img-responsive" style="display: none"><img id=IOSGuideImg src=/static/img/IOS_guide.png></div><div id=andriodGuide class="col-xs-12 col-sm-12 hidden-lg hidden-md img-responsive" style="display: none"><img id=andriodGuideImg src=/static/img/andriod_guide.png></div><script type=text/javascript>let iosFirstClick = false;
     console.log(111)
     window.onload = function () {
 
@@ -45,19 +44,18 @@
         }(),
         language: (navigator.browserLanguage || navigator.language).toLowerCase()
       };
-      //移动端
-
-      var localUrl = window.location.href;
-      var type = localStorage.getItem("type");
-      var id = localStorage.getItem("id");
-      var source = localStorage.getItem("source");
-
-      openAppUrl = "com.yaobang.biaodada://?type=" + type + "&id=" + id + "&source=" + source;
+     
+      
 
     }
 
 
     function openApp(src) {
+        //移动端
+        src =  localStorage.getItem("openAppUrl");
+      if (!openAppUrl) {
+        openAppUrl = "com.yaobang.biaodada://";
+      }
       // 通过iframe的方式试图打开APP，如果能正常打开，会直接切换到APP，并自动阻止a标签的默认行为
       // 否则打开a标签的href链接
       var ifr = document.createElement('iframe');
@@ -70,9 +68,7 @@
     }
 
     function downloadApp() {
-      if (!openAppUrl) {
-        openAppUrl = "com.yaobang.biaodada://";
-      }
+     
       // if(browser.versions.ios||browser.versions.iPhone){
       //     $("#andriodGuide").hide();
       //     $("#app").hide();
@@ -82,23 +78,16 @@
 
       if (browser.versions.weixin || browser.versions.dingtalk || browser.versions.qq) {
         //微信
-        if (openApp(openAppUrl)) {
-          openApp(openAppUrl);
+        if (browser.versions.android) {
+          $("#app").hide();
+          $("#IOSGuide").hide();
+          $("#andriodGuide").show();
+          $("#andriodGuideImg").css("width", "100%")
         } else {
-          if (browser.versions.android) {
-            $("#app").hide();
-            $("#IOSGuide").hide();
-            $("#andriodGuide").show();
-            $("#andriodGuideImg").css("width", "100%")
-
-          } else {
-            $("#andriodGuide").hide();
-            $("#app").hide();
-            $("#IOSGuide").show();
-            $("#IOSGuideImg").css("width", "100%")
-
-
-          }
+          $("#andriodGuide").hide();
+          $("#app").hide();
+          $("#IOSGuide").show();
+          $("#IOSGuideImg").css("width", "100%")
         }
       } else {
         $("#andriodGuide").hide();
@@ -147,4 +136,4 @@
           window.location.href = 'http://www.biaodaa.com/file/biaodaa.apk';
         }
       }
-    }</script><script type=text/javascript src=/static/js/manifest.0f9b3a874ead0064aa10.js></script><script type=text/javascript src=/static/js/vendor.8ed68125e83225435417.js></script><script type=text/javascript src=/static/js/app.cc1cf90083b8fda9f7a2.js></script></body></html>
+    }</script><script type=text/javascript src=/static/js/manifest.5d52a3ae95998e13fe45.js></script><script type=text/javascript src=/static/js/vendor.8ed68125e83225435417.js></script><script type=text/javascript src=/static/js/app.6a988452cacbf85d8b00.js></script></body></html>
