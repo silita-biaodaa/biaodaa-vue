@@ -1,4 +1,4 @@
-<html><head><meta charset=utf-8><meta content=yes name=apple-mobile-web-app-capable><meta content=yes name=apple-touch-fullscreen><meta content="telephone=no,email=no" name=format-detection><meta name=mobile-web-app-capable content=yes><link href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css rel=stylesheet><script src=http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js></script><script src=http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/makegrid.js></script><script src=http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js></script><script src=http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js></script><title>标大大分享页面</title><link href=/static/css/app.b186b2cf11577cbf3e6ea2eceb7de691.css rel=stylesheet></head><body><div id=app></div><div id=IOSGuide class="col-xs-12 col-sm-12 hidden-lg hidden-md img-responsive" style="display: none"><img id=IOSGuideImg src=/static/img/IOS_guide.png></div><div id=andriodGuide class="col-xs-12 col-sm-12 hidden-lg hidden-md img-responsive" style="display: none"><img id=andriodGuideImg src=/static/img/andriod_guide.png></div><script type=text/javascript>var openAppUrl = "";
+<html><head><meta charset=utf-8><meta content=yes name=apple-mobile-web-app-capable><meta content=yes name=apple-touch-fullscreen><meta content="telephone=no,email=no" name=format-detection><meta name=mobile-web-app-capable content=yes><link href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css rel=stylesheet><script src=http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js></script><script src=http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/makegrid.js></script><script src=http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js></script><script src=http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js></script><title>标大大分享页面</title><style>body {overflow-x: hidden;overflow-y: auto;}</style><link href=/static/css/app.05149adc80b8c73a8f4461456d4b6850.css rel=stylesheet></head><body><div id=app></div><div id=IOSGuide class="col-xs-12 col-sm-12 hidden-lg hidden-md img-responsive" style="display: none"><img id=IOSGuideImg src=/static/img/IOS_guide.png></div><div id=andriodGuide class="col-xs-12 col-sm-12 hidden-lg hidden-md img-responsive" style="display: none"><img id=andriodGuideImg src=/static/img/andriod_guide.png></div><script type=text/javascript>var openAppUrl = "";
   let iosFirstClick = false;
   console.log(111)
   window.onload = function () {
@@ -43,12 +43,17 @@
       language: (navigator.browserLanguage || navigator.language).toLowerCase()
     };
     //移动端
+
     var localUrl = window.location.href;
     var type = localStorage.getItem("type");
     var id = localStorage.getItem("id");
     var source = localStorage.getItem("source");
+
     openAppUrl = "com.yaobang.biaodada://?type=" + type + "&id=" + id + "&source=" + source;
+
   }
+
+
   function openApp(src) {
 // 通过iframe的方式试图打开APP，如果能正常打开，会直接切换到APP，并自动阻止a标签的默认行为
 // 否则打开a标签的href链接
@@ -65,6 +70,7 @@
       openAppUrl = "com.yaobang.biaodada://";
     }
     if(browser.versions.ios||browser.versions.iPhone){
+      alert("苹果手机访问了");
         $("#andriodGuide").hide();
         $("#app").hide();
         $("#IOSGuide").show();
@@ -127,4 +133,4 @@
         }
       }
     }
-  }</script><script type=text/javascript src=/static/js/manifest.ae351a70c34a48ed30ff.js></script><script type=text/javascript src=/static/js/vendor.8ed68125e83225435417.js></script><script type=text/javascript src=/static/js/app.cec52cd571cc48d74b7c.js></script></body></html>
+  }</script><script type=text/javascript src=/static/js/manifest.66ba14879197851854f8.js></script><script type=text/javascript src=/static/js/vendor.8ed68125e83225435417.js></script><script type=text/javascript src=/static/js/app.bfcda95ea29f522d6ace.js></script></body></html>
