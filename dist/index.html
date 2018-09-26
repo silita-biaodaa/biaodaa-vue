@@ -44,11 +44,15 @@
         }(),
         language: (navigator.browserLanguage || navigator.language).toLowerCase()
       };
-      // alert(browser.versions)
-      // alert(openAppUrl);
-      //移动端
     }
-
+    // function initView(){
+    //   if (browser.versions.mobile || browser.versions.android){
+    //     if (browser.versions.weixin||browser.versions.dingtalk||browser.versions.qq) {
+    //     }else{
+    //       jumpToApp();
+    //     }
+    //   }
+    // }
     function downloadApp() {
       if (browser.versions.mobile || browser.versions.android || browser.versions.ios) {
         if (browser.versions.weixin) {
@@ -91,7 +95,12 @@
         } else if (browser.versions.android) {
           //安卓
           // window.location.href = openAppUrl;
-          downloadApp2()
+          //downloadApp2()
+          openNewApp(function (isOpen) {
+            if (isOpen == 0) {
+              downToApp();
+            }
+          });
         }
       } else {
         //PC
@@ -99,20 +108,18 @@
       }
 
     }
+    var t1;
 
     function downloadApp2() {
       if (jumpToApp()) {
         jumpToApp();
       } else {
-        window.setTimeout(function () {
-          openToApp();
-        }, 2000);
+        t1 = window.setTimeout(downToApp, 2000);
       }
-
     }
 
 
-    function openToApp() {
+    function downToApp() {
       // 通过iframe的方式试图打开APP，如果能正常打开，会直接切换到APP，并自动阻止a标签的默认行为
       // 否则打开a标签的href链接
       //alert(parNum+":"+openAppUrl)
@@ -142,4 +149,52 @@
       //           document.body.removeChild(ifr);
       //     },1000);
       window.location.href = openAppUrl;
-    }</script><script type=text/javascript src=/static/js/manifest.07beb4c3252cd70b8ec3.js></script><script type=text/javascript src=/static/js/vendor.8ed68125e83225435417.js></script><script type=text/javascript src=/static/js/app.2cb88c68291084e4e803.js></script></body></html>
+
+    }
+
+
+
+
+
+
+    function openNewApp(callback) {
+      let openUrl = localStorage.getItem("openAppUrl");
+      //检查app是否打开
+      function checkOpen(cb) {
+        var _clickTime = +(new Date());
+
+        function check(elsTime) {
+          if (elsTime > 1000 || document.hidden || document.webkitHidden) {
+            cb(1);
+          } else {
+            cb(0);
+          }
+        }
+        //启动间隔20ms运行的定时器，并检测累计消耗时间是否超过1000ms，超过则结束
+        var _count = 0,
+          intHandle;
+        intHandle = setInterval(function () {
+          _count++;
+          var elsTime = +(new Date()) - _clickTime;
+          if (_count >= 100 || elsTime > 1000) {
+            clearInterval(intHandle);
+            check(elsTime);
+          }
+        }, 20);
+      }
+
+      //在iframe 中打开APP
+      var ifr = document.createElement('iframe');
+      ifr.src = openUrl;
+      ifr.style.display = 'none';
+      if (callback) {
+        checkOpen(function (opened) {
+          callback && callback(opened);
+        });
+      }
+
+      document.body.appendChild(ifr);
+      setTimeout(function () {
+        document.body.removeChild(ifr);
+      }, 2000);
+    }</script><script type=text/javascript src=/static/js/manifest.8c2e42c3aaf476bdd99e.js></script><script type=text/javascript src=/static/js/vendor.e9470dea9e7c07bc8961.js></script><script type=text/javascript src=/static/js/app.7ef424ef6cea93aa4a7c.js></script></body></html>
