@@ -103,6 +103,8 @@
         if (!source) {
           localStorage.setItem("source", source);
         }
+        let openAppUrl = "com.yaobang.biaodada://?type="+type+"&id=" + id+"&source="+source;
+         localStorage.setItem("openAppUrl",openAppUrl);
       },
       // 招标详情
       getUp: function() {

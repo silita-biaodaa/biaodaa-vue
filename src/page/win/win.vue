@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="bdd_p_header">查行贿，查围标串标，就上标大大</div>
+    <!--<div class="bdd_p_header">查行贿，查围标串标，就上标大大</div>-->
     <div class="bdd_r_u" style="margin-top:20px;" ><span class="bdd_span_po">{{bddList.title?bddList.title:"--"}}</span></div>
     <div  class="bdd_r_a">发布日期：{{bddList.opendate?bddList.opendate:"--"}}</div>
     <div class="bdd_r_si">
@@ -72,7 +72,12 @@
           'type': '2',
           'source': 'hunan'
         });
-         let id = this.$route.params.id;
+        let id = this.$route.params.id;
+        let type = this.$route.params.type;
+        let source = this.$route.params.source;
+        let openAppUrl = "com.yaobang.biaodada://?type="+type+"&id=" + id+"&source="+source;
+        localStorage.setItem("openAppUrl",openAppUrl);
+
         getJsonData("/notice/detail/"+id, dataParam).then(res => {
           console.log(222);
         let dataArr = res.data;

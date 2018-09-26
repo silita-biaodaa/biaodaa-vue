@@ -85,27 +85,9 @@
     },
     methods: {
       getParams:function(){
-//         let id = this.$route.params.id;
-//         let type = this.$route.params.type;
-//         let source = this.$route.params.source;
-//         let title = this.$route.params.title;
          let comId = this.$route.params.comId;
-//         if(!id){
-//         localStorage.setItem("id",id);
-//       }
-//       if(!type){
-//         localStorage.setItem("type",type);
-//       }
-//       if(!source){
-//         localStorage.setItem("source",source);
-//       }
-//
-//       if(!title){
-//         localStorage.setItem("title",title);
-//       }
-        if(!comId){
-          localStorage.setItem("comId",comId);
-        }
+         let openAppUrl = "com.yaobang.biaodada://?type=3"+"&id=" + comId ;
+         localStorage.setItem("openAppUrl",openAppUrl);
       },
       gocollection: function() {
        let comId =this.$route.params.comId;

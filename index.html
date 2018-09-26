@@ -44,7 +44,7 @@
 
 
   <script type="text/javascript">
-    var openAppUrl = "";
+
     let iosFirstClick = false;
     console.log(111)
     window.onload = function () {
@@ -88,19 +88,18 @@
         }(),
         language: (navigator.browserLanguage || navigator.language).toLowerCase()
       };
-      //移动端
-
-      var localUrl = window.location.href;
-      var type = localStorage.getItem("type");
-      var id = localStorage.getItem("id");
-      var source = localStorage.getItem("source");
-
-      openAppUrl = "com.yaobang.biaodada://?type=" + type + "&id=" + id + "&source=" + source;
+     
+      
 
     }
 
 
     function openApp(src) {
+        //移动端
+        src =  localStorage.getItem("openAppUrl");
+      if (!openAppUrl) {
+        openAppUrl = "com.yaobang.biaodada://";
+      }
       // 通过iframe的方式试图打开APP，如果能正常打开，会直接切换到APP，并自动阻止a标签的默认行为
       // 否则打开a标签的href链接
       var ifr = document.createElement('iframe');
@@ -113,9 +112,7 @@
     }
 
     function downloadApp() {
-      if (!openAppUrl) {
-        openAppUrl = "com.yaobang.biaodada://";
-      }
+     
       // if(browser.versions.ios||browser.versions.iPhone){
       //     $("#andriodGuide").hide();
       //     $("#app").hide();
@@ -125,23 +122,16 @@
 
       if (browser.versions.weixin || browser.versions.dingtalk || browser.versions.qq) {
         //微信
-        if (openApp(openAppUrl)) {
-          openApp(openAppUrl);
+        if (browser.versions.android) {
+          $("#app").hide();
+          $("#IOSGuide").hide();
+          $("#andriodGuide").show();
+          $("#andriodGuideImg").css("width", "100%")
         } else {
-          if (browser.versions.android) {
-            $("#app").hide();
-            $("#IOSGuide").hide();
-            $("#andriodGuide").show();
-            $("#andriodGuideImg").css("width", "100%")
-
-          } else {
-            $("#andriodGuide").hide();
-            $("#app").hide();
-            $("#IOSGuide").show();
-            $("#IOSGuideImg").css("width", "100%")
-
-
-          }
+          $("#andriodGuide").hide();
+          $("#app").hide();
+          $("#IOSGuide").show();
+          $("#IOSGuideImg").css("width", "100%")
         }
       } else {
         $("#andriodGuide").hide();
