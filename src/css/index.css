@@ -309,4 +309,11 @@
   color:rgba(102,102,102,1);
   line-height:40px;
 }
-
+.bdd_p_header{
+  text-align: center;
+  margin-left:32px;
+  margin-right:32px;
+  font-size: 32px;
+  color: red;
+  margin-top:30px;
+}

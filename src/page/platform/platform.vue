@@ -51,10 +51,10 @@
       },
       //平台公示列表
       getUp: function(){
-        let statDate = this.$route.statDate.statDate;
-        if(!statDate){
-          localStorage.setItem("statDate",statDate);
-        }
+      //  let statDate = this.$route.statDate.statDate;
+      //   if(!statDate){
+      //     localStorage.setItem("statDate",statDate);
+      //   }
         let dataParam = JSON.stringify({
           "statDate":"2018-06-01"//this.getCurrentDate()
         });

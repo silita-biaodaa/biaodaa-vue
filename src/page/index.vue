@@ -111,7 +111,6 @@
        let comId =this.$route.params.comId;
         getJsonData("/company/"+comId).then(res => {
           let baseData = res.data;
-          console.log(111)
           this.comBaseData = baseData;
           let longComRange = baseData.comRange;
           this.longComRange = longComRange;
