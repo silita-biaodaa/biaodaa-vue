@@ -34,9 +34,15 @@
       //法务详情
       getUp: function() {
         let id = this.$route.params.id;
+        let type = this.$route.params.type;
         if(!id){
           localStorage.setItem("id",id);
         }
+        if (!type) {
+          localStorage.setItem("type", type);
+        }
+        let openAppUrl = "com.yaobang.biaodada://?type="+type+"&id=" + id;
+        localStorage.setItem("openAppUrl",openAppUrl);
         let dataParam = JSON.stringify({
           "id":id
         });

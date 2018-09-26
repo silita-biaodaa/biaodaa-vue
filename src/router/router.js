@@ -35,7 +35,7 @@ export default new Router({
       name: 'platform',
       component: platform
     },{
-      path: '/lawworks/:id',
+      path: '/lawworks/:type/:id',
       name: 'lawworks',
       component: lawworks
     }
