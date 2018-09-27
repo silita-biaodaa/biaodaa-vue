@@ -25,7 +25,6 @@
 }
 .bdd_m{
  padding: 15px 30px;
-  font-size: 32px;
 }
 .bdd_r_text{
   height:24px;
@@ -153,8 +152,4 @@
 }
 .bdd_t_conter{
   color:rgba(102,102,102,1);
-}
-.bdd_t_jo{
-  line-height: 50px;
-  font-size: 32px;
 }

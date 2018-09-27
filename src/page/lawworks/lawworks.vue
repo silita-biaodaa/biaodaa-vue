@@ -1,5 +1,6 @@
 <template>
 <div>
+  <div id="bdd_app">
   <div class="bdd_l_header">
     <div class="bdd_l_loge">
       <div class="main">
@@ -14,16 +15,25 @@
   <div class="bdd_l_h">原文详情:</div>
   <div class="bdd_l_hold"><span  v-html="bddList.content"></span></div>
   <nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="bdd_one">
-      <img class="bdd_img" src="../../assets/logo.png" /> </div>
-    <div class="bdd_two">
-      <div class="bdd_g">标大大</div>
-      <div class="bdd_n">打开App了解更多资讯</div>
-    </div>
-    <div class="bdd_foo">
-      <div onclick='downloadApp()' class="bdd_x">立即打开</div>
-    </div>
-  </nav>
+      <div class="bdd_one">
+        <img class="bdd_img" src="../../assets/logo.png" /> </div>
+      <div class="bdd_two">
+        <div class="bdd_g">标大大</div>
+        <div class="bdd_n">打开App了解更多资讯</div>
+      </div>
+      <div class="bdd_foo">
+        <div onclick='downloadApp()' class="bdd_x">立即打开</div>
+      </div>
+    </nav>
+  </div>
+   <div id="IOSGuide" class="col-xs-12 col-sm-12" style="display: none">
+    <img id="IOSGuideImg" src="../../assets/ios_guide.png">
+  </div>
+
+  <!-- andriod -->
+  <div id="andriodGuide" class="col-xs-12 col-sm-12  hidden-lg hidden-md img-responsive" style="display: none">
+    <img id="andriodGuideImg" src="../../assets/andriod_guide.png">
+  </div>
 </div>
 </template>
 <script>

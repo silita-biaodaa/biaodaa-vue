@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div id="bdd_app">
     <div class="bdd_i_o" style="margin-top:20px;" ><span class="bdd_k_o">{{comBaseData?comBaseData.comName:"-"}}</span></div>
     <div class="bdd_c"><span class="bdd_a">{{comBaseData.legalPerson?comBaseData.legalPerson:"--"}}</span><span class="bdd_b">{{comBaseData.regisCapital?comBaseData.regisCapital:"--"}}</span></div>
     <div class="bdd_plone">联系信息</div>
@@ -52,6 +53,18 @@
         <div onclick='downloadApp()' class="bdd_x">立即打开</div>
       </div>
     </nav>
+    </div>
+
+     <!-- IOS -->
+  <div id="IOSGuide" class="col-xs-12 col-sm-12" style="display: none">
+    <img id="IOSGuideImg" src="../assets/ios_guide.png">
+  </div>
+
+  <!-- andriod -->
+  <div id="andriodGuide" class="col-xs-12 col-sm-12  hidden-lg hidden-md img-responsive" style="display: none">
+    <img id="andriodGuideImg" src="../assets/andriod_guide.png">
+  </div>
+
   </div>
 </template>
 

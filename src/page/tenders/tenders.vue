@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div id="bdd_app">
     <div class="bdd_p" style="margin-top:20px;"><span class="bdd_r_g">{{bddList.title?bddList.title:"-"}}</span></div>
     <div class="bdd_r_a">发布日期：{{bddList.opendate?bddList.opendate:"-"}}</div>
     <div class="bdd_r_si">
@@ -46,9 +47,9 @@
 
     </div>
     <div class="bdd_r_one bdd_r_foo">
-      <div>
+      <div style="width: 100%;height: 100%;">
         <div class="bdd_s bdd_m "><span class="bdd_time bdd_spc bdd_r_aise">公告原文：</span></div>
-        <div  class=" bdd_t_jo "><span  v-html="bddList.content"></span></div>
+        <div  class="bdd_s bdd_m "><span  v-html="bddList.content"></span></div>
       </div>
     </div>
     <div class="bdd_i_fot"></div>
@@ -63,8 +64,18 @@
         <div onclick='downloadApp()' class="bdd_x">立即打开</div>
       </div>
     </nav>
+    </div>
+     <div id="IOSGuide" class="col-xs-12 col-sm-12" style="display: none">
+    <img id="IOSGuideImg" src="../../assets/ios_guide.png">
+  </div>
+
+  <!-- andriod -->
+  <div id="andriodGuide" class="col-xs-12 col-sm-12  hidden-lg hidden-md img-responsive" style="display: none">
+    <img id="andriodGuideImg" src="../../assets/andriod_guide.png">
+  </div>
   </div>
 </template>
+
 <script>
   import shuffling from '../../components/shuffling.vue';
   import {
@@ -85,6 +96,7 @@
     mounted() {
       this.getParams();
       this.getUp();
+
     },
     methods: {
       getParams: function() {
@@ -92,15 +104,6 @@
         let id = this.$route.params.id;
         let type = this.$route.params.type;
         let source = this.$route.params.source;
-        if (!id) {
-          localStorage.setItem("id", id);
-        }
-        if (!type) {
-          localStorage.setItem("type", type);
-        }
-        if (!source) {
-          localStorage.setItem("source", source);
-        }
         let openAppUrl = "com.yaobang.biaodada://?type="+type+"&id=" + id+"&source="+source;
          localStorage.setItem("openAppUrl",openAppUrl);
       },
@@ -134,6 +137,7 @@
             .replace(/&#39;/g, "\'");
         }
         });
+
       },
       getWeekDay: function(dateStr) {
         if (dateStr) {

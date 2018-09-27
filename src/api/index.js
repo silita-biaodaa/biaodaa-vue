@@ -2,8 +2,11 @@
 import axios from 'axios'
 
 
+// const baseURL = 'http://192.168.1.161:8080/biaodaa-back/'
+// const baseURL = 'http://192.168.1.131:8080/'
 const baseURL = 'http://120.78.253.169/'
 axios.defaults.baseURL = baseURL
+
 export const getJsonData = (url, params) => {
     return new Promise((resolve, reject) => {
         let token = localStorage.getItem("Authorization")
@@ -25,4 +28,5 @@ export const getJsonData = (url, params) => {
             })
         }
     })
+
 }

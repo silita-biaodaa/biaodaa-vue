@@ -19,6 +19,7 @@
     body {
       overflow-x: hidden;
       overflow-y: auto;
+	    -webkit-overflow-scrolling: touch;
     }
 
   </style>
@@ -27,17 +28,6 @@
 <body>
   <!-- 构建文件将会注入这里 -->
   <div id="app"></div>
-
-
-  <!-- IOS -->
-  <div id="IOSGuide" class="col-xs-12 col-sm-12" style="display: none">
-    <img id="IOSGuideImg" src="/static/img/ios_guide.png"/>
-  </div>
-
-  <!-- andriod -->
-  <div id="andriodGuide" class="col-xs-12 col-sm-12  hidden-lg hidden-md img-responsive" style="display: none">
-    <img id="andriodGuideImg" src="/static/img/andriod_guide.png"/>
-  </div>
 
   <script type="text/javascript">
     console.log(111)
@@ -99,33 +89,33 @@
           if (browser.versions.android) {
             $("#andriodGuide").show();
             $("#andriodGuideImg").css("width", "100%");
-            $("#app").hide();
+            $("#bdd_app").hide();
           } else if (browser.versions.ios) {
             $("#IOSGuide").show();
             $("#IOSGuideImg").css("width", "100%");
-            $("#app").hide();
+            $("#bdd_app").hide();
           }
         } else if (browser.versions.dingtalk) {
           //顶顶
           if (browser.versions.android) {
             $("#andriodGuide").show();
             $("#andriodGuideImg").css("width", "100%");
-            $("#app").hide();
+            $("#bdd_app").hide();
           } else if (browser.versions.ios) {
             $("#IOSGuide").show();
             $("#IOSGuideImg").css("width", "100%");
-            $("#app").hide();
+            $("#bdd_app").hide();
           }
         } else if (browser.versions.qq) {
           //qq
           if (browser.versions.android) {
             $("#andriodGuide").show();
             $("#andriodGuideImg").css("width", "100%");
-            $("#app").hide();
+            $("#bdd_app").hide();
           } else if (browser.versions.ios) {
             $("#IOSGuide").show();
             $("#IOSGuideImg").css("width", "100%");
-            $("#app").hide();
+            $("#bdd_app").hide();
           }
         } else if (browser.versions.ios && browser.versions.safari) {
           //IOS Safari
@@ -143,7 +133,7 @@
         }
       } else {
         //PC
-        $("#app").show();
+        $("#bdd_app").show();
       }
 
     }
@@ -203,19 +193,19 @@
         var _clickTime = +(new Date());
 
         function check(elsTime) {
-          if (elsTime > 1000 || document.hidden || document.webkitHidden) {
+          if (elsTime > 3000 || document.hidden || document.webkitHidden) {
             cb(1);
           } else {
             cb(0);
           }
         }
-        //启动间隔20ms运行的定时器，并检测累计消耗时间是否超过1000ms，超过则结束
+        //启动间隔20ms运行的定时器，并检测累计消耗时间是否超过3000ms，超过则结束
         var _count = 0,
           intHandle;
         intHandle = setInterval(function () {
           _count++;
           var elsTime = +(new Date()) - _clickTime;
-          if (_count >= 100 || elsTime > 1000) {
+          if (_count >= 50 || elsTime > 3000) {
             clearInterval(intHandle);
             check(elsTime);
           }
