@@ -14,7 +14,7 @@
   </div>
   <div class="bdd_l_h">原文详情:</div>
   <div class="bdd_l_hold bdd_l_ar"  v-html="bddList.content"></div>
- 
+
   </div>
    <div id="IOSGuide" class="col-xs-12 col-sm-12" style="display: none">
     <img id="IOSGuideImg" src="../../assets/ios_guide.png">
@@ -24,7 +24,6 @@
   <div id="andriodGuide" class="col-xs-12 col-sm-12  hidden-lg hidden-md img-responsive" style="display: none">
     <img id="andriodGuideImg" src="../../assets/andriod_guide.png">
   </div>
-
    <nav id="bdd_nav" class="navbar navbar-default navbar-fixed-bottom">
       <div class="bdd_one">
         <img class="bdd_img" src="../../assets/logo.png" /> </div>
