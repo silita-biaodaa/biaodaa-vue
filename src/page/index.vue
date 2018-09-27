@@ -40,7 +40,7 @@
     <div class="bdd_plone">人员信息</div>
     <div class="bdd_f">该公司有 <span class="bdd_size bdd_col"> {{bddList.personTotal?bddList.personTotal:"-" }} </span>家人员信息，打开标大大app可查看详情</div>
     <div class="bdd_plone">业绩信息</div>
-    <div style="margin-bottom: 64px" class="bdd_f">该公司有 <span class="bdd_size" style="color:#CEA63F "> {{bddList.projectTotal?bddList.projectTotal:'-'}} </span>家业绩信息，打开标大大app可查看详情</div>
+    <div class="bdd_f">该公司有 <span class="bdd_size" style="color:#CEA63F "> {{bddList.projectTotal?bddList.projectTotal:'-'}} </span>家业绩信息，打开标大大app可查看详情</div>
     <div class="bdd_i_fot"></div>
     <nav class="navbar navbar-default navbar-fixed-bottom">
       <div class="bdd_one">

@@ -47,7 +47,7 @@
 
     </div>
     <div class="bdd_r_one bdd_r_foo">
-      <div style="width: 100%;height: 100%;">
+      <div>
         <div class="bdd_s bdd_m "><span class="bdd_time bdd_spc bdd_r_aise">公告原文：</span></div>
         <div  class="bdd_s bdd_m "><span  v-html="bddList.content"></span></div>
       </div>

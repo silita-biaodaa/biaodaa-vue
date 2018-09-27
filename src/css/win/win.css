@@ -1,3 +1,9 @@
+#{
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 .bdd_a_row{
   height:32px;
   font-size:32px;
@@ -92,7 +98,7 @@
   display: inline-block;
 }
 .bdd_i_fot{
-  margin-top:200px;
+  margin-top:300px;
 }
 .bdd_w_yi{
   margin-left:40px;
@@ -102,4 +108,11 @@
   color:rgba(212,97,93,1);
   line-height:28px;
 }
-
+.bdd_p_header{
+  margin-left:32px;
+  margin-right:32px;
+  color: red;
+  text-align: center;
+  margin-top:40px;
+  font-size: 32px;
+}
