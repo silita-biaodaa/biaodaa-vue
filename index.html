@@ -16,26 +16,17 @@
 
   <title>标大大分享页面</title>
   <style>
-    body {
+    #bdd_app {
       overflow-x: hidden;
       overflow-y: auto;
 	    -webkit-overflow-scrolling: touch;
     }
-
-  </style>
+</style>
 </head>
 
 <body>
   <!-- 构建文件将会注入这里 -->
   <div id="app"></div>
-
-
-
-
-
-
-
-
   <script type="text/javascript">
     console.log(111)
     var openAppUrl = "";
@@ -97,10 +88,12 @@
             $("#andriodGuide").show();
             $("#andriodGuideImg").css("width", "100%");
             $("#bdd_app").hide();
+            $("#bdd_nav").hide();
           } else if (browser.versions.ios) {
             $("#IOSGuide").show();
             $("#IOSGuideImg").css("width", "100%");
             $("#bdd_app").hide();
+            $("#bdd_nav").hide();
           }
         } else if (browser.versions.dingtalk) {
           //顶顶
@@ -108,10 +101,12 @@
             $("#andriodGuide").show();
             $("#andriodGuideImg").css("width", "100%");
             $("#bdd_app").hide();
+            $("#bdd_nav").hide();
           } else if (browser.versions.ios) {
             $("#IOSGuide").show();
             $("#IOSGuideImg").css("width", "100%");
             $("#bdd_app").hide();
+            $("#bdd_nav").hide();
           }
         } else if (browser.versions.qq) {
           //qq
@@ -119,10 +114,12 @@
             $("#andriodGuide").show();
             $("#andriodGuideImg").css("width", "100%");
             $("#bdd_app").hide();
+            $("#bdd_nav").hide();
           } else if (browser.versions.ios) {
             $("#IOSGuide").show();
             $("#IOSGuideImg").css("width", "100%");
             $("#bdd_app").hide();
+            $("#bdd_nav").hide();
           }
         } else if (browser.versions.ios && browser.versions.safari) {
           //IOS Safari
