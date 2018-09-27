@@ -28,12 +28,10 @@
     <div class="bdd_r_one bdd_r_foo">
       <div >
         <div class="bdd_s bdd_m "><span class="bdd_time bdd_spc bdd_r_aise">公告原文：</span></div>
-        <div class="bdd_s bdd_m " v-html="bddList.content"></div>
+        <div class="bdd_s bdd_m bdd_p_jo " v-html="bddList.content"></div>
       </div>
     </div>
     <div class="bdd_i_fot"></div>
-
-
     <nav class="navbar navbar-default navbar-fixed-bottom">
       <div class="bdd_one">
         <img class="bdd_img" src="../../assets/logo.png" /> </div>

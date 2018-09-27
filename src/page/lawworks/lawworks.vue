@@ -13,7 +13,7 @@
   </div>
   </div>
   <div class="bdd_l_h">原文详情:</div>
-  <div class="bdd_l_hold"><span  v-html="bddList.content"></span></div>
+  <div class="bdd_l_hold bdd_l_ar"  v-html="bddList.content"></div>
   <nav class="navbar navbar-default navbar-fixed-bottom">
       <div class="bdd_one">
         <img class="bdd_img" src="../../assets/logo.png" /> </div>

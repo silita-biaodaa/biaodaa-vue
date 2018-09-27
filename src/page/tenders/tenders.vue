@@ -49,7 +49,7 @@
     <div class="bdd_r_one bdd_r_foo">
       <div>
         <div class="bdd_s bdd_m "><span class="bdd_time bdd_spc bdd_r_aise">公告原文：</span></div>
-        <div  class="bdd_s bdd_m "><span  v-html="bddList.content"></span></div>
+        <div  class="bdd_s bdd_m bdd_t_ipo" v-html="bddList.content"> </div>
       </div>
     </div>
     <div class="bdd_i_fot"></div>

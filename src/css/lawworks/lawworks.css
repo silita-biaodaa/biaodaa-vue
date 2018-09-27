@@ -75,7 +75,6 @@
   margin-top:80px;
 }
 .bdd_l_hold{
-  height:512px;
   font-size:32px;
   font-family:PingFangSC-Regular;
   font-weight:400;
@@ -85,6 +84,6 @@
   margin-right:32px;
   margin-top:48px;
 }
-.bdd_l_po{
-  margin-top:2000px;
+.bdd_l_ar{
+  margin-bottom:200px;
 }

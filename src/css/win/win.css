@@ -98,7 +98,7 @@
   display: inline-block;
 }
 .bdd_i_fot{
-  margin-top:300px;
+  margin-top:200px;
 }
 .bdd_w_yi{
   margin-left:40px;
@@ -115,4 +115,7 @@
   text-align: center;
   margin-top:40px;
   font-size: 32px;
+}
+.bdd_p_jo{
+  padding-bottom:200px;
 }

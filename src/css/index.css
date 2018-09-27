@@ -275,8 +275,8 @@
   line-height:32px;
 }
 .bdd_content{
-
   width:70%;
+  height: 60px;
   font-size:32px;
   line-height:40px;
   margin-left:22px;
@@ -312,6 +312,10 @@
   line-height:40px;
 }
 .bdd_i_fot{
-  margin-top:200px;
+  margin-top:20px;
 }
 
+.bdd_t_ipo{
+  margin-bottom:200px;
+  font-size: 32px;
+}
