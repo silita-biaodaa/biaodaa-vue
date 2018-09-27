@@ -44,7 +44,6 @@
         </div>
       </div>
       <div class="bdd_r_footer">共 <span class="bdd_size" style="color:#CEA63F;"> {{bdNum}} </span> 个标段，打开标大大app可查看更多详情</div>
-
     </div>
     <div class="bdd_r_one bdd_r_foo">
       <div>
@@ -53,7 +52,7 @@
       </div>
     </div>
     <div class="bdd_i_fot"></div>
-    <nav class="navbar navbar-default navbar-fixed-bottom">
+    <nav id="bdd_nav" class="navbar navbar-default navbar-fixed-bottom">
       <div class="bdd_one">
         <img class="bdd_img" src="../../assets/logo.png" /> </div>
       <div class="bdd_two">
@@ -110,13 +109,14 @@
       // 招标详情
       getUp: function() {
         let that = this;
-        let dataParam = JSON.stringify({
-          'type': '0',
-          'source': 'hunan'
-        });
+
         let id = this.$route.params.id;
         getJsonData("/notice/detail/" + id, dataParam).then(res => {
           console.log(111);
+          let dataParam = JSON.stringify({
+            'type': '0',
+            'source': source
+          });
         if(res.data&&res.data.length>0) {
           let bddList = res.data[0];
           this.bdNum = res.data.length;
@@ -125,7 +125,6 @@
           let bmEndWeek = this.getWeekDay(bddList.bmEndDate);
           let tbAssureEndWeek = this.getWeekDay(bddList.tbAssureEndDate);
           let kbWeek = this.getWeekDay(bddList.kbDate);
-
           this.bmEndWeek = bmEndWeek;
           this.tbAssureEndWeek = tbAssureEndWeek;
           this.kbWeek = kbWeek;

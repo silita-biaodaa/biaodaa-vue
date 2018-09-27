@@ -83,18 +83,17 @@
     methods: {
       //中标详情
       getUp: function() {
-        let dataParam = JSON.stringify({
-          'type': '2',
-          'source': 'hunan'
-        });
+
         let id = this.$route.params.id;
         let type = this.$route.params.type;
         let source = this.$route.params.source;
         let openAppUrl = "com.yaobang.biaodada://?type=" + type + "&id=" + id + "&source=" + source;
-        localStorage.setItem("openAppUrl", openAppUrl);
-
         getJsonData("/notice/detail/" + id, dataParam).then(res => {
           console.log(222);
+          let dataParam = JSON.stringify({
+            'type': '2',
+            'source': source
+          });
           let dataArr = res.data;
           if (dataArr && dataArr.length > 0) {
             this.bddList = dataArr[0];
