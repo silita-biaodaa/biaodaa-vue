@@ -44,6 +44,7 @@
         </div>
       </div>
       <div class="bdd_r_footer">共 <span class="bdd_size" style="color:#CEA63F;"> {{bdNum}} </span> 个标段，打开标大大app可查看更多详情</div>
+
     </div>
     <div class="bdd_r_one bdd_r_foo">
       <div>
@@ -52,7 +53,7 @@
       </div>
     </div>
     <div class="bdd_i_fot"></div>
-    <nav id="bdd_nav" class="navbar navbar-default navbar-fixed-bottom">
+    <nav class="navbar navbar-default navbar-fixed-bottom">
       <div class="bdd_one">
         <img class="bdd_img" src="../../assets/logo.png" /> </div>
       <div class="bdd_two">
@@ -93,30 +94,34 @@
       }
     },
     mounted() {
-      this.getParams();
+//      this.getParams();
       this.getUp();
 
     },
     methods: {
-      getParams: function() {
-        console.log(222)
+//      getParams: function() {
+//        console.log(222)
+//        let id = this.$route.params.id;
+//        let type = this.$route.params.type;
+//        let source = this.$route.params.source;
+//        let openAppUrl = "com.yaobang.biaodada://?type="+type+"&id=" + id+"&source="+source;
+//         localStorage.setItem("openAppUrl",openAppUrl);
+//      },
+      // 招标详情
+      getUp: function() {
+//        let that = this;
         let id = this.$route.params.id;
         let type = this.$route.params.type;
         let source = this.$route.params.source;
         let openAppUrl = "com.yaobang.biaodada://?type="+type+"&id=" + id+"&source="+source;
-         localStorage.setItem("openAppUrl",openAppUrl);
-      },
-      // 招标详情
-      getUp: function() {
-        let that = this;
-
-        let id = this.$route.params.id;
+        localStorage.setItem("openAppUrl",openAppUrl);
+        let dataParam = JSON.stringify({
+          'type': '0',
+          'source': source
+        });
+//        let id = this.$route.params.id;
         getJsonData("/notice/detail/" + id, dataParam).then(res => {
           console.log(111);
-          let dataParam = JSON.stringify({
-            'type': '0',
-            'source': source
-          });
         if(res.data&&res.data.length>0) {
           let bddList = res.data[0];
           this.bdNum = res.data.length;
@@ -128,7 +133,6 @@
           this.bmEndWeek = bmEndWeek;
           this.tbAssureEndWeek = tbAssureEndWeek;
           this.kbWeek = kbWeek;
-
           this.content = content.replace(content ? /&(?!#?\w+;)/g : /&/g, '&amp;')
             .replace(/&lt;/g, "<")
             .replace(/&gt;/g, ">")
