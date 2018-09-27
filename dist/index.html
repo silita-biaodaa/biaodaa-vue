@@ -1,7 +1,8 @@
 <html><head><meta charset=utf-8><meta content=yes name=apple-mobile-web-app-capable><meta content=yes name=apple-touch-fullscreen><meta content="telephone=no,email=no" name=format-detection><meta name=mobile-web-app-capable content=yes><link href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css rel=stylesheet><script src=http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js></script><script src=http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/makegrid.js></script><script src=http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js></script><script src=http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js></script><title>标大大分享页面</title><style>body {
       overflow-x: hidden;
       overflow-y: auto;
-    }</style><link href=/static/css/app.f7356c585dcb195b5b8304b33be659e9.css rel=stylesheet></head><body><div id=app></div><div id=IOSGuide class="col-xs-12 col-sm-12" style="display: none"><img id=IOSGuideImg src=/static/img/ios_guide.png></div><div id=andriodGuide class="col-xs-12 col-sm-12 hidden-lg hidden-md img-responsive" style="display: none"><img id=andriodGuideImg src=/static/img/andriod_guide.png></div><script type=text/javascript>console.log(111)
+	    -webkit-overflow-scrolling: touch;
+    }</style><link href=/static/css/app.b186b2cf11577cbf3e6ea2eceb7de691.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript>console.log(111)
     var openAppUrl = "";
     window.onload = function () {
 
@@ -60,33 +61,33 @@
           if (browser.versions.android) {
             $("#andriodGuide").show();
             $("#andriodGuideImg").css("width", "100%");
-            $("#app").hide();
+            $("#bdd_app").hide();
           } else if (browser.versions.ios) {
             $("#IOSGuide").show();
             $("#IOSGuideImg").css("width", "100%");
-            $("#app").hide();
+            $("#bdd_app").hide();
           }
         } else if (browser.versions.dingtalk) {
           //顶顶
           if (browser.versions.android) {
             $("#andriodGuide").show();
             $("#andriodGuideImg").css("width", "100%");
-            $("#app").hide();
+            $("#bdd_app").hide();
           } else if (browser.versions.ios) {
             $("#IOSGuide").show();
             $("#IOSGuideImg").css("width", "100%");
-            $("#app").hide();
+            $("#bdd_app").hide();
           }
         } else if (browser.versions.qq) {
           //qq
           if (browser.versions.android) {
             $("#andriodGuide").show();
             $("#andriodGuideImg").css("width", "100%");
-            $("#app").hide();
+            $("#bdd_app").hide();
           } else if (browser.versions.ios) {
             $("#IOSGuide").show();
             $("#IOSGuideImg").css("width", "100%");
-            $("#app").hide();
+            $("#bdd_app").hide();
           }
         } else if (browser.versions.ios && browser.versions.safari) {
           //IOS Safari
@@ -104,7 +105,7 @@
         }
       } else {
         //PC
-        $("#app").show();
+        $("#bdd_app").show();
       }
 
     }
@@ -164,19 +165,19 @@
         var _clickTime = +(new Date());
 
         function check(elsTime) {
-          if (elsTime > 1000 || document.hidden || document.webkitHidden) {
+          if (elsTime > 3000 || document.hidden || document.webkitHidden) {
             cb(1);
           } else {
             cb(0);
           }
         }
-        //启动间隔20ms运行的定时器，并检测累计消耗时间是否超过1000ms，超过则结束
+        //启动间隔20ms运行的定时器，并检测累计消耗时间是否超过3000ms，超过则结束
         var _count = 0,
           intHandle;
         intHandle = setInterval(function () {
           _count++;
           var elsTime = +(new Date()) - _clickTime;
-          if (_count >= 100 || elsTime > 1000) {
+          if (_count >= 50 || elsTime > 3000) {
             clearInterval(intHandle);
             check(elsTime);
           }
@@ -197,4 +198,4 @@
       setTimeout(function () {
         document.body.removeChild(ifr);
       }, 2000);
-    }</script><script type=text/javascript src=/static/js/manifest.8c2e42c3aaf476bdd99e.js></script><script type=text/javascript src=/static/js/vendor.e9470dea9e7c07bc8961.js></script><script type=text/javascript src=/static/js/app.7ef424ef6cea93aa4a7c.js></script></body></html>
+    }</script><script type=text/javascript src=/static/js/manifest.5eae01236f717cf5c2e0.js></script><script type=text/javascript src=/static/js/vendor.64116d87884b169da02f.js></script><script type=text/javascript src=/static/js/app.049db038d9d150c0aeb9.js></script></body></html>
