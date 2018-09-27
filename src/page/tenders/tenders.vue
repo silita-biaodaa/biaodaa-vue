@@ -19,7 +19,6 @@
       <div class="bdd_r_one">
         <div>
           <div class="bdd_v-img"><img class="bdd_k_img" src="../../assets/bdd_one.png" /></div>
-
           <div class="bdd_s bdd_m "><span class="bdd_time bdd_spc">报名截止</span><span class="bdd_ri">{{bddList.bmEndDate?bddList.bmEndDate:"-"}}&nbsp;{{bmEndWeek}}&nbsp;{{bddList.bmEndTime?bddList.bmEndTime:"-"}}</span></div>
           <div class="bdd_s bdd_m "><span class="bdd_time bdd_spc">报名地址</span><span class="bdd_ri">{{bddList.bmSite?bddList.bmSite:"&#45;&#45;"}}</span></div>
         </div>
@@ -53,7 +52,7 @@
       </div>
     </div>
     <div class="bdd_i_fot"></div>
-    <nav class="navbar navbar-default navbar-fixed-bottom">
+    <nav id="bdd_nav" class="navbar navbar-default navbar-fixed-bottom">
       <div class="bdd_one">
         <img class="bdd_img" src="../../assets/logo.png" /> </div>
       <div class="bdd_two">
@@ -68,7 +67,6 @@
      <div id="IOSGuide" class="col-xs-12 col-sm-12" style="display: none">
     <img id="IOSGuideImg" src="../../assets/ios_guide.png">
   </div>
-
   <!-- andriod -->
   <div id="andriodGuide" class="col-xs-12 col-sm-12  hidden-lg hidden-md img-responsive" style="display: none">
     <img id="andriodGuideImg" src="../../assets/andriod_guide.png">
@@ -113,7 +111,7 @@
         let id = this.$route.params.id;
         let type = this.$route.params.type;
         let source = this.$route.params.source;
-        let openAppUrl = "com.yaobang.biaodada://?type="+type+"&id=" + id+"&source="+source;
+        let openAppUrl = "com.yaobang.biaodada://?type="+type+"&id="+id+"&source="+source;
         localStorage.setItem("openAppUrl",openAppUrl);
         let dataParam = JSON.stringify({
           'type': '0',

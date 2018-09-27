@@ -36,11 +36,18 @@
       window.browser = {
         /*判断访问终端*/
         versions: function () {
-          var u = navigator.userAgent,
-            app = navigator.appVersion;
-          if ((u.indexOf('iPhone') > -1||u.indexOf('iPad') > -1) && ( u.toLowerCase().match(/QQ/i) == "qq" || u.toLowerCase().indexOf('dingtalk') > -1)) {
+           var u = navigator.userAgent,
+        app = navigator.appVersion;
+      if ((u.indexOf('iPhone') > -1 || u.indexOf('iPad') > -1)){ 
             $("#bdd_nav").hide();
-          }
+      }
+      var curWwwPath=window.document.location.href;
+      if(curWwwPath.indexOf("lawworks")!=-1){
+        $("body").css("-webkit-overflow-scrolling","");
+      }else{
+        $("body").css("-webkit-overflow-scrolling","touch");
+      }
+
           return {
             trident: u.indexOf('Trident') > -1,
             /*IE内核*/

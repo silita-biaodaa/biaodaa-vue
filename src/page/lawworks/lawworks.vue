@@ -1,21 +1,22 @@
 <template>
 <div>
   <div id="bdd_app">
-  <div class="bdd_l_header">
-    <div class="bdd_l_loge">
-      <div class="main">
-      <span class="title">标题</span>
-      <span class="content">{{bddList.title?bddList.title:"-" }}</span>
-     </div>
-      <div><span class="bdd_l_mews">法院</span><span class="bdd_l_mess">{{bddList.court?bddList.court:"-" }}</span></div>
-      <div><span class="bdd_l_mews">案号</span><span style="margin-left: 25px;" class="bdd_l_mess">{{bddList.caseNo?bddList.caseNo:"-" }}</span></div>
-      <div><span class="bdd_l_mews">时间</span><span class="bdd_l_mess">{{bddList.dateStr?bddList.dateStr:"-" }}</span></div>
-  </div>
-  </div>
-  <div class="bdd_l_h">原文详情:</div>
-  <div class="bdd_l_hold bdd_l_ar"  v-html="bddList.content"></div>
+    <div class="bdd_l_header">
+      <div class="bdd_l_loge">
+        <div class="main">
+        <span class="title">标题</span>
+        <span class="content">{{bddList.title?bddList.title:"-" }}</span>
+       </div>
+        <div><span class="bdd_l_mews">法院</span><span class="bdd_l_mess">{{bddList.court?bddList.court:"-" }}</span></div>
+        <div><span class="bdd_l_mews">案号</span><span style="margin-left: 25px;" class="bdd_l_mess">{{bddList.caseNo?bddList.caseNo:"-" }}</span></div>
+        <div><span class="bdd_l_mews">时间</span><span class="bdd_l_mess">{{bddList.dateStr?bddList.dateStr:"-" }}</span></div>
+    </div>
+    </div>
+      <div class="bdd_l_h">原文详情:</div>
+      <div class="bdd_l_hold bdd_l_ar"  v-html="bddList.content"></div>
     <div class="bdd_l_ho"></div>
   </div>
+
   <nav id="bdd_nav" class="navbar navbar-default navbar-fixed-bottom">
     <div class="bdd_one">
       <img class="bdd_img" src="../../assets/logo.png" /> </div>

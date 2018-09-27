@@ -68,7 +68,6 @@
   import {
     getJsonData
   } from "../../api/index.js";
-
   export default {
     name: "win",
     data() {
@@ -91,16 +90,15 @@
           'source': source
         });
         let openAppUrl = "com.yaobang.biaodada://?type=" + type + "&id=" + id + "&source=" + source;
+        localStorage.setItem("openAppUrl",openAppUrl);
         getJsonData("/notice/detail/" + id, dataParam).then(res => {
           console.log(222);
-
           let dataArr = res.data;
           if (dataArr && dataArr.length > 0) {
             this.bddList = dataArr[0];
             let bdNum = dataArr.length;
             this.bdNum = bdNum;
           }
-
         });
       }
     }
