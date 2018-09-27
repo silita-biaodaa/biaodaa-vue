@@ -1,4 +1,5 @@
-.main{clear:both;
+.main{
+  clear:both;
   overflow:hidden;
   width:100%;
   padding-top:32px;
@@ -20,7 +21,6 @@
 }
 .content{
   width: 80%;
-
   font-size:32px;
   font-family:PingFangSC-Medium;
   font-weight:500;

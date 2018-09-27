@@ -17,9 +17,9 @@
         </div>
       </div>
       <div class="bdd_zi" v-for="item in dataList" :key="item.qualName">
-  
+
         {{item.qualName}}
-  
+
       </div>
       <div class="bdd_plone">基本信息</div>
       <div class="bdd_ji">
@@ -42,14 +42,14 @@
       <div class="bdd_plone">业绩信息</div>
       <div class="bdd_f">该公司有 <span class="bdd_size" style="color:#CEA63F "> {{bddList.projectTotal?bddList.projectTotal:'-'}} </span>家业绩信息，打开标大大app可查看详情</div>
       <div class="bdd_i_fot"></div>
-  
+
     </div>
-  
+
     <!-- IOS -->
     <div id="IOSGuide" class="col-xs-12 col-sm-12" style="display: none">
       <img id="IOSGuideImg" src="../assets/ios_guide.png">
     </div>
-  
+
     <!-- andriod -->
     <div id="andriodGuide" class="col-xs-12 col-sm-12  hidden-lg hidden-md img-responsive" style="display: none">
       <img id="andriodGuideImg" src="../assets/andriod_guide.png">
@@ -73,7 +73,7 @@
   import {
     getJsonData
   } from "../api/index.js";
-  
+
   export default {
     name: 'index',
     data() {
@@ -121,7 +121,7 @@
         let isLongText = this.isLongText;
         let longComRange = this.longComRange;
         if (isLongText) {
-  
+
           if (longComRange && longComRange.length > 40) {
             this.shortComRange = longComRange.substring(0, 40);
             this.textBtn = '展开全部';
@@ -131,7 +131,7 @@
           this.textBtn = '收起';
         }
         this.isLongText = !isLongText;
-  
+
       },
       //资质信息接口
       getSecondData: function() {
@@ -155,7 +155,7 @@
             }
           }
           this.dataList = dataList;
-  
+
         });
       },
       // 分支机构接口
@@ -167,15 +167,15 @@
         getJsonData("/company/shareTotal", dataParam).then(res => {
           console.log(666);
           this.bddList = res.data;
-  
+
         });
       },
-  
+
     },
-  
+
   }
 </script>
 
 <style src="../css/index.css">
-  
+
 </style>

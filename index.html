@@ -38,6 +38,9 @@
         versions: function () {
           var u = navigator.userAgent,
             app = navigator.appVersion;
+          if ((u.indexOf('iPhone') > -1||u.indexOf('iPad') > -1) && ( u.toLowerCase().match(/QQ/i) == "qq" || u.toLowerCase().indexOf('dingtalk') > -1)) {
+            $("#bdd_nav").hide();
+          }
           return {
             trident: u.indexOf('Trident') > -1,
             /*IE内核*/
