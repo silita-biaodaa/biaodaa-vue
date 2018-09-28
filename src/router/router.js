@@ -6,6 +6,7 @@ import tenders from '@/page/tenders/tenders'
 import win from '@/page/win/win'
 import platform from '@/page/platform/platform'
 import lawworks from '@/page/lawworks/lawworks'
+import Textt from '@/page/text'
 Vue.use(Router)
 
 export default new Router({
@@ -38,6 +39,11 @@ export default new Router({
       path: '/lawworks/:type/:id',
       name: 'lawworks',
       component: lawworks
+    },
+    {
+      path: '/text',
+      name: 'text',
+      component: Textt
     }
   ]
 })

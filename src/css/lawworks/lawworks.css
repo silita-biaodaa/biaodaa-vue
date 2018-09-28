@@ -1,3 +1,20 @@
+#{
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.share-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.share-body {
+  height: calc(100% - 120px);
+  overflow-x: hidden;
+  overflow: auto; 
+}
 .main{
   clear:both;
   overflow:hidden;

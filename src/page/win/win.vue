@@ -44,7 +44,7 @@
     <div id="andriodGuide" class="col-xs-12 col-sm-12  hidden-lg hidden-md img-responsive" style="display: none">
       <img id="andriodGuideImg" src="../../assets/andriod_guide.png">
     </div>
-    <nav id="bdd_nav" class="navbar navbar-default navbar-fixed-bottom share-download">
+    <nav id="bdd_nav" class="navbar navbar-default navbar-fixed-bottom share-download ">
       <div class="bdd_one">
         <img class="bdd_img" src="../../assets/logo.png" /> </div>
       <div class="bdd_two">

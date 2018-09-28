@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div id="bdd_app">
+  <div class="share-container"> 
+    <div id="bdd_app" class="share-body">
       <div class="bdd_i_o" style="margin-top:20px;"><span class="bdd_k_o">{{comBaseData?comBaseData.comName:"-"}}</span></div>
       <div class="bdd_c"><span class="bdd_a">{{comBaseData.legalPerson?comBaseData.legalPerson:"--"}}</span><span class="bdd_b">{{comBaseData.regisCapital?comBaseData.regisCapital:"--"}}</span></div>
       <div class="bdd_plone">联系信息</div>
@@ -41,7 +41,6 @@
       <div class="bdd_f">该公司有 <span class="bdd_size bdd_col"> {{bddList.personTotal?bddList.personTotal:"-" }} </span>家人员信息，打开标大大app可查看详情</div>
       <div class="bdd_plone">业绩信息</div>
       <div class="bdd_f">该公司有 <span class="bdd_size" style="color:#CEA63F "> {{bddList.projectTotal?bddList.projectTotal:'-'}} </span>家业绩信息，打开标大大app可查看详情</div>
-      <div class="bdd_i_fot"></div>
 
     </div>
 
@@ -54,7 +53,7 @@
     <div id="andriodGuide" class="col-xs-12 col-sm-12  hidden-lg hidden-md img-responsive" style="display: none">
       <img id="andriodGuideImg" src="../assets/andriod_guide.png">
     </div>
-    <nav id="bdd_nav" class="navbar navbar-default navbar-fixed-bottom">
+    <nav id="bdd_nav" class="navbar navbar-default navbar-fixed-bottom share-download">
       <div class="bdd_one">
         <img class="bdd_img" src="../assets/logo.png" /> </div>
       <div class="bdd_two">

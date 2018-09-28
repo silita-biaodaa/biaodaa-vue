@@ -1,6 +1,6 @@
 <template>
-<div>
-  <div id="bdd_app">
+<div class="share-container">
+  <div id="bdd_app" class="share-body">
     <div class="bdd_l_header">
       <div class="bdd_l_loge">
         <div class="main">
@@ -14,10 +14,10 @@
     </div>
       <div class="bdd_l_h">原文详情:</div>
       <div class="bdd_l_hold bdd_l_ar"  v-html="bddList.content"></div>
-    <div class="bdd_l_ho"></div>
+    <!-- <div class="bdd_l_ho"></div> -->
   </div>
 
-  <nav id="bdd_nav">
+  <nav id="bdd_nav" class="navbar navbar-default navbar-fixed-bottom share-download" >
     <div class="bdd_one">
       <img class="bdd_img" src="../../assets/logo.png" /> </div>
     <div class="bdd_two">
