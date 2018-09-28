@@ -13,18 +13,15 @@
   <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/makegrid.js"></script>
   <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
   <title>标大大分享页面</title>
   <style>
-    body{
-      overflow-x: hidden;
-      overflow-y: auto;
-	    -webkit-overflow-scrolling: touch;
-    }
-
+    /*body{*/
+      /*overflow-x: hidden;*/
+      /*overflow-y: auto;*/
+	    /*-webkit-overflow-scrolling: touch;*/
+    /*}*/
 </style>
 </head>
-
 <body>
   <!-- 构建文件将会注入这里 -->
   <div id="app"></div>
@@ -32,22 +29,20 @@
     console.log(111)
     var openAppUrl = "";
     window.onload = function () {
-
       window.browser = {
         /*判断访问终端*/
         versions: function () {
            var u = navigator.userAgent,
         app = navigator.appVersion;
-      if ((u.indexOf('iPhone') > -1 || u.indexOf('iPad') > -1)){ 
-            $("#bdd_nav").hide();
-      }
+//      if ((u.indexOf('iPhone') > -1 || u.indexOf('iPad') > -1)){
+//            $("#bdd_nav").hide();
+//      }
       var curWwwPath=window.document.location.href;
       if(curWwwPath.indexOf("lawworks")!=-1){
         $("body").css("-webkit-overflow-scrolling","");
       }else{
         $("body").css("-webkit-overflow-scrolling","touch");
       }
-
           return {
             trident: u.indexOf('Trident') > -1,
             /*IE内核*/
@@ -150,7 +145,6 @@
         //PC
         $("#bdd_app").show();
       }
-
     }
     var t1;
 
@@ -161,8 +155,6 @@
         t1 = window.setTimeout(downToApp, 2000);
       }
     }
-
-
     function downToApp() {
       // 通过iframe的方式试图打开APP，如果能正常打开，会直接切换到APP，并自动阻止a标签的默认行为
       // 否则打开a标签的href链接
@@ -193,13 +185,7 @@
       //           document.body.removeChild(ifr);
       //     },1000);
       window.location.href = openAppUrl;
-
     }
-
-
-
-
-
 
     function openNewApp(callback) {
       let openUrl = localStorage.getItem("openAppUrl");
@@ -244,7 +230,5 @@
     }
 
   </script>
-
 </body>
-
 </html>

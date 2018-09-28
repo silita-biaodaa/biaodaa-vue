@@ -3,7 +3,18 @@
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
-
+.share-container{
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+}
+.share-body{
+  height:calc(100%-120px);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
 .bdd_a_row{
   height:32px;
   font-size:32px;

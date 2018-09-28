@@ -17,7 +17,7 @@
     <div class="bdd_l_ho"></div>
   </div>
 
-  <nav id="bdd_nav" class="navbar navbar-default navbar-fixed-bottom">
+  <nav id="bdd_nav">
     <div class="bdd_one">
       <img class="bdd_img" src="../../assets/logo.png" /> </div>
     <div class="bdd_two">

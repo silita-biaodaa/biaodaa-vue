@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div id="bdd_app">
+  <div class="share-container">
+    <div id="bdd_app" class="share-body">
       <div class="bdd_p_header">查行贿，查围标串标，就上标大大</div>
       <div class="bdd_r_u" style="margin-top:20px;"><span class="bdd_span_po">{{bddList.title?bddList.title:"--"}}</span></div>
       <div class="bdd_r_a">发布日期：{{bddList.opendate?bddList.opendate:"--"}}</div>
@@ -44,7 +44,7 @@
     <div id="andriodGuide" class="col-xs-12 col-sm-12  hidden-lg hidden-md img-responsive" style="display: none">
       <img id="andriodGuideImg" src="../../assets/andriod_guide.png">
     </div>
-    <nav id="bdd_nav" class="navbar navbar-default navbar-fixed-bottom">
+    <nav id="bdd_nav" class="navbar navbar-default navbar-fixed-bottom share-download">
       <div class="bdd_one">
         <img class="bdd_img" src="../../assets/logo.png" /> </div>
       <div class="bdd_two">
