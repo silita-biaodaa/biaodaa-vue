@@ -93,14 +93,11 @@
       }
     },
     mounted() {
-//      this.getParams();
       this.getUp();
-
     },
     methods: {
       // 招标详情
       getUp: function() {
-//        let that = this;
         let id = this.$route.params.id;
         let type = this.$route.params.type;
            let source = '';
@@ -118,7 +115,6 @@
         });
 //        let id = this.$route.params.id;
         getJsonData("/notice/detail/" + id, dataParam).then(res => {
-          // console.log(111);
         if(res.data&&res.data.length>0) {
           let bddList = res.data[0];
           this.bdNum = res.data.length;
