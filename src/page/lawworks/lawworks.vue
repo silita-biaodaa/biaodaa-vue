@@ -37,6 +37,7 @@
   </div>
 </div>
 </template>
+
 <script>
   import shuffling from '../../components/shuffling.vue';
   import {

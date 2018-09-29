@@ -98,14 +98,6 @@
 
     },
     methods: {
-//      getParams: function() {
-//        console.log(222)
-//        let id = this.$route.params.id;
-//        let type = this.$route.params.type;
-//        let source = this.$route.params.source;
-//        let openAppUrl = "com.yaobang.biaodada://?type="+type+"&id=" + id+"&source="+source;
-//         localStorage.setItem("openAppUrl",openAppUrl);
-//      },
       // 招标详情
       getUp: function() {
 //        let that = this;

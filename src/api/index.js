@@ -1,4 +1,3 @@
- /* eslint-disable no-unused-vars */
 import axios from 'axios'
 
 // const baseURL = 'http://192.168.1.161:8080/biaodaa-back/'
