@@ -6,7 +6,6 @@ import tenders from '@/page/tenders/tenders'
 import win from '@/page/win/win'
 import platform from '@/page/platform/platform'
 import lawworks from '@/page/lawworks/lawworks'
-import Textt from '@/page/text'
 Vue.use(Router)
 
 export default new Router({
