@@ -165,7 +165,7 @@
       var u = navigator.userAgent;
       //IOS
       var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
-      var isAndroid = u.indexOf('Android') > -1; /*android终端或者uc浏览器*/
+      var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1,; /*android终端或者uc浏览器*/
       if (isIOS) {
         window.location.href = 'https://itunes.apple.com/cn/app/标大大/id1278802484?mt=8'
       } else if (isAndroid) {
