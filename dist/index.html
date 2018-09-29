@@ -10,6 +10,9 @@
       // if ((u.indexOf('iPhone') > -1 || u.indexOf('iPad') > -1)){
       //       $("#bdd_nav").hide();
       // }
+//      if ((u.indexOf('iPhone') > -1 || u.indexOf('iPad') > -1)){
+//            $("#bdd_nav").hide();
+//      }
       var curWwwPath=window.document.location.href;
       if(curWwwPath.indexOf("lawworks")!=-1){
         $("body").css("-webkit-overflow-scrolling","");
@@ -139,7 +142,7 @@
       var u = navigator.userAgent;
       //IOS
       var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
-      var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1,; /*android终端或者uc浏览器*/
+      var isAndroid = u.indexOf('Android') > -1; /*android终端或者uc浏览器*/
       if (isIOS) {
         window.location.href = 'https://itunes.apple.com/cn/app/标大大/id1278802484?mt=8'
       } else if (isAndroid) {
