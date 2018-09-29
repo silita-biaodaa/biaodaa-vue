@@ -40,10 +40,5 @@ export default new Router({
       name: 'lawworks',
       component: lawworks
     },
-    {
-      path: '/text',
-      name: 'text',
-      component: Textt
-    }
   ]
 })

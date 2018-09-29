@@ -3,6 +3,11 @@
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
+body{
+      overflow-x: hidden;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+}
 .share-container {
   position: absolute;
   left: 0;

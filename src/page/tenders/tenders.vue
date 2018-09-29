@@ -28,7 +28,7 @@
           <div class="bdd_v-img"><img class="bdd_k_img" src="../../assets/bdd_tow.png" /></div>
           <div class="bdd_s bdd_m "><span class="bdd_time bdd_spc">保证金截止</span><span class="bdd_ri">{{bddList.tbAssureEndDate?bddList.tbAssureEndDate:"-"}}&nbsp;{{tbAssureEndWeek}}&nbsp;{{bddList.tbAssureEndTime?bddList.tbAssureEndTime:""}}</span></div>
           <div class="bdd_s bdd_m "><span class="bdd_time bdd_spc">金&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;额</span><span class="bdd_ri">{{bddList.tbAssureSum?bddList.tbAssureSum+"万元":"-"}}</span></div>
-          <!-- <div class="bdd_s bdd_m "><span class="bdd_time bdd_spc">递交方式</span><span class="bdd_ri">保证金</span></div> -->
+          <div class="bdd_s bdd_m "><span class="bdd_time bdd_spc">递交方式</span><span class="bdd_ri">保证金</span></div>
         </div>
       </div>
       <div class="bdd_r_one">
@@ -53,7 +53,6 @@
     </div>
     <div class="bdd_i_fot"></div>
     </div>
-
     <nav id="bdd_nav" class=" navbar navbar-default navbar-fixed-bottom share-download" >
       <div class="bdd_one">
         <img class="bdd_img" src="../../assets/logo.png" /> </div>
@@ -112,7 +111,13 @@
 //        let that = this;
         let id = this.$route.params.id;
         let type = this.$route.params.type;
-        let source = this.$route.params.source;
+           let source = '';
+        if(this.$route.params.source == 'null') {
+           source = 'hunan'
+        } else {
+           source = this.$route.params.source
+        }
+
         let openAppUrl = "com.yaobang.biaodada://?type="+type+"&id="+id+"&source="+source;
         localStorage.setItem("openAppUrl",openAppUrl);
         let dataParam = JSON.stringify({
@@ -121,7 +126,7 @@
         });
 //        let id = this.$route.params.id;
         getJsonData("/notice/detail/" + id, dataParam).then(res => {
-          console.log(111);
+          // console.log(111);
         if(res.data&&res.data.length>0) {
           let bddList = res.data[0];
           this.bdNum = res.data.length;
