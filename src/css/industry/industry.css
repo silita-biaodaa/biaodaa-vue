@@ -1,3 +1,9 @@
+
+body{
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
 .bdd_p{
   clear:both;
   overflow:hidden;
@@ -10,6 +16,18 @@
   margin-right:32px;
   margin-top:20px;
 
+}
+.share-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.share-body {
+  height: calc(100% - 120px);
+  overflow-x: hidden;
+  overflow: auto;
 }
 .bdd_r_g{
   float:left;
@@ -28,7 +46,7 @@
 }
 .bdd_p_leo{
   clear:both;
-  overflow:hidden;
+  /*overflow:hidden;*/
   width: 90%;
   font-size:32px;
   font-family:PingFangSC-Regular;
@@ -45,4 +63,7 @@
   float:left;
   line-height:60px;
   display: inline-block;
+}
+table{
+  margin-bottom:338px;
 }

@@ -15,7 +15,7 @@ body{
 .share-body {
   height: calc(100% - 120px);
   overflow-x: hidden;
-  overflow: auto; 
+  overflow: auto;
 }
 .main{
   clear:both;

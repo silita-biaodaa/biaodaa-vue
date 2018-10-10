@@ -16,7 +16,7 @@ export default new Router({
       component: index
     },
     {
-      path: '/industry/:id',
+      path: '/industry/:type/:id',
       name: 'industry',
       component: industry
     },
@@ -31,7 +31,7 @@ export default new Router({
       component: win
     },
     {
-      path: '/platform',
+      path: '/platform/:type/:statDate',
       name: 'platform',
       component: platform
     },{

@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="share-container">
+    <div id="bdd_app" class="share-body">
     <div class="bdd_p"  style="margin-top:20px;"><span class="bdd_r_g">{{bddList.title?bddList.title:"-"}}</span></div>
     <div class="bdd_r_a">发布日期：{{bddList.releaseTime?bddList.releaseTime:"-"}}</div>
     <div class="bdd_p_le"><span class="bdd_r_g_ro"></span>{{bddList.remark?bddList.remark:"-"}}</div>
@@ -14,13 +15,33 @@
         <td style="width: 60%" class="bdd_p_th_l">{{item.comName}}</td>
         <td style="width: 23%" class="bdd_p_th_l">{{item.num}}</td>
       </tr>
-
     </table>
     <div class="bdd_p_footer">
     <div class="bdd_p_foo">湖南企信数据研究院</div>
     <div class="bdd_p_foo">建筑业经营数据研究中心</div>
     </div>
+    </div>
+    <nav id="bdd_nav" class=" navbar navbar-default navbar-fixed-bottom share-download" >
+      <div class="bdd_one">
+        <img class="bdd_img" src="../../assets/logo.png" /> </div>
+      <div class="bdd_two">
+        <div class="bdd_g">标大大</div>
+        <div class="bdd_n">打开App了解更多资讯</div>
+      </div>
+      <div class="bdd_foo">
+        <div onclick='downloadApp()' class="bdd_x">立即打开</div>
+      </div>
+    </nav>
+
+    <div id="IOSGuide" class="col-xs-12 col-sm-12" style="display: none">
+      <img id="IOSGuideImg" src="../../assets/ios_guide.png">
+    </div>
+    <!-- andriod -->
+    <div id="andriodGuide" class="col-xs-12 col-sm-12  hidden-lg hidden-md img-responsive" style="display: none">
+      <img id="andriodGuideImg" src="../../assets/andriod_guide.png">
+    </div>
   </div>
+
 </template>
 <script>
   import shuffling from '../../components/shuffling.vue';
@@ -32,7 +53,8 @@
     name:"platform",
     data () {
       return {
-        bddList: {}
+        bddList: {},
+        statDate:{}
       }
     },
     mounted() {
@@ -41,23 +63,29 @@
     methods: {
       getCurrentDate:function(){
          var now = new Date();
-        var year = now.getFullYear();
-        var month = now.getMonth();//得到月份
-        month = month + 1;
-        if (month < 10){
+         var year = now.getFullYear();
+         var month = now.getMonth();//得到月份
+         month = month - 1;
+         if (month < 10){
           month = "0" + month;
         }
         return year+"-"+month+"-01";
       },
       //平台公示列表
       getUp: function(){
-      //  let statDate = this.$route.statDate.statDate;
-      //   if(!statDate){
-      //     localStorage.setItem("statDate",statDate);
-      //   }
+        let type = this.$route.params.type;
+        let statDate = this.$route.params.statDate;
+         if(!type) {
+          localStorage.setItem("type", type);
+        }
+         if(!statDate){
+           localStorage.setItem("statDate",statDate);
+         }
         let dataParam = JSON.stringify({
-          "statDate":"2018-06-01"//this.getCurrentDate()
+          "statDate":this.getCurrentDate()
         });
+        let openAppUrl = "com.yaobang.biaodada://?type="+type+"&statDate="+statDate;
+        localStorage.setItem("openAppUrl",openAppUrl);
         getJsonData("/count/list", dataParam).then(res => {
           console.log(666);
           this.bddList = res.data;

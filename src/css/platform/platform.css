@@ -1,3 +1,9 @@
+
+body{
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
 .bdd_p{
   clear:both;
   overflow:hidden;
@@ -9,6 +15,19 @@
   margin-left:32px;
   margin-right:32px;
   margin-top:20px;
+
+}
+.share-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.share-body {
+  height: calc(100% - 120px);
+  overflow-x: hidden;
+  overflow: auto;
 
 }
 .bdd_r_g{
@@ -36,7 +55,7 @@
   color:rgba(51,51,51,1);
   margin-left:32px;
   margin-right:25px;
-  line-height:32px;
+  line-height:50px;
   margin-top:48px;
  text-indent: 2em;
 }
@@ -56,7 +75,7 @@
 }
 .bdd_p_table{
   width: 100%;
-  margin-top:80px;
+  margin-top:100px;
 }
 
 .bdd_p_th_o{
@@ -75,11 +94,11 @@
   font-family:PingFangSC-Regular;
   font-weight:400;
   color:rgba(153,153,153,1);
-  line-height:100px;
+  line-height:10px;
   text-align: center;
 }
 .bdd_p_footer{
-  margin-top:110px;
+  padding-top:100px;
 }
 .bdd_p_m{
   margin-bottom:48px;
