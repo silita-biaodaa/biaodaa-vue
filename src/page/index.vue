@@ -1,5 +1,5 @@
 <template>
-  <div class="share-container"> 
+  <div class="share-container">
     <div id="bdd_app" class="share-body">
       <div class="bdd_i_o" style="margin-top:20px;"><span class="bdd_k_o">{{comBaseData?comBaseData.comName:"-"}}</span></div>
       <div class="bdd_c"><span class="bdd_a">{{comBaseData.legalPerson?comBaseData.legalPerson:"--"}}</span><span class="bdd_b">{{comBaseData.regisCapital?comBaseData.regisCapital:"--"}}</span></div>
@@ -41,7 +41,6 @@
       <div class="bdd_f">该公司有 <span class="bdd_size bdd_col"> {{bddList.personTotal?bddList.personTotal:"-" }} </span>家人员信息，打开标大大app可查看详情</div>
       <div class="bdd_plone">业绩信息</div>
       <div class="bdd_f">该公司有 <span class="bdd_size" style="color:#CEA63F "> {{bddList.projectTotal?bddList.projectTotal:'-'}} </span>家业绩信息，打开标大大app可查看详情</div>
-
     </div>
 
     <!-- IOS -->
@@ -120,7 +119,6 @@
         let isLongText = this.isLongText;
         let longComRange = this.longComRange;
         if (isLongText) {
-
           if (longComRange && longComRange.length > 40) {
             this.shortComRange = longComRange.substring(0, 40);
             this.textBtn = '展开全部';
@@ -130,7 +128,6 @@
           this.textBtn = '收起';
         }
         this.isLongText = !isLongText;
-
       },
       //资质信息接口
       getSecondData: function() {
@@ -154,7 +151,6 @@
             }
           }
           this.dataList = dataList;
-
         });
       },
       // 分支机构接口
@@ -166,15 +162,10 @@
         getJsonData("/company/shareTotal", dataParam).then(res => {
           console.log(666);
           this.bddList = res.data;
-
         });
       },
-
     },
-
   }
 </script>
-
 <style src="../css/index.css">
-
 </style>
