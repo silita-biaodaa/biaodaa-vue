@@ -1,11 +1,11 @@
 <html><head><meta charset=utf-8><meta content=yes name=apple-mobile-web-app-capable><meta content=yes name=apple-touch-fullscreen><meta content="telephone=no,email=no" name=format-detection><meta name=mobile-web-app-capable content=yes><link href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css rel=stylesheet><script src=http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js></script><script src=http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/makegrid.js></script><script src=http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js></script><script src=http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js></script><script src=./static/js/wx.js></script><title>标大大分享页面</title><style></style><link href=/static/css/app.17cc4b648af8dee89f54a5e3834491e4.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript>console.log(111)
     var openAppUrl = "";
     window.onload = function () {
-     // var u = navigator.userAgent,
-        
-          //if ((u.toLowerCase().indexOf('micromessenger')) > -1 || u.toLowerCase().match(/QQ/i) == "qq") {
-            checkAuthorToWx();
-         // }
+      // var u = navigator.userAgent,
+
+      //if ((u.toLowerCase().indexOf('micromessenger')) > -1 || u.toLowerCase().match(/QQ/i) == "qq") {
+      checkAuthorToWx();
+      // }
 
       window.browser = {
         /*判断访问终端*/
@@ -13,7 +13,7 @@
           var u = navigator.userAgent,
             app = navigator.appVersion;
           //if ((u.toLowerCase().indexOf('micromessenger')) > -1 || u.toLowerCase().match(/QQ/i) == "qq") {
-         // }
+          // }
           var curWwwPath = window.document.location.href;
           if (curWwwPath.indexOf("lawworks") != -1) {
             $("body").css("-webkit-overflow-scrolling", "");
@@ -67,14 +67,37 @@
     // }
 
     function checkAuthorToWx() {
-      let url =window.document.location.href;
+      let url = window.location.url;
       let param = { "appid": "wx393124fdad606b1d", "url": "share.biaodaa.com" };
       let paramJson = JSON.stringify(param);
-      console.log(88888);
+      $.ajax({
+        type: 'POST',
+        dataType: 'json',
+        url: "http://wx.biaodaa.com/weixin/fetchJsapiSignature",
+        data: paramJson,
+        contentType: "application/json",
+        success: function (data) {
+          parseResult(data);
+          alert(data);
 
-      $.post("http://wx.biaodaa.com/weixin/fetchJsapiSignature", paramJson, function (result) {
-        console.log(99999+"-------------------");
-        console.log(result);
+        },
+
+        error: function (data) {
+
+          alert("error");
+
+        }
+
+      });
+    }
+
+
+      // $.post("http://wx.biaodaa.com/weixin/fetchJsapiSignature", paramJson, function (result) {
+
+
+      // });
+
+      function parseResult(result) {
         let noncestr = result.jsapiSignature.noncestr;
         let timestamp = result.jsapiSignature.timestamp;
         let url = result.jsapiSignature.url;
@@ -96,23 +119,21 @@
         });
 
         wx.ready(function () {
-          let webUrl = window.document.location.href;
+          let webUrl = window.location.url;
           //分享好友
           var shareData = {
             title: document.title,
             desc: document.desc,
             dataUrl: webUrl,
             type: 'link',
-            imgUrl:'./static/img/logo.png',
-            link:  "share.biaodaa.com"
+            imgUrl: './static/img/logo.png',
+            link: "share.biaodaa.com"
           };
           wx.onMenuShareAppMessage(shareData);
           wx.onMenuShareTimeline(shareData);
         });
-      },function(errorData){
-        console.log(errorData)
-      });
-    }
+      }
+
 
       //　　去掉微信二次自带的两个参数需要用到三个函数，第一个函数  
       function fnGetQueryString(key) { //正则获取url后面的参数值，如?env=dev&exp=123中可以通过fnGetQueryString('exp')=>得到123
