@@ -92,7 +92,7 @@
     // }
 
     function checkAuthorToWx() {
-      let url = window.location.url;
+      let url = window.document.location.href;
       let param = { "appid": "wx393124fdad606b1d", "url": "share.biaodaa.com" };
       let paramJson = JSON.stringify(param);
       $.ajax({
@@ -103,13 +103,12 @@
         contentType: "application/json",
         success: function (data) {
           parseResult(data);
-          alert(data);
-
+          // alert(data);
         },
-
         error: function (data) {
+          console.log(data)
 
-          alert("error");
+          //alert("error");
 
         }
 
@@ -117,249 +116,267 @@
     }
 
 
-      // $.post("http://wx.biaodaa.com/weixin/fetchJsapiSignature", paramJson, function (result) {
+    // $.post("http://wx.biaodaa.com/weixin/fetchJsapiSignature", paramJson, function (result) {
 
 
-      // });
+    // });
 
-      function parseResult(result) {
-        let noncestr = result.jsapiSignature.noncestr;
-        let timestamp = result.jsapiSignature.timestamp;
-        let url = result.jsapiSignature.url;
-        let signature = result.jsapiSignature.signature;
-        let jsapiTicket = result.jsapiSignature.jsapiTicket;
-        wx.config({
+    function parseResult(result) {
+      let nonceStr = result.jsapiSignature.noncestr;
+      let timestamp = result.jsapiSignature.timestamp;
+      let url = result.jsapiSignature.url;
+      let signature = result.jsapiSignature.signature;
+      let jsapiTicket = result.jsapiSignature.jsapiTicket;
+      wx.config({
 
-          debug: false, // 开启调试模式为true后可以通过alert弹窗将公众号签名等结果反馈出来
+        debug: false, // 开启调试模式为true后可以通过alert弹窗将公众号签名等结果反馈出来
 
-          appId: "wx393124fdad606b1d", // 必填，公众号的唯一标识
+        appId: "wx393124fdad606b1d", // 必填，公众号的唯一标识
 
-          timestamp: timestamp, // 必填，生成签名的时间戳
+        timestamp: timestamp, // 必填，生成签名的时间戳
 
-          nonceStr: nonceStr, // 必填，生成签名的随机串
+        nonceStr: nonceStr, // 必填，生成签名的随机串
 
-          signature: encodeURIComponent(signature),// 必填，签名，见附录1
+        signature: encodeURIComponent(signature),// 必填，签名，见附录1
 
-          jsApiList: jsapiTicket
-        });
+        jsApiList: jsapiTicket
+      });
 
-        wx.ready(function () {
-          let webUrl = window.location.url;
-          //分享好友
-          var shareData = {
-            title: document.title,
-            desc: document.desc,
-            dataUrl: webUrl,
-            type: 'link',
-            imgUrl: './static/img/logo.png',
-            link: "share.biaodaa.com"
-          };
-          wx.onMenuShareAppMessage(shareData);
-          wx.onMenuShareTimeline(shareData);
-        });
-      }
-
-
-      //　　去掉微信二次自带的两个参数需要用到三个函数，第一个函数  
-      function fnGetQueryString(key) { //正则获取url后面的参数值，如?env=dev&exp=123中可以通过fnGetQueryString('exp')=>得到123
-        var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)");
-        var result = window.location.search.substr(1).match(reg);
-        return result ? decodeURIComponent(result[2]) : false;
-      };
-
-      //   第二个函数
-      function funcUrlDel(name) {//删除url指定参数名并返回新的url
-        var loca = window.location;
-        var baseUrl = loca.origin + loca.pathname + "?";
-        var query = loca.search.substr(1);
-        if (query.indexOf(name) > -1) {
-          var obj = {};
-          var arr = query.split("&");
-          for (var i = 0; i < arr.length; i++) {
-            arr[i] = arr[i].split("=");
-            obj[arr[i][0]] = arr[i][1];
-          };
-          delete obj[name];
-          var url = baseUrl + JSON.stringify(obj).replace(/[\"\{\}]/g, "").replace(/\:/g, "=").replace(/\,/g, "&");
-          return url
+      wx.ready(function () {
+        //分享好友
+        var shareData = {
+          title: document.title,
+          desc: document.desc,
+          dataUrl: window.document.location.href,
+          type: 'link',
+          imgUrl: './static/img/logo.png',
+          link: "share.biaodaa.com"
         };
+        wx.onMenuShareAppMessage(shareData);
+        wx.onMenuShareTimeline(shareData);
+      });
 
+      //分享给朋友
+      wx.onMenuShareAppMessage({
+        title: document.title,
+        desc: '222',
+        link: window.document.location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+        imgUrl: './static/img/logo.png',
+        success: function () {
+          // 用户确认分享后执行的回调函数
+        },
+        cancel: function () {
+          // 用户取消分享后执行的回调函数
+        },
+        fail: function (res) {
+          //alert(res.errMsg);
+          //用户分享失败取消的回调函数
+        }
+      });
+
+    }
+
+
+    //　　去掉微信二次自带的两个参数需要用到三个函数，第一个函数  
+    function fnGetQueryString(key) { //正则获取url后面的参数值，如?env=dev&exp=123中可以通过fnGetQueryString('exp')=>得到123
+      var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)");
+      var result = window.location.search.substr(1).match(reg);
+      return result ? decodeURIComponent(result[2]) : false;
+    };
+
+    //   第二个函数
+    function funcUrlDel(name) {//删除url指定参数名并返回新的url
+      var loca = window.location;
+      var baseUrl = loca.origin + loca.pathname + "?";
+      var query = loca.search.substr(1);
+      if (query.indexOf(name) > -1) {
+        var obj = {};
+        var arr = query.split("&");
+        for (var i = 0; i < arr.length; i++) {
+          arr[i] = arr[i].split("=");
+          obj[arr[i][0]] = arr[i][1];
+        };
+        delete obj[name];
+        var url = baseUrl + JSON.stringify(obj).replace(/[\"\{\}]/g, "").replace(/\:/g, "=").replace(/\,/g, "&");
+        return url
       };
 
-      //第三个函数
-      function getlinkSearch(key, reqStr) {//这个作用同fnGetQueryString(key)函数差不多，不过它将reqStr参数替代了window.searsh获取的东西,因为上个函数在删除了url的某一参数后会返回一个新的带?参数查询的链接
+    };
 
-        var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)");
-        var result = reqStr.substr(1).match(reg);
-        return result ? decodeURIComponent(result[2]) : false;
+    //第三个函数
+    function getlinkSearch(key, reqStr) {//这个作用同fnGetQueryString(key)函数差不多，不过它将reqStr参数替代了window.searsh获取的东西,因为上个函数在删除了url的某一参数后会返回一个新的带?参数查询的链接
 
-      };
-      //最关键也是最后一步就是刷新页面回到去除微信二次分享自带参数的初始页面了：
-      function refreshUrl() {//强制刷新到不带二次分享参数页面
-        var url = "",
-          reqStr = "";
-        if (fnGetQueryString('from')) {//from为微信二次分享自带参数
-          url = funcUrlDel('from');
-          var reqIndex = url.indexOf('?');
-          reqStr = url.substr(reqIndex);//截取去除from参数后的地址
-          console.log(url, reqStr);
-          if (getlinkSearch('isappinstalled', reqStr)) {//isappinstalled为微信二次分享自带参数
-            url = url.substr(0, url.indexOf('&'));//截取去除isappinstalled参数后的地址
-            console.log(url);
-            window.location.href = url;
-          } else {
-            window.location.href = url;
-          }
+      var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)");
+      var result = reqStr.substr(1).match(reg);
+      return result ? decodeURIComponent(result[2]) : false;
 
-        }
-
-      };
-      refreshUrl();
-      function downloadApp() {
-        if (browser.versions.mobile || browser.versions.android || browser.versions.ios) {
-          if (browser.versions.weixin) {
-            //微信
-            if (browser.versions.android) {
-              $("#andriodGuide").show();
-              $("#andriodGuideImg").css("width", "100%");
-              $("#bdd_app").hide();
-              $("#bdd_nav").hide();
-            } else if (browser.versions.ios) {
-              $("#IOSGuide").show();
-              $("#IOSGuideImg").css("width", "100%");
-              $("#bdd_app").hide();
-              $("#bdd_nav").hide();
-            }
-          } else if (browser.versions.dingtalk) {
-            //顶顶
-            if (browser.versions.android) {
-              $("#andriodGuide").show();
-              $("#andriodGuideImg").css("width", "100%");
-              $("#bdd_app").hide();
-              $("#bdd_nav").hide();
-            } else if (browser.versions.ios) {
-              $("#IOSGuide").show();
-              $("#IOSGuideImg").css("width", "100%");
-              $("#bdd_app").hide();
-              $("#bdd_nav").hide();
-            }
-          } else if (browser.versions.qq) {
-            //qq
-            if (browser.versions.android) {
-              $("#andriodGuide").show();
-              $("#andriodGuideImg").css("width", "100%");
-              $("#bdd_app").hide();
-              $("#bdd_nav").hide();
-            } else if (browser.versions.ios) {
-              $("#IOSGuide").show();
-              $("#IOSGuideImg").css("width", "100%");
-              $("#bdd_app").hide();
-              $("#bdd_nav").hide();
-            }
-          } else if (browser.versions.ios && browser.versions.safari) {
-            //IOS Safari
-            // window.location.href = openAppUrl;
-            downloadApp2()
-          } else if (browser.versions.android) {
-            //安卓
-            // window.location.href = openAppUrl;
-            //downloadApp2()
-            openNewApp(function (isOpen) {
-              if (isOpen == 0) {
-                downToApp();
-              }
-            });
-          }
+    };
+    //最关键也是最后一步就是刷新页面回到去除微信二次分享自带参数的初始页面了：
+    function refreshUrl() {//强制刷新到不带二次分享参数页面
+      var url = "",
+        reqStr = "";
+      if (fnGetQueryString('from')) {//from为微信二次分享自带参数
+        url = funcUrlDel('from');
+        var reqIndex = url.indexOf('?');
+        reqStr = url.substr(reqIndex);//截取去除from参数后的地址
+        console.log(url, reqStr);
+        if (getlinkSearch('isappinstalled', reqStr)) {//isappinstalled为微信二次分享自带参数
+          url = url.substr(0, url.indexOf('&'));//截取去除isappinstalled参数后的地址
+          console.log(url);
+          window.location.href = url;
         } else {
-          //PC
-          $("#bdd_app").show();
+          window.location.href = url;
         }
 
       }
-      var t1;
 
-      function downloadApp2() {
-        if (jumpToApp()) {
-          jumpToApp();
-        } else {
-          t1 = window.setTimeout(downToApp, 2000);
-        }
-      }
-
-      function downToApp() {
-        // 通过iframe的方式试图打开APP，如果能正常打开，会直接切换到APP，并自动阻止a标签的默认行为
-        // 否则打开a标签的href链接
-        //alert(parNum+":"+openAppUrl)
-        var u = navigator.userAgent;
-        //IOS
-        var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
-        var isAndroid = u.indexOf('Android') > -1; /*android终端或者uc浏览器*/
-        if (isIOS) {
-          window.location.href = 'https://itunes.apple.com/cn/app/标大大/id1278802484?mt=8'
-        } else if (isAndroid) {
-          window.location.href = 'http://www.biaodaa.com/file/biaodaa.apk'
-        } else {
-          window.location.href = 'http://www.biaodaa.com/file/biaodaa.apk';
-        }
-      }
-
-      function jumpToApp() {
-        openAppUrl = localStorage.getItem("openAppUrl");
-        if (!openAppUrl) {
-          openAppUrl = "com.yaobang.biaodada://";
-        }
-        // var ifr = document.createElement('iframe');
-        //    ifr.src = openAppUrl;
-        //    ifr.style.display = 'none';
-        //    document.body.appendChild(ifr);
-        //     window.setTimeout(function(){
-        //           document.body.removeChild(ifr);
-        //     },1000);
-        window.location.href = openAppUrl;
-
-      }
-
-      function openNewApp(callback) {
-        let openUrl = localStorage.getItem("openAppUrl");
-        //检查app是否打开
-        function checkOpen(cb) {
-          var _clickTime = +(new Date());
-
-          function check(elsTime) {
-            if (elsTime > 3000 || document.hidden || document.webkitHidden) {
-              cb(1);
-            } else {
-              cb(0);
-            }
+    };
+    refreshUrl();
+    function downloadApp() {
+      if (browser.versions.mobile || browser.versions.android || browser.versions.ios) {
+        if (browser.versions.weixin) {
+          //微信
+          if (browser.versions.android) {
+            $("#andriodGuide").show();
+            $("#andriodGuideImg").css("width", "100%");
+            $("#bdd_app").hide();
+            $("#bdd_nav").hide();
+          } else if (browser.versions.ios) {
+            $("#IOSGuide").show();
+            $("#IOSGuideImg").css("width", "100%");
+            $("#bdd_app").hide();
+            $("#bdd_nav").hide();
           }
-          //启动间隔20ms运行的定时器，并检测累计消耗时间是否超过3000ms，超过则结束
-          var _count = 0,
-            intHandle;
-          intHandle = setInterval(function () {
-            _count++;
-            var elsTime = +(new Date()) - _clickTime;
-            if (_count >= 50 || elsTime > 3000) {
-              clearInterval(intHandle);
-              check(elsTime);
+        } else if (browser.versions.dingtalk) {
+          //顶顶
+          if (browser.versions.android) {
+            $("#andriodGuide").show();
+            $("#andriodGuideImg").css("width", "100%");
+            $("#bdd_app").hide();
+            $("#bdd_nav").hide();
+          } else if (browser.versions.ios) {
+            $("#IOSGuide").show();
+            $("#IOSGuideImg").css("width", "100%");
+            $("#bdd_app").hide();
+            $("#bdd_nav").hide();
+          }
+        } else if (browser.versions.qq) {
+          //qq
+          if (browser.versions.android) {
+            $("#andriodGuide").show();
+            $("#andriodGuideImg").css("width", "100%");
+            $("#bdd_app").hide();
+            $("#bdd_nav").hide();
+          } else if (browser.versions.ios) {
+            $("#IOSGuide").show();
+            $("#IOSGuideImg").css("width", "100%");
+            $("#bdd_app").hide();
+            $("#bdd_nav").hide();
+          }
+        } else if (browser.versions.ios && browser.versions.safari) {
+          //IOS Safari
+          // window.location.href = openAppUrl;
+          downloadApp2()
+        } else if (browser.versions.android) {
+          //安卓
+          // window.location.href = openAppUrl;
+          //downloadApp2()
+          openNewApp(function (isOpen) {
+            if (isOpen == 0) {
+              downToApp();
             }
-          }, 20);
-        }
-
-        //在iframe 中打开APP
-        var ifr = document.createElement('iframe');
-        ifr.src = openUrl;
-        ifr.style.display = 'none';
-        if (callback) {
-          checkOpen(function (opened) {
-            callback && callback(opened);
           });
         }
-
-        document.body.appendChild(ifr);
-        setTimeout(function () {
-          document.body.removeChild(ifr);
-        }, 2000);
+      } else {
+        //PC
+        $("#bdd_app").show();
       }
+
+    }
+    var t1;
+
+    function downloadApp2() {
+      if (jumpToApp()) {
+        jumpToApp();
+      } else {
+        t1 = window.setTimeout(downToApp, 2000);
+      }
+    }
+
+    function downToApp() {
+      // 通过iframe的方式试图打开APP，如果能正常打开，会直接切换到APP，并自动阻止a标签的默认行为
+      // 否则打开a标签的href链接
+      //alert(parNum+":"+openAppUrl)
+      var u = navigator.userAgent;
+      //IOS
+      var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+      var isAndroid = u.indexOf('Android') > -1; /*android终端或者uc浏览器*/
+      if (isIOS) {
+        window.location.href = 'https://itunes.apple.com/cn/app/标大大/id1278802484?mt=8'
+      } else if (isAndroid) {
+        window.location.href = 'http://www.biaodaa.com/file/biaodaa.apk'
+      } else {
+        window.location.href = 'http://www.biaodaa.com/file/biaodaa.apk';
+      }
+    }
+
+    function jumpToApp() {
+      openAppUrl = localStorage.getItem("openAppUrl");
+      if (!openAppUrl) {
+        openAppUrl = "com.yaobang.biaodada://";
+      }
+      // var ifr = document.createElement('iframe');
+      //    ifr.src = openAppUrl;
+      //    ifr.style.display = 'none';
+      //    document.body.appendChild(ifr);
+      //     window.setTimeout(function(){
+      //           document.body.removeChild(ifr);
+      //     },1000);
+      window.location.href = openAppUrl;
+
+    }
+
+    function openNewApp(callback) {
+      let openUrl = localStorage.getItem("openAppUrl");
+      //检查app是否打开
+      function checkOpen(cb) {
+        var _clickTime = +(new Date());
+
+        function check(elsTime) {
+          if (elsTime > 3000 || document.hidden || document.webkitHidden) {
+            cb(1);
+          } else {
+            cb(0);
+          }
+        }
+        //启动间隔20ms运行的定时器，并检测累计消耗时间是否超过3000ms，超过则结束
+        var _count = 0,
+          intHandle;
+        intHandle = setInterval(function () {
+          _count++;
+          var elsTime = +(new Date()) - _clickTime;
+          if (_count >= 50 || elsTime > 3000) {
+            clearInterval(intHandle);
+            check(elsTime);
+          }
+        }, 20);
+      }
+
+      //在iframe 中打开APP
+      var ifr = document.createElement('iframe');
+      ifr.src = openUrl;
+      ifr.style.display = 'none';
+      if (callback) {
+        checkOpen(function (opened) {
+          callback && callback(opened);
+        });
+      }
+
+      document.body.appendChild(ifr);
+      setTimeout(function () {
+        document.body.removeChild(ifr);
+      }, 2000);
+    }
 
   </script>
 

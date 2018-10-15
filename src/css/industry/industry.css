@@ -4,6 +4,7 @@ body{
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
+
 .bdd_p{
   clear:both;
   overflow:hidden;
@@ -54,16 +55,19 @@ body{
   color:rgba(51,51,51,1);
   margin-left:32px;
   margin-right:25px;
-  line-height:32px;
+  line-height:240px;
   margin-top:48px;
-  padding-bottom:338px;
+  padding-bottom:334px;
 
 }
 .bdd_r_g_ro{
   float:left;
-  line-height:60px;
+  line-height:300px;
   display: inline-block;
 }
 table{
   margin-bottom:338px;
+}
+.bdd_R_mess{
+  line-height: 100px;
 }

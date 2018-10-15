@@ -3,17 +3,18 @@
   <div id="bdd_app" class="share-body">
    <div class="bdd_p "  style="margin-top:20px;"><span class="bdd_r_g">{{bddList.title?bddList.title:"-"}}</span></div>
     <div class="bdd_r_a">发布日期：{{bddList.time?bddList.time:"-"}}</div>
-    <div class="bdd_p_leo"><span  v-html='bddList.content'class="bdd_r_g_ro"></span></div>
+    <div class="bdd_p_leo"><div v-html='bddList.content'></div></div>
+   
   </div>
-  <!-- IOS -->
-  <div id="IOSGuide" class="col-xs-12 col-sm-12" style="display: none">
-    <img id="IOSGuideImg" src="../../assets/ios_guide.png">
-  </div>
+ <!-- IOS -->
+    <div id="IOSGuide" class="col-xs-12 col-sm-12" style="display: none">
+      <img id="IOSGuideImg" src="../../assets/ios_guide.png">
+    </div>
 
-  <!-- andriod -->
-  <div id="andriodGuide" class="col-xs-12 col-sm-12  hidden-lg hidden-md img-responsive" style="display: none">
-    <img id="andriodGuideImg" src="../../assets/andriod_guide.png">
-  </div>
+    <!-- andriod -->
+    <div id="andriodGuide" class="col-xs-12 col-sm-12  hidden-lg hidden-md img-responsive" style="display: none">
+      <img id="andriodGuideImg" src="../../assets/andriod_guide.png">
+    </div>
   <nav id="bdd_nav" class="navbar navbar-default navbar-fixed-bottom share-download">
     <div class="bdd_one">
       <img class="bdd_img" src="../../assets/logo.png" /> </div>
