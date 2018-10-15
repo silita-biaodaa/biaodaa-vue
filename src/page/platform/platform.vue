@@ -2,7 +2,7 @@
   <div class="share-container">
     <div id="bdd_app" class="share-body">
     <div class="bdd_p"  style="margin-top:20px;"><span class="bdd_r_g">{{bddList.title?bddList.title:"-"}}</span></div>
-    <div class="bdd_r_a">发布日期：{{bddList.releaseTime?bddList.releaseTime:"-"}}</div>
+    <div class="bdd_r_a">发布日期：{{showDate?showDate:"-"}}</div>
     <div class="bdd_p_le"><span class="bdd_r_g_ro"></span>{{bddList.remark?bddList.remark:"-"}}</div>
     <table width="100%" class="bdd_p_table">
       <tr>
@@ -44,55 +44,90 @@
 
 </template>
 <script>
-  import shuffling from '../../components/shuffling.vue';
-  import {
-    getJsonData
-  } from "../../api/index.js";
+import shuffling from "../../components/shuffling.vue";
+import { getJsonData } from "../../api/index.js";
 
-  export default {
-    name:"platform",
-    data () {
-      return {
-        bddList: {},
-        statDate:{}
+export default {
+  name: "platform",
+  data() {
+    return {
+      showDate:"",
+      bddList: {},
+      statDate: {}
+    };
+  },
+  mounted() {
+    this.getUp();
+  },
+  methods: {
+    getCurrentDate: function() {
+      let now = new Date();
+      let year = now.getFullYear();
+      let month = now.getMonth(); //得到月份
+      month = month - 1;
+      if (month < 10) {
+        month = "0" + month;
       }
+      return year + "-" + month + "-01";
     },
-    mounted() {
-      this.getUp();
-    },
-    methods: {
-      getCurrentDate:function(){
-         var now = new Date();
-         var year = now.getFullYear();
-         var month = now.getMonth();//得到月份
-         month = month - 1;
-         if (month < 10){
+
+    getLastDate: function(selectDate) {
+      let dateArr = selectDate.split("-");
+      if (dateArr && dateArr.length > 2) {
+        let year = dateArr[0];
+        let month = dateArr[1];
+        month = Number(month) - 1;
+        if (month>0&&month < 10) {
           month = "0" + month;
+        }else if(month==0||month=='00'){
+          month = 12;
+          year = Number(year) - 1;
         }
-        return year+"-"+month+"-01";
-      },
-      //平台公示列表
-      getUp: function(){
-        let type = this.$route.params.type;
-        let statDate = this.$route.params.statDate;
-         if(!type) {
-          localStorage.setItem("type", type);
-        }
-         if(!statDate){
-           localStorage.setItem("statDate",statDate);
-         }
-        let dataParam = JSON.stringify({
-          "statDate":this.getCurrentDate()
-        });
-        let openAppUrl = "com.yaobang.biaodada://?type="+type+"&statDate="+statDate;
-        localStorage.setItem("openAppUrl",openAppUrl);
-        getJsonData("/count/list", dataParam).then(res => {
-          console.log(666);
-          this.bddList = res.data;
-        });
+        return year + "-" + month + "-01";
       }
+
+      return selectDate;
+    },
+
+    getLateDate: function(lateDate) {
+      let dateArr = lateDate.split("-");
+      if (dateArr && dateArr.length > 2) {
+        let year = dateArr[0];
+        let month = dateArr[1];
+        month = Number(month) + 1;
+        if (month < 10) {
+          month = "0" + month;
+        }else if(Number(month)>12){
+          month = "01";
+          year =Number(year)+1;
+        }
+        return year + "-" + month + "-01";
+      }
+
+      return lateDate;
+    },
+
+    //平台公示列表
+    getUp: function() {
+      let type = this.$route.params.type;
+      let statDate = this.$route.params.statDate;
+      let selectDate = statDate ? this.getLastDate(statDate) : this.getCurrentDate()
+      let dataParam = JSON.stringify({
+        statDate:selectDate
+      });
+      console.log(2222);
+      let openAppUrl =
+        "com.yaobang.biaodada://?type=" + type + "&statDate=" + statDate;
+      localStorage.setItem("openAppUrl", openAppUrl);
+      getJsonData("/count/list", dataParam).then(res => {
+        console.log(666);
+        let bddList =  res.data;
+        this.bddList = bddList;
+        this.showDate = this.getLateDate(bddList.releaseTime);
+      });
     }
   }
+};
 </script>
 <style src = "../../css/platform/platform.css">
 </style>
