@@ -1,9 +1,9 @@
-<html><head><meta charset=utf-8><meta content=yes name=apple-mobile-web-app-capable><meta content=yes name=apple-touch-fullscreen><meta content="telephone=no,email=no" name=format-detection><meta name=mobile-web-app-capable content=yes><link href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css rel=stylesheet><script src=http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js></script><script src=http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/makegrid.js></script><script src=http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js></script><script src=http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js></script><script src=./static/js/wx.js></script><title>标大大分享页面</title><style></style><link href=/static/css/app.7a847f6a5041e00fed5e7ccdcc941b56.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript>console.log(111)
+<html><head><meta charset=utf-8><meta content=yes name=apple-mobile-web-app-capable><meta content=yes name=apple-touch-fullscreen><meta content="telephone=no,email=no" name=format-detection><meta name=mobile-web-app-capable content=yes><link href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css rel=stylesheet><script src=http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js></script><script src=http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/makegrid.js></script><script src=http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js></script><script src=http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js></script><script src=./static/js/wx.js></script><title>标大大分享页面</title><style></style><link href=/static/css/app.7a847f6a5041e00fed5e7ccdcc941b56.css rel=stylesheet></head><body><div style=display:none><img src=./static/img/logo.png alt=""></div>　　<div id=app></div><script type=text/javascript>console.log(111)
   var openAppUrl = "";
   window.onload = function () {
 
     if (isWeixnQq()) {
-      checkAuthorToWx();
+      // checkAuthorToWx();
     }
     window.browser = {
       /*判断访问终端*/
@@ -56,7 +56,7 @@
   }
 
   function checkAuthorToWx() {
-    let url = window.document.location.href;
+    let url = location.href.split("#")[0];
 
     let param = {
       "appid": "wx393124fdad606b1d",
@@ -100,19 +100,31 @@
 
       signature: encodeURIComponent(signature), // 必填，签名，见附录1
 
-      jsApiList: jsapiTicket
-    });
+      jsApiList: [
 
+        "onMenuShareTimeline",
+
+        "onMenuShareAppMessage", //分享给好友
+
+        "onMenuShareQQ",
+
+        "onMenuShareWeibo",
+
+        "onMenuShareQZone"
+
+      ]
+    });
     wx.ready(function () {
-      appUrl = appUrl+"company/5d86f82e66452e2db067e42ca327c629";
+      appUrl = appUrl + "company/5d86f82e66452e2db067e42ca327c629";
       alert(appUrl);
 
       //分享好友
       var shareData = {
         title: document.title,
         desc: "",
-        link: appUrl,
-        imgUrl: imageUrl
+        desc: '分享描述',
+        link: location.href.split("#")[0],
+        imgUrl: "static/img/logo.png"
       };
       wx.onMenuShareAppMessage(shareData);
       wx.onMenuShareTimeline(shareData);
