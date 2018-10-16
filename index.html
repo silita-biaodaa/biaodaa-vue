@@ -28,11 +28,9 @@
   console.log(111)
   var openAppUrl = "";
   window.onload = function () {
-    // var u = navigator.userAgent,
-    if ((u.toLowerCase().indexOf('micromessenger')) > -1 || u.toLowerCase().match(/QQ/i) == "qq") {
 
+    if (isWeixnQq()) {
       checkAuthorToWx();
-
     }
     window.browser = {
       /*判断访问终端*/
@@ -95,7 +93,7 @@
     $.ajax({
       type: 'POST',
       dataType: 'json',
-      async:true,
+      async: true,
       cache: false,
       url: "http://wx.biaodaa.com/weixin/fetchJsapiSignature",
       data: paramJson,
@@ -106,22 +104,17 @@
       },
       error: function (data) {
         console.log(data)
-
-        //alert("error");
-
       }
-
     });
   }
-
 
   function parseResult(result) {
     let nonceStr = result.jsapiSignature.noncestr;
     let timestamp = result.jsapiSignature.timestamp;
     let appUrl = result.jsapiSignature.url;
+    let imageUrl = appUrl.split("#")[0] + "static/img/logo.png";
     let signature = result.jsapiSignature.signature;
     let jsapiTicket = result.jsapiSignature.jsapiTicket;
-    alert(appUrl);
     wx.config({
 
       debug: false, // 开启调试模式为true后可以通过alert弹窗将公众号签名等结果反馈出来
@@ -140,12 +133,13 @@
     wx.ready(function () {
 
       alert(appUrl);
+
       //分享好友
       var shareData = {
         title: document.title,
         desc: "",
         link: appUrl,
-        imgUrl: './static/img/logo.png'
+        imgUrl: imageUrl
       };
       wx.onMenuShareAppMessage(shareData);
       wx.onMenuShareTimeline(shareData);
@@ -154,6 +148,17 @@
       console.log(res.errMsg + "错误信息");
     });
   }
+
+  function isWeixnQq() {
+    var ua = navigator.userAgent.toLowerCase();
+    if (ua.match(/MicroMessenger/i) == "micromessenger") {
+      return "weixin";
+    } else if (ua.match(/QQ/i) == "qq") {
+      return "QQ";
+    }
+    return false;
+  }
+
   //　　去掉微信二次自带的两个参数需要用到三个函数，第一个函数
   function fnGetQueryString(key) { //正则获取url后面的参数值，如?env=dev&exp=123中可以通过fnGetQueryString('exp')=>得到123
     var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)");
