@@ -86,43 +86,39 @@
 
   function checkAuthorToWx() {
     let url = window.document.location.href;
-    if (url.indexOf("?from")) {
-      let indexN = url.indexOf("?from");
-      let appUrl = url.substring(0, indexN); //取前部分
-      window.document.location.href = appUrl;
-    } else {
-      let param = {
-        "appid": "wx393124fdad606b1d",
-        "url": url
-      };
-      let paramJson = JSON.stringify(param);
-      $.ajax({
-        type: 'POST',
-        dataType: 'json',
-        async:true,
-        cache: false,
-        url: "http://wx.biaodaa.com/weixin/fetchJsapiSignature",
-        data: paramJson,
-        contentType: "application/json",
-        success: function (data) {
-          parseResult(data);
-          // alert(data);
-        },
-        error: function (data) {
-          console.log(data)
 
-          //alert("error");
+    let param = {
+      "appid": "wx393124fdad606b1d",
+      "url": url
+    };
+    let paramJson = JSON.stringify(param);
+    $.ajax({
+      type: 'POST',
+      dataType: 'json',
+      async:true,
+      cache: false,
+      url: "http://wx.biaodaa.com/weixin/fetchJsapiSignature",
+      data: paramJson,
+      contentType: "application/json",
+      success: function (data) {
+        parseResult(data);
+        // alert(data);
+      },
+      error: function (data) {
+        console.log(data)
 
-        }
+        //alert("error");
 
-      });
-    }
+      }
+
+    });
   }
+
 
   function parseResult(result) {
     let nonceStr = result.jsapiSignature.noncestr;
     let timestamp = result.jsapiSignature.timestamp;
-    let url = result.jsapiSignature.url;
+    let appUrl = result.jsapiSignature.url;
     let signature = result.jsapiSignature.signature;
     let jsapiTicket = result.jsapiSignature.jsapiTicket;
     wx.config({
@@ -141,13 +137,13 @@
     });
 
     wx.ready(function () {
-      var url = location.href.split('#')[0];
-      alert(url);
+
+      alert(appUrl);
       //分享好友
       var shareData = {
         title: document.title,
         desc: "",
-        link: url,
+        link: appUrl,
         imgUrl: './static/img/logo.png'
       };
       wx.onMenuShareAppMessage(shareData);
