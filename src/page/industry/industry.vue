@@ -3,7 +3,7 @@
   <div id="bdd_app" class="share-body">
    <div class="bdd_p "  style="margin-top:20px;"><span class="bdd_r_g">{{bddList.title?bddList.title:"-"}}</span></div>
     <div class="bdd_r_a">发布日期：{{bddList.time?bddList.time:"-"}}</div>
-    <div class="bdd_p_leo"><div v-html='bddList.content'></div></div>
+    <div class="bdd_p_leo"><div class="bdd_r_g_ro"  v-html='bddList.content'></div></div>
    
   </div>
  <!-- IOS -->

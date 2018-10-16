@@ -16,6 +16,8 @@
   <script src="./static/js/wx.js"></script>
   <title>标大大分享页面</title>
   <style>
+
+
   </style>
 </head>
 
@@ -27,11 +29,11 @@
     var openAppUrl = "";
     window.onload = function () {
       // var u = navigator.userAgent,
+      if ((u.toLowerCase().indexOf('micromessenger')) > -1 || u.toLowerCase().match(/QQ/i) == "qq") {
 
-      //if ((u.toLowerCase().indexOf('micromessenger')) > -1 || u.toLowerCase().match(/QQ/i) == "qq") {
-      checkAuthorToWx();
-      // }
+        checkAuthorToWx();
 
+      }
       window.browser = {
         /*判断访问终端*/
         versions: function () {
@@ -82,44 +84,38 @@
       };
     }
 
-    // function initView(){
-    //   if (browser.versions.mobile || browser.versions.android){
-    //     if (browser.versions.weixin||browser.versions.dingtalk||browser.versions.qq) {
-    //     }else{
-    //       jumpToApp();
-    //     }
-    //   }
-    // }
-
     function checkAuthorToWx() {
       let url = window.document.location.href;
-      let param = { "appid": "wx393124fdad606b1d", "url": "share.biaodaa.com" };
-      let paramJson = JSON.stringify(param);
-      $.ajax({
-        type: 'POST',
-        dataType: 'json',
-        url: "http://wx.biaodaa.com/weixin/fetchJsapiSignature",
-        data: paramJson,
-        contentType: "application/json",
-        success: function (data) {
-          parseResult(data);
-          // alert(data);
-        },
-        error: function (data) {
-          console.log(data)
+      if (url.indexOf("?from")) {
+        let indexN = url.indexOf("?from");
+        let appUrl = url.substring(0, indexN); //取前部分
+        window.document.location.href = appUrl;
+      } else {
+        let param = {
+          "appid": "wx393124fdad606b1d",
+          "url": url
+        };
+        let paramJson = JSON.stringify(param);
+        $.ajax({
+          type: 'POST',
+          dataType: 'json',
+          url: "http://wx.biaodaa.com/weixin/fetchJsapiSignature",
+          data: paramJson,
+          contentType: "application/json",
+          success: function (data) {
+            parseResult(data);
+            // alert(data);
+          },
+          error: function (data) {
+            console.log(data)
 
-          //alert("error");
+            //alert("error");
 
-        }
+          }
 
-      });
+        });
+      }
     }
-
-
-    // $.post("http://wx.biaodaa.com/weixin/fetchJsapiSignature", paramJson, function (result) {
-
-
-    // });
 
     function parseResult(result) {
       let nonceStr = result.jsapiSignature.noncestr;
@@ -137,7 +133,7 @@
 
         nonceStr: nonceStr, // 必填，生成签名的随机串
 
-        signature: encodeURIComponent(signature),// 必填，签名，见附录1
+        signature: encodeURIComponent(signature), // 必填，签名，见附录1
 
         jsApiList: jsapiTicket
       });
@@ -152,28 +148,7 @@
           imgUrl: './static/img/logo.png',
           link: "share.biaodaa.com"
         };
-        wx.onMenuShareAppMessage(shareData);
-        wx.onMenuShareTimeline(shareData);
       });
-
-      //分享给朋友
-      wx.onMenuShareAppMessage({
-        title: document.title,
-        desc: '222',
-        link: window.document.location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-        imgUrl: './static/img/logo.png',
-        success: function () {
-          // 用户确认分享后执行的回调函数
-        },
-        cancel: function () {
-          // 用户取消分享后执行的回调函数
-        },
-        fail: function (res) {
-          //alert(res.errMsg);
-          //用户分享失败取消的回调函数
-        }
-      });
-
     }
 
 
@@ -185,7 +160,7 @@
     };
 
     //   第二个函数
-    function funcUrlDel(name) {//删除url指定参数名并返回新的url
+    function funcUrlDel(name) { //删除url指定参数名并返回新的url
       var loca = window.location;
       var baseUrl = loca.origin + loca.pathname + "?";
       var query = loca.search.substr(1);
@@ -204,7 +179,7 @@
     };
 
     //第三个函数
-    function getlinkSearch(key, reqStr) {//这个作用同fnGetQueryString(key)函数差不多，不过它将reqStr参数替代了window.searsh获取的东西,因为上个函数在删除了url的某一参数后会返回一个新的带?参数查询的链接
+    function getlinkSearch(key, reqStr) { //这个作用同fnGetQueryString(key)函数差不多，不过它将reqStr参数替代了window.searsh获取的东西,因为上个函数在删除了url的某一参数后会返回一个新的带?参数查询的链接
 
       var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)");
       var result = reqStr.substr(1).match(reg);
@@ -212,16 +187,16 @@
 
     };
     //最关键也是最后一步就是刷新页面回到去除微信二次分享自带参数的初始页面了：
-    function refreshUrl() {//强制刷新到不带二次分享参数页面
+    function refreshUrl() { //强制刷新到不带二次分享参数页面
       var url = "",
         reqStr = "";
-      if (fnGetQueryString('from')) {//from为微信二次分享自带参数
+      if (fnGetQueryString('from')) { //from为微信二次分享自带参数
         url = funcUrlDel('from');
         var reqIndex = url.indexOf('?');
-        reqStr = url.substr(reqIndex);//截取去除from参数后的地址
+        reqStr = url.substr(reqIndex); //截取去除from参数后的地址
         console.log(url, reqStr);
-        if (getlinkSearch('isappinstalled', reqStr)) {//isappinstalled为微信二次分享自带参数
-          url = url.substr(0, url.indexOf('&'));//截取去除isappinstalled参数后的地址
+        if (getlinkSearch('isappinstalled', reqStr)) { //isappinstalled为微信二次分享自带参数
+          url = url.substr(0, url.indexOf('&')); //截取去除isappinstalled参数后的地址
           console.log(url);
           window.location.href = url;
         } else {
@@ -232,6 +207,7 @@
 
     };
     refreshUrl();
+
     function downloadApp() {
       if (browser.versions.mobile || browser.versions.android || browser.versions.ios) {
         if (browser.versions.weixin) {

@@ -7,7 +7,7 @@ body{
 
 .bdd_p{
   clear:both;
-  overflow:hidden;
+  /* overflow:hidden; */
   width: 90%;
   font-size:36px;
   font-family:PingFangSC-Medium;
@@ -45,9 +45,14 @@ body{
   line-height:24px;
 
 }
+.bdd_r_g_ro{
+  float:left;
+  line-height:300px;
+  display: inline-block;
+}
 .bdd_p_leo{
   clear:both;
-  /*overflow:hidden;*/
+  overflow:hidden;
   width: 90%;
   font-size:32px;
   font-family:PingFangSC-Regular;
@@ -58,16 +63,11 @@ body{
   line-height:240px;
   margin-top:48px;
   padding-bottom:334px;
+}
 
-}
-.bdd_r_g_ro{
-  float:left;
-  line-height:300px;
-  display: inline-block;
-}
 table{
   margin-bottom:338px;
 }
-.bdd_R_mess{
-  line-height: 100px;
+.bdd_d_lop{
+  line-height: 3000px;
 }
