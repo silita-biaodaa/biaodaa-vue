@@ -32,7 +32,7 @@
   <script type="text/javascript">
     console.log(111)
     var openAppUrl = checkUrl(location.href);
-    var paramUrl = getShortUrl(openAppUrl.split("#")[0]);
+    var paramUrl = openAppUrl.split("#")[0];
 
 
     window.onload = function () {
@@ -121,7 +121,7 @@
       let nonceStr = result.jsapiSignature.noncestr;
       let timestamp = result.jsapiSignature.timestamp;
       let appUrl = result.jsapiSignature.url;
-      alert("appUrl2:"+paramUrl)
+      alert("appUrl2:"+appUrl)
       let imageUrl = appUrl.split("#")[0] + "static/img/logo2.png";
       let signature = result.jsapiSignature.signature;
       let jsapiTicket = result.jsapiSignature.jsapiTicket;
