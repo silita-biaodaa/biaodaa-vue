@@ -6,6 +6,7 @@
   <meta content="yes" name="apple-touch-fullscreen" />
   <meta content="telephone=no,email=no" name="format-detection" />
   <meta name="mobile-web-app-capable" content="yes">
+  <meta name="description" content="标大大分享页面，此处为分享描述，修改此处即可" />
   <!-- 引入 Bootstrap -->
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <!-- 淘宝flexible -->
@@ -15,6 +16,7 @@
   <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="./static/js/wx.js"></script>
   <title>标大大分享页面</title>
+
   <style>
 
 
@@ -33,9 +35,9 @@
   var openAppUrl = "";
   window.onload = function () {
 
-    if (isWeixnQq()) {
+    //if (isWeixnQq()) {
       // checkAuthorToWx();
-    }
+   // }
     window.browser = {
       /*判断访问终端*/
       versions: function () {
@@ -49,7 +51,6 @@
         } else {
           $("body").css("-webkit-overflow-scrolling", "touch");
         }
-
         return {
           trident: u.indexOf('Trident') > -1,
           /*IE内核*/
@@ -85,7 +86,6 @@
       language: (navigator.browserLanguage || navigator.language).toLowerCase()
     };
   }
-
   function checkAuthorToWx() {
     let url = location.href.split("#")[0];
 
@@ -95,7 +95,7 @@
     };
     let paramJson = JSON.stringify(param);
     $.ajax({
-      type: 'POST',
+      type: 'GET',
       dataType: 'json',
       async: true,
       cache: false,
@@ -111,7 +111,6 @@
       }
     });
   }
-
   function parseResult(result) {
     let nonceStr = result.jsapiSignature.noncestr;
     let timestamp = result.jsapiSignature.timestamp;
@@ -152,7 +151,6 @@
       //分享好友
       var shareData = {
         title: document.title,
-        desc: "",
         desc: '分享描述',
         link: location.href.split("#")[0],
         imgUrl: "static/img/logo.png"
