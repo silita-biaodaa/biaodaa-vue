@@ -22,6 +22,10 @@
 </head>
 
 <body>
+<div style="display:none">
+  <img src="./static/img/logo.png" alt="" />
+
+</div>　　
 <!-- 构建文件将会注入这里 -->
 <div id="app"></div>
 <script type="text/javascript">
@@ -30,7 +34,7 @@
   window.onload = function () {
 
     if (isWeixnQq()) {
-      checkAuthorToWx();
+      // checkAuthorToWx();
     }
     window.browser = {
       /*判断访问终端*/
@@ -83,7 +87,7 @@
   }
 
   function checkAuthorToWx() {
-    let url = window.document.location.href;
+    let url = location.href.split("#")[0];
 
     let param = {
       "appid": "wx393124fdad606b1d",
@@ -127,19 +131,31 @@
 
       signature: encodeURIComponent(signature), // 必填，签名，见附录1
 
-      jsApiList: jsapiTicket
-    });
+      jsApiList: [
 
+        "onMenuShareTimeline",
+
+        "onMenuShareAppMessage", //分享给好友
+
+        "onMenuShareQQ",
+
+        "onMenuShareWeibo",
+
+        "onMenuShareQZone"
+
+      ]
+    });
     wx.ready(function () {
-      appUrl = appUrl+"company/5d86f82e66452e2db067e42ca327c629";
+      appUrl = appUrl + "company/5d86f82e66452e2db067e42ca327c629";
       alert(appUrl);
 
       //分享好友
       var shareData = {
         title: document.title,
         desc: "",
-        link: appUrl,
-        imgUrl: imageUrl
+        desc: '分享描述',
+        link: location.href.split("#")[0],
+        imgUrl: "static/img/logo.png"
       };
       wx.onMenuShareAppMessage(shareData);
       wx.onMenuShareTimeline(shareData);
