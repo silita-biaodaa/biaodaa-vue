@@ -32,6 +32,8 @@
   <script type="text/javascript">
     console.log(111)
     var openAppUrl = checkUrl(location.href);
+    var paramUrl = getShortUrl(openAppUrl.split("#")[0]);
+
 
     window.onload = function () {
 
@@ -93,8 +95,9 @@
 
       let param = {
         "appid": "wx393124fdad606b1d",
-        "url": getShortUrl(openAppUrl.split("#")[0])
+        "url": paramUrl
       };
+      alert("appUrl1:"+paramUrl);
       let paramJson = JSON.stringify(param);
       $.ajax({
         type: 'POST',
@@ -118,6 +121,7 @@
       let nonceStr = result.jsapiSignature.noncestr;
       let timestamp = result.jsapiSignature.timestamp;
       let appUrl = result.jsapiSignature.url;
+      alert("appUrl2:"+paramUrl)
       let imageUrl = appUrl.split("#")[0] + "static/img/logo2.png";
       let signature = result.jsapiSignature.signature;
       let jsapiTicket = result.jsapiSignature.jsapiTicket;
