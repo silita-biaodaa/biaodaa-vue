@@ -15,11 +15,3 @@ new Vue({
   components: { App }
 })
 
-Vue.filter('phoneFilter', function(value) {
-  if(value&&value.indexOf(";")!=-1){
-    let newStrArr = value.split(";");
-
-      return newStrArr[1];
-  }
-  return value;
-});
