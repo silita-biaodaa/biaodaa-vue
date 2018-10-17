@@ -25,7 +25,6 @@
 <body>
     <div style="display:none">
         <img src="./static/img/logo2.png" alt="" />
-
     </div>　　
   <!-- 构建文件将会注入这里 -->
   <div id="app"></div>
@@ -86,9 +85,9 @@
         language: (navigator.browserLanguage || navigator.language).toLowerCase()
       };
     }
-   
+
     function checkAuthorToWx() {
-      
+
 
       let param = {
         "appid": "wx393124fdad606b1d",
@@ -147,7 +146,7 @@
         ]
       });
       wx.ready(function () {
-       
+
         //分享好友
         var shareData = {
           title: document.title,
@@ -158,7 +157,7 @@
         wx.onMenuShareAppMessage(shareData);
         wx.onMenuShareTimeline(shareData);
         alert("微信接口调通了，验证通过后注释此行代码");
-        window.location.href=openAppUrl; 
+        window.location.href=openAppUrl;
       });
       wx.error(function (res) {
         console.log(res.errMsg + "错误信息");
