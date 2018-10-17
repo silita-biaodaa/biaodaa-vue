@@ -1,4 +1,4 @@
-<html><head><meta charset=utf-8><meta content=yes name=apple-mobile-web-app-capable><meta content=yes name=apple-touch-fullscreen><meta content="telephone=no,email=no" name=format-detection><meta name=mobile-web-app-capable content=yes><meta name=description content=标大大，这里添加描述内容><link href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css rel=stylesheet><script src=http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js></script><script src=http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/makegrid.js></script><script src=http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js></script><script src=http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js></script><script src=./static/js/wx.js></script><title>标大大分享页面</title><style></style><link href=/static/css/app.1cf48ed8daee79f579408ad9a00122e9.css rel=stylesheet></head><body><div style=display:none><img src=./static/img/logo2.png alt=""></div>　　<div id=app></div><script type=text/javascript>console.log(111)
+<html><head><meta charset=utf-8><meta content=yes name=apple-mobile-web-app-capable><meta content=yes name=apple-touch-fullscreen><meta content="telephone=no,email=no" name=format-detection><meta name=mobile-web-app-capable content=yes><meta name=description content=标大大，这里添加描述内容><link href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css rel=stylesheet><script src=http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js></script><script src=http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/makegrid.js></script><script src=http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js></script><script src=http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js></script><script src=./static/js/wx.js></script><title>标大大分享页面</title><style></style><link href=/static/css/app.1cf48ed8daee79f579408ad9a00122e9.css rel=stylesheet></head><body><div style=display:none><img src=./static/img/logo2.png alt=""></div><div id=app></div><script type=text/javascript>console.log(111)
     var openAppUrl = checkUrl(location.href);
     window.onload = function () {
 
@@ -60,7 +60,7 @@
 
       let param = {
         "appid": "wx393124fdad606b1d",
-        "url": openAppUrl
+        "url": location.href
       };
       let paramJson = JSON.stringify(param);
       $.ajax({
@@ -100,36 +100,94 @@
 
         signature: encodeURIComponent(signature), // 必填，签名，见附录1
 
-        jsApiList: [
+        jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ', 'onMenuShareWeibo',
+          'onMenuShareQZone'
+        ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
 
-          "onMenuShareTimeline",
-
-          "onMenuShareAppMessage", //分享给好友
-
-          "onMenuShareQQ",
-
-          "onMenuShareWeibo",
-
-          "onMenuShareQZone"
-
-        ]
       });
       wx.ready(function () {
+        // 分享到朋友圈
+        wx.onMenuShareTimeline({
+          title: document.title, // 分享标题
+          desc: "分享描述", // 分享描述
+          link: location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+          imgUrl: location.href.split("#")[0] + "/static/img/logo2.png", // 分享图标
+          success: function () {
+            // 用户确认分享后执行的回调函数
+            alert("微信接口调通了，验证通过后注释此行代码");
+            window.location.href = openAppUrl;
+          },
+          cancel: function () {
+            // 用户取消分享后执行的回调函数
+          }
+        });
 
-        //分享好友
-        var shareData = {
-          title: document.title,
-          desc: '分享描述',
-          link: openAppUrl,
-          imgUrl: "static/img/logo.png"
-        };
-        wx.onMenuShareAppMessage(shareData);
-        wx.onMenuShareTimeline(shareData);
-        alert("微信接口调通了，验证通过后注释此行代码");
-        window.location.href=openAppUrl;
-      });
-      wx.error(function (res) {
-        console.log(res.errMsg + "错误信息");
+        // 分享给朋友
+        wx.onMenuShareAppMessage({
+          title: document.title, // 分享标题
+          desc: "分享描述", // 分享描述
+          link: location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+          imgUrl: location.href.split("#")[0] + "/static/img/logo2.png", // 分享图标
+          success: function () {
+            // 用户确认分享后执行的回调函数
+            alert("微信接口调通了，验证通过后注释此行代码");
+            window.location.href = openAppUrl;
+          },
+          cancel: function () {
+            // 用户取消分享后执行的回调函数
+          }
+        });
+
+        // 分享到QQ
+        wx.onMenuShareQQ({
+          title: document.title, // 分享标题
+          desc: "分享描述", // 分享描述
+          link: location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+          imgUrl: location.href.split("#")[0] + "/static/img/logo2.png", // 分享图标
+          success: function () {
+            // 用户确认分享后执行的回调函数
+            alert("微信接口调通了，验证通过后注释此行代码");
+            window.location.href = openAppUrl;
+          },
+          cancel: function () {
+            // 用户取消分享后执行的回调函数
+          }
+        });
+
+        // 分享到腾讯微博
+        wx.onMenuShareWeibo({
+          title: document.title, // 分享标题
+          desc: "分享描述", // 分享描述
+          link: location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+          imgUrl: location.href.split("#")[0] + "/static/img/logo2.png", // 分享图标
+          success: function () {
+            // 用户确认分享后执行的回调函数
+            alert("微信接口调通了，验证通过后注释此行代码");
+            window.location.href = openAppUrl;
+          },
+          cancel: function () {
+            // 用户取消分享后执行的回调函数
+
+          }
+        });
+        // 分享到QQ空间
+        wx.onMenuShareQZone({
+          title: document.title, // 分享标题
+          desc: "分享描述", // 分享描述
+          link: location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+          imgUrl: location.href.split("#")[0] + "/static/img/logo2.png", // 分享图标
+          success: function () {
+            // 用户确认分享后执行的回调函数
+            alert("微信接口调通了，验证通过后注释此行代码");
+            window.location.href = openAppUrl;
+          },
+          cancel: function () {
+            // 用户取消分享后执行的回调函数
+          }
+        });
+        wx.error(function (res) {
+          console.log(res.errMsg + "错误信息");
+        });
       });
     }
 
@@ -142,21 +200,22 @@
       }
       return false;
     }
-    function checkUrl(strUrl){
+
+    function checkUrl(strUrl) {
       //朋友圈   from=timeline&isappinstalled=0
       //微信群   from=groupmessage&isappinstalled=0
       //好友分享 from=singlemessage&isappinstalled=0
       let pyqStr = "?from=timeline&isappinstalled=0";
       let wxqStr = "?from=groupmessage&isappinstalled=0";
       let hyfxStr = "?from=singlemessage&isappinstalled=0";
-        if(strUrl.indexOf(pyqStr)>-1){
-          return strUrl.split(pyqStr)[0]+strUrl.split(pyqStr)[1];
-        }else if(strUrl.indexOf(wxqStr)>-1){
-          return strUrl.split(wxqStr)[0]+strUrl.split(wxqStr)[1];
-        }else if(strUrl.indexOf(hyfxStr)>-1){
-          return strUrl.split(hyfxStr)[0]+strUrl.split(hyfxStr)[1];
-        }
-        return strUrl;
+      if (strUrl.indexOf(pyqStr) > -1) {
+        return strUrl.split(pyqStr)[0] + strUrl.split(pyqStr)[1];
+      } else if (strUrl.indexOf(wxqStr) > -1) {
+        return strUrl.split(wxqStr)[0] + strUrl.split(wxqStr)[1];
+      } else if (strUrl.indexOf(hyfxStr) > -1) {
+        return strUrl.split(hyfxStr)[0] + strUrl.split(hyfxStr)[1];
+      }
+      return strUrl;
 
     }
 
@@ -214,7 +273,7 @@
       }
 
     };
-  //  refreshUrl();
+    //  refreshUrl();
 
     function downloadApp() {
       if (browser.versions.mobile || browser.versions.android || browser.versions.ios) {
