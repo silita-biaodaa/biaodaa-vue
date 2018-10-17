@@ -1,5 +1,7 @@
 <html><head><meta charset=utf-8><meta content=yes name=apple-mobile-web-app-capable><meta content=yes name=apple-touch-fullscreen><meta content="telephone=no,email=no" name=format-detection><meta name=mobile-web-app-capable content=yes><meta name=description content=标大大，这里添加描述内容><link href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css rel=stylesheet><script src=http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js></script><script src=http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/makegrid.js></script><script src=http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js></script><script src=http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js></script><script src=./static/js/wx.js></script><title>标大大分享页面</title><style></style><link href=/static/css/app.1cf48ed8daee79f579408ad9a00122e9.css rel=stylesheet></head><body><div style=display:none><img src=./static/img/logo2.png alt=""></div><div id=app></div><script type=text/javascript>console.log(111)
     var openAppUrl = checkUrl(location.href);
+    var paramUrl = getShortUrl(openAppUrl.split("#")[0]);
+
 
     window.onload = function () {
 
@@ -61,8 +63,9 @@
 
       let param = {
         "appid": "wx393124fdad606b1d",
-        "url": getShortUrl(openAppUrl.split("#")[0])
+        "url": paramUrl
       };
+      alert("appUrl1:"+paramUrl);
       let paramJson = JSON.stringify(param);
       $.ajax({
         type: 'POST',
@@ -86,6 +89,7 @@
       let nonceStr = result.jsapiSignature.noncestr;
       let timestamp = result.jsapiSignature.timestamp;
       let appUrl = result.jsapiSignature.url;
+      alert("appUrl2:"+paramUrl)
       let imageUrl = appUrl.split("#")[0] + "static/img/logo2.png";
       let signature = result.jsapiSignature.signature;
       let jsapiTicket = result.jsapiSignature.jsapiTicket;
