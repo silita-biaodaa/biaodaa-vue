@@ -4,7 +4,7 @@
       <div class="bdd_i_o" style="margin-top:20px;"><span class="bdd_k_o">{{comBaseData?comBaseData.comName:"-"}}</span></div>
       <div class="bdd_c"><span class="bdd_a">{{comBaseData.legalPerson?comBaseData.legalPerson:"--"}}</span><span class="bdd_b">{{comBaseData.regisCapital?comBaseData.regisCapital:"--"}}</span></div>
       <div class="bdd_plone">联系信息</div>
-      <div class="bdd_v"><span class="bdd_pl">联系电话</span><span class="bdd_k">{{comBaseData.phone?comBaseData.phone:"-"|phoneFilter}}</span></div>
+      <div class="bdd_v"><span class="bdd_pl">联系电话</span><span class="bdd_k">{{phoneF?phoneF:"-"}}</span></div>
       <div class="bdd_v"><span class="bdd_pl">官网地址</span><span class="bdd_k">{{comBaseData.comUrl?comBaseData.comUrl:"-"}}</span></div>
       <div class="bdd_v"><span class="bdd_pl">邮箱地址</span><span class="bdd_k">{{comBaseData.email?comBaseData.email:"-"}}</span></div>
       <div class="bdd_main">
@@ -67,26 +67,25 @@
 </template>
 
 <script>
-  import shuffling from '../components/shuffling.vue';
-  import {
-    getJsonData
-  } from "../api/index.js";
+  import shuffling from "../components/shuffling.vue";
+  import { getJsonData } from "../api/index.js";
 
   export default {
-    name: 'index',
+    name: "index",
     data() {
       return {
-        id: '',
+        id: "",
         comBaseData: {},
         qualityList: [],
         dataList: [],
+        phoneF:'',
         bddList: {},
-        shortComRange: '',
-        longComRange: '',
+        shortComRange: "",
+        longComRange: "",
         isLongText: false,
         isShowAllBtn: false,
-        textBtn: '展开全部'
-      }
+        textBtn: "展开全部"
+      };
     },
     mounted() {
       this.getParams();
@@ -101,11 +100,20 @@
         let openAppUrl = "com.yaobang.biaodada://?type=3&id=" + comId;
         localStorage.setItem("openAppUrl", openAppUrl);
       },
+      phoneFilter: function(value) {
+        if (value && value.indexOf(";") != -1) {
+          let newStrArr = value.split(";");
+
+          return newStrArr[1];
+        }
+        return value;
+      },
       gocollection: function() {
         let comId = this.$route.params.comId;
         getJsonData("/company/" + comId).then(res => {
           let baseData = res.data;
           this.comBaseData = baseData;
+          this.phoneF = this.phoneFilter(baseData.phone);
           let longComRange = baseData.comRange;
           this.longComRange = longComRange;
           if (longComRange && longComRange.length > 40) {
@@ -121,11 +129,11 @@
         if (isLongText) {
           if (longComRange && longComRange.length > 40) {
             this.shortComRange = longComRange.substring(0, 40);
-            this.textBtn = '展开全部';
+            this.textBtn = "展开全部";
           }
         } else {
           this.shortComRange = longComRange;
-          this.textBtn = '收起';
+          this.textBtn = "收起";
         }
         this.isLongText = !isLongText;
       },
@@ -157,15 +165,15 @@
       getUp: function() {
         let comId = this.$route.params.comId;
         let dataParam = JSON.stringify({
-          'comId': comId
+          comId: comId
         });
         getJsonData("/company/shareTotal", dataParam).then(res => {
           console.log(666);
           this.bddList = res.data;
         });
-      },
-    },
-  }
+      }
+    }
+  };
 </script>
 <style src="../css/index.css">
 </style>
