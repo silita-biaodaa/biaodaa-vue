@@ -29,8 +29,8 @@
   console.log(111)
   var openAppUrl = location.href;//网页全路径
   var newAppUrl = checkUrl(openAppUrl);//去除微信from相关参数的域名
-  var paramUrl = newAppUrl;//openAppUrl.split("#")[0];//去除参数且带from参数的域名
-  var domianUrl = newAppUrl.split("#")[0];//网页域名
+  var paramUrl = openAppUrl.split("#")[0];//去除参数且带from参数的域名
+
   var showImgUrl = "http://pre.biaodaa.com/static/img/logo2.png"; // 分享图标,发布生产要替换为生产的
   window.onload = function () {
     if (isWeixnQq()) {
@@ -143,7 +143,7 @@
         imgUrl:showImgUrl, // 分享图标
         success: function () {
           // 用户确认分享后执行的回调函数
-          alert("微信接口调通了，验证通过后注释此行代码"+domianUrl);
+          alert("微信接口调通了，验证通过后注释此行代码"+newAppUrl);
           window.location.href = newAppUrl;
         },
         cancel: function () {
