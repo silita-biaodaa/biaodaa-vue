@@ -139,7 +139,7 @@
       wx.onMenuShareTimeline({
         title: localStorage.getItem("showTitle")?localStorage.getItem("showTitle"):document.title, // 分享标题
         desc: "分享描述", // 分享描述
-        link:paramUrl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+        link:newAppUrl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
         imgUrl:showImgUrl, // 分享图标
         success: function () {
           // 用户确认分享后执行的回调函数
@@ -155,7 +155,7 @@
       wx.onMenuShareAppMessage({
         title: localStorage.getItem("showTitle")?localStorage.getItem("showTitle"):document.title, // 分享标题
         desc: localStorage.getItem("showDescription")?localStorage.getItem("showDescription"): "分享描述", // 分享描述
-        link:paramUrl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+        link:newAppUrl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
         imgUrl: showImgUrl, // 分享图标,
         success: function () {
           // 用户确认分享后执行的回调函数
@@ -171,7 +171,7 @@
       wx.onMenuShareQQ({
         title: localStorage.getItem("showTitle")?localStorage.getItem("showTitle"):document.title, // 分享标题
         desc: "分享描述", // 分享描述
-        link: paramUrl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+        link: newAppUrl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
         imgUrl:showImgUrl, // 分享图标
         success: function () {
           // 用户确认分享后执行的回调函数
@@ -187,7 +187,7 @@
       wx.onMenuShareWeibo({
         title: localStorage.getItem("showTitle")?localStorage.getItem("showTitle"):document.title, // 分享标题
         desc: "分享描述", // 分享描述
-        link:paramUrl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+        link:newAppUrl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
         imgUrl:showImgUrl, // 分享图标
         success: function () {
           // 用户确认分享后执行的回调函数

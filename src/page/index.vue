@@ -116,7 +116,7 @@
           localStorage.setItem("showTitle",baseData.comName?baseData.comName:"");
           this.phoneF = this.phoneFilter(baseData.phone);
 
-          let description = "法人："+(baseData.legalPerson?baseData.legalPerson:"-")+"<\n>电话："+this.phoneFilter(baseData.phone)+"<\n>地址："+(baseData.comAddress?baseData.comAddress:"-");
+          let description = "法人："+(baseData.legalPerson?baseData.legalPerson:"-")+"\n电话："+this.phoneFilter(baseData.phone)+"\n地址："+(baseData.comAddress?baseData.comAddress:"-");
 
           localStorage.setItem("showDescription",description);
 
