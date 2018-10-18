@@ -80,7 +80,7 @@
           let bddList = res.data;
           this.bddList = res.data;
           localStorage.setItem("showTitle",bddList.title?bddList.title:"-");
-          let description = "法院:案号:"+(bddList.caseNo?bddList.caseNo:"-")+"\n(bddList.court?bddList.court:"-")+";
+          let description = "法院:"+(bddList.content?bddList.content:"-")+"\n案号："+(bddList.caseNo?bddList.caseNo:"-");
           localStorage.setItem("showDescription",description);
         });
       }
