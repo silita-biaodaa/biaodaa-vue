@@ -82,6 +82,8 @@
     methods: {
       //中标详情
       getUp: function() {
+        localStorage.setItem("showTitle","");
+        localStorage.setItem("showDescription","");
         let source = '';
          if(this.$route.params.source == 'null') {
            source = 'hunan'

@@ -58,6 +58,8 @@
     methods: {
       //法务详情
       getUp: function() {
+        localStorage.setItem("showTitle","");
+        localStorage.setItem("showDescription","");
         let id = this.$route.params.id;
         let type = this.$route.params.type;
         if(!id){
@@ -78,7 +80,7 @@
           let bddList = res.data;
           this.bddList = res.data;
           localStorage.setItem("showTitle",bddList.title?bddList.title:"-");
-          let description = bddList.content?bddList.content:"-";
+          let description = "法院:"+(bddList.content?bddList.content:"-")+"\n案号:"+(bddList.caseNo?bddList.caseNo:"-");
           localStorage.setItem("showDescription",description);
         });
       }

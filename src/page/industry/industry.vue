@@ -46,6 +46,8 @@ import shuffling from '../../components/shuffling.vue';
     methods: {
       //公示文章详情
       getUp: function() {
+        localStorage.setItem("showTitle","");
+        localStorage.setItem("showDescription","");
         let id = this.$route.params.id;
         let type = this.$route.params.type;
         if(!id){

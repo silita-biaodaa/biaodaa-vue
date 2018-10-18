@@ -109,6 +109,8 @@ export default {
 
     //平台公示列表
     getUp: function() {
+      localStorage.setItem("showTitle","");
+      localStorage.setItem("showDescription","");
       let type = this.$route.params.type;
       let statDate = this.$route.params.statDate;
       let selectDate = statDate ? this.getLastDate(statDate) : this.getCurrentDate()

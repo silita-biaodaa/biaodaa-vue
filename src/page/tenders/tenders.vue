@@ -97,6 +97,8 @@
     methods: {
       // 招标详情
       getUp: function() {
+        localStorage.setItem("showTitle","");
+        localStorage.setItem("showDescription","");
         let id = this.$route.params.id;
         let type = this.$route.params.type;
         let source = '';
