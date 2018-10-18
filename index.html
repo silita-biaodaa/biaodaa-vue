@@ -31,12 +31,9 @@
 <div id="app"></div>
 <script type="text/javascript">
   console.log(111)
-  var openAppUrl = checkUrl(location.href);
+  var openAppUrl = location.href;
   var paramUrl = openAppUrl.split("#")[0];
-
-
   window.onload = function () {
-
     if (isWeixnQq()) {
       checkAuthorToWx();
     }
