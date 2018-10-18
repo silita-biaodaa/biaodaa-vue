@@ -19,7 +19,6 @@
   <style>
   </style>
 </head>
-
 <body>
 <div style="display:none">
   <img src="./static/img/logo2.png" alt="" />
@@ -32,6 +31,7 @@
   var newAppUrl = checkUrl(openAppUrl);//去除微信from相关参数的域名
   var paramUrl = openAppUrl.split("#")[0];//去除参数且带from参数的域名
   var domianUrl = newAppUrl.split("#")[0];//网页域名
+  var showImgUrl = "http://pre.biaodaa.com/static/img/logo2.png"; // 分享图标,发布生产要替换为生产的
   window.onload = function () {
     if (isWeixnQq()) {
       checkAuthorToWx();
@@ -48,7 +48,6 @@
         } else {
           $("body").css("-webkit-overflow-scrolling", "touch");
         }
-
         return {
           trident: u.indexOf('Trident') > -1,
           /*IE内核*/
@@ -109,7 +108,6 @@
       }
     });
   }
-
   function parseResult(result) {
     let nonceStr = result.jsapiSignature.noncestr;
     let timestamp = result.jsapiSignature.timestamp;
@@ -136,12 +134,13 @@
 
     });
     wx.ready(function () {
+
       // 分享到朋友圈
       wx.onMenuShareTimeline({
-        title: document.title, // 分享标题
+        title: localStorage.getItem("showTitle")?localStorage.getItem("showTitle"):document.title, // 分享标题
         desc: "分享描述", // 分享描述
         link:paramUrl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-        imgUrl:domianUrl + "/static/img/logo2.png", // 分享图标
+        imgUrl:showImgUrl, // 分享图标
         success: function () {
           // 用户确认分享后执行的回调函数
           alert("微信接口调通了，验证通过后注释此行代码"+domianUrl);
@@ -154,10 +153,10 @@
 
       // 分享给朋友
       wx.onMenuShareAppMessage({
-        title: document.title, // 分享标题
-        desc: "分享描述", // 分享描述
+        title: localStorage.getItem("showTitle")?localStorage.getItem("showTitle"):document.title, // 分享标题
+        desc: localStorage.getItem("showDescription")?localStorage.getItem("showDescription"): "分享描述", // 分享描述
         link:paramUrl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-        imgUrl:domianUrl + "/static/img/logo2.png", // 分享图标
+        imgUrl: showImgUrl, // 分享图标,
         success: function () {
           // 用户确认分享后执行的回调函数
           alert("微信接口调通了，验证通过后注释此行代码"+domianUrl);
@@ -170,10 +169,10 @@
 
       // 分享到QQ
       wx.onMenuShareQQ({
-        title: document.title, // 分享标题
+        title: localStorage.getItem("showTitle")?localStorage.getItem("showTitle"):document.title, // 分享标题
         desc: "分享描述", // 分享描述
         link: paramUrl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-        imgUrl:domianUrl + "/static/img/logo2.png", // 分享图标
+        imgUrl:showImgUrl, // 分享图标
         success: function () {
           // 用户确认分享后执行的回调函数
           alert("微信接口调通了，验证通过后注释此行代码");
@@ -186,10 +185,10 @@
 
       // 分享到腾讯微博
       wx.onMenuShareWeibo({
-        title: document.title, // 分享标题
+        title: localStorage.getItem("showTitle")?localStorage.getItem("showTitle"):document.title, // 分享标题
         desc: "分享描述", // 分享描述
         link:paramUrl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-        imgUrl:domianUrl + "/static/img/logo2.png", // 分享图标
+        imgUrl:showImgUrl, // 分享图标
         success: function () {
           // 用户确认分享后执行的回调函数
           alert("微信接口调通了，验证通过后注释此行代码");
@@ -197,15 +196,14 @@
         },
         cancel: function () {
           // 用户取消分享后执行的回调函数
-
         }
       });
       // 分享到QQ空间
       wx.onMenuShareQZone({
-        title: document.title, // 分享标题
+        title: localStorage.getItem("showTitle")?localStorage.getItem("showTitle"):document.title, // 分享标题
         desc: "分享描述", // 分享描述
         link: openAppUrl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-        imgUrl:domianUrl + "/static/img/logo2.png", // 分享图标
+        imgUrl:showImgUrl, // 分享图标
         success: function () {
           // 用户确认分享后执行的回调函数
           alert("微信接口调通了，验证通过后注释此行代码");
@@ -371,7 +369,6 @@
       //PC
       $("#bdd_app").show();
     }
-
   }
   var t1;
 
@@ -382,7 +379,6 @@
       t1 = window.setTimeout(downToApp, 2000);
     }
   }
-
   function downToApp() {
     // 通过iframe的方式试图打开APP，如果能正常打开，会直接切换到APP，并自动阻止a标签的默认行为
     // 否则打开a标签的href链接
@@ -399,7 +395,6 @@
       window.location.href = 'http://www.biaodaa.com/file/biaodaa.apk';
     }
   }
-
   function jumpToApp() {
     openAppUrl = localStorage.getItem("openAppUrl");
     if (!openAppUrl) {
@@ -413,7 +408,6 @@
     //           document.body.removeChild(ifr);
     //     },1000);
     window.location.href = openAppUrl;
-
   }
 
   function openNewApp(callback) {
@@ -441,7 +435,6 @@
         }
       }, 20);
     }
-
     //在iframe 中打开APP
     var ifr = document.createElement('iframe');
     ifr.src = openUrl;
@@ -451,7 +444,6 @@
         callback && callback(opened);
       });
     }
-
     document.body.appendChild(ifr);
     setTimeout(function () {
       document.body.removeChild(ifr);

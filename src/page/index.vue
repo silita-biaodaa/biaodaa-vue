@@ -113,7 +113,13 @@
         getJsonData("/company/" + comId).then(res => {
           let baseData = res.data;
           this.comBaseData = baseData;
+          localStorage.setItem("showTitle",baseData.comName?baseData.comName:"");
           this.phoneF = this.phoneFilter(baseData.phone);
+
+          let description = "联系电话:"+this.phoneFilter(baseData.phone)+"<br/>官网地址:"+(baseData.comUrl?baseData.comUrl:"-")+"<br/>邮箱地址:"+(baseData.email?baseData.email:"-");
+
+          localStorage.setItem("showDescription",description);
+
           let longComRange = baseData.comRange;
           this.longComRange = longComRange;
           if (longComRange && longComRange.length > 40) {
