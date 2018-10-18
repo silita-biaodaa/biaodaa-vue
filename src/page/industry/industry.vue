@@ -1,10 +1,9 @@
 <template>
-<div class="share-container">
+<div class="share-container" >
   <div id="bdd_app" class="share-body">
    <div class="bdd_p "  style="margin-top:20px;"><span class="bdd_r_g">{{bddList.title?bddList.title:"-"}}</span></div>
     <div class="bdd_r_a">发布日期：{{bddList.time?bddList.time:"-"}}</div>
-    <div class="bdd_p_leo"><div class="bdd_r_g_ro"  v-html='bddList.content'></div></div>
-   
+      <div class="bdd_r_pol"><div><div class="bdd_r_aide" v-html='bddList.content'></div></div></div>
   </div>
  <!-- IOS -->
     <div id="IOSGuide" class="col-xs-12 col-sm-12" style="display: none">
