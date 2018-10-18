@@ -103,85 +103,14 @@
       data: paramJson,
       contentType: "application/json",
       success: function (data) {
-        wx.config({
-          debug: true, // 开启调试模式为true后可以通过alert弹窗将公众号签名等结果反馈出来
-          appId: "wx393124fdad606b1d", // 必填，公众号的唯一标识
-          timestamp: timestamp, // 必填，生成签名的时间戳
-          nonceStr: nonceStr, // 必填，生成签名的随机串
-          signature: signature, // 必填，签名，见附录1
-          jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ', 'onMenuShareWeibo',
-            'onMenuShareQZone'
-          ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
-
-        });
-        wx.ready(function() {
-            wx.checkJsApi({
-              jsApiList: [
-                'onMenuShareAppMessage', 'onMenuShareTimeline', 'onMenuShareQQ', 'onMenuShareWeibo', 'onMenuShareQZone'
-              ],
-              success: function(res) {
-
-              }
-            });
-            //分享到朋友圈
-            wx.onMenuShareTimeline({
-              title: data.info.title,
-              desc: data.info.title,
-              link: location.href.split("#")[0],
-              imgUrl: data.info.imgUrl,
-              success: function() {
-                //alert("分享成功！")
-                // 用户确认分享后执行的回调函数
-              },
-              cancel: function() {
-                //alert("取消分享！")
-                // 用户取消分享后执行的回调函数
-              }
-            });
-          //分享朋友
-          wx.onMenuShareAppMessage({
-            title: data.info.title,
-            desc: data.info.title,
-            link: location.href.split("#")[0],
-            imgUrl:  data.info.imgUrl
-          });
-          //分享到QQ
-          wx.onMenuShareQQ({
-            title: data.info.title,
-            desc: data.info.title,
-            link: location.href.split("#")[0],
-            imgUrl: data.info.imgUrl
-          });
-          //分享到腾讯微博
-          wx.onMenuShareWeibo({
-            title: data.info.title,
-            desc: data.info.title,
-            link: location.href.split("#")[0],
-            imgUrl: data.info.imgUrl
-          });
-          //分享到QQ空间
-          wx.onMenuShareQZone({
-            title: data.info.title,
-            desc: data.info.title,
-            link: location.href.split("#")[0],
-            imgUrl: data.info.imgUrl
-          });
-        });
-        ///---
-
-      },
-      error: function() {
-        console.log("二次分享错误！");
-      }
-    });
-    parseResult(data);
+        parseResult(data);
         // alert(data);
       },
-//      error: function (data) {
-//        console.log(data)
-//      }
+      error: function (data) {
+        console.log(data)
+      }
     });
-
+  }
 
   function parseResult(result) {
     let nonceStr = result.jsapiSignature.noncestr;
@@ -191,92 +120,108 @@
     let imageUrl = appUrl.split("#")[0] + "static/img/logo2.png";
     let signature = result.jsapiSignature.signature;
     let jsapiTicket = result.jsapiSignature.jsapiTicket;
+    wx.config({
 
-//    wx.ready(function () {
-//      // 分享到朋友圈
-//      wx.onMenuShareTimeline({
-//        title: document.title, // 分享标题
-//        desc: "分享描述", // 分享描述
-//        link:paramUrl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-//        imgUrl:domianUrl + "/static/img/logo2.png", // 分享图标
-//        success: function () {
-//          // 用户确认分享后执行的回调函数
-//          alert("微信接口调通了，验证通过后注释此行代码"+domianUrl);
-//          window.location.href = newAppUrl;
-//        },
-//        cancel: function () {
-//          // 用户取消分享后执行的回调函数
-//        }
-//      });
-//
-//      // 分享给朋友
-//      wx.onMenuShareAppMessage({
-//        title: document.title, // 分享标题
-//        desc: "分享描述", // 分享描述
-//        link:paramUrl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-//        imgUrl:domianUrl + "/static/img/logo2.png", // 分享图标
-//        success: function () {
-//          // 用户确认分享后执行的回调函数
-//          alert("微信接口调通了，验证通过后注释此行代码"+domianUrl);
-//          window.location.href = newAppUrl;
-//        },
-//        cancel: function () {
-//          // 用户取消分享后执行的回调函数
-//        }
-//      });
-//
-//      // 分享到QQ
-//      wx.onMenuShareQQ({
-//        title: document.title, // 分享标题
-//        desc: "分享描述", // 分享描述
-//        link: paramUrl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-//        imgUrl:domianUrl + "/static/img/logo2.png", // 分享图标
-//        success: function () {
-//          // 用户确认分享后执行的回调函数
-//          alert("微信接口调通了，验证通过后注释此行代码");
-//          window.location.href = newAppUrl;
-//        },
-//        cancel: function () {
-//          // 用户取消分享后执行的回调函数
-//        }
-//      });
-//
-//      // 分享到腾讯微博
-//      wx.onMenuShareWeibo({
-//        title: document.title, // 分享标题
-//        desc: "分享描述", // 分享描述
-//        link:paramUrl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-//        imgUrl:domianUrl + "/static/img/logo2.png", // 分享图标
-//        success: function () {
-//          // 用户确认分享后执行的回调函数
-//          alert("微信接口调通了，验证通过后注释此行代码");
-//          window.location.href = newAppUrl;
-//        },
-//        cancel: function () {
-//          // 用户取消分享后执行的回调函数
-//
-//        }
-//      });
-//      // 分享到QQ空间
-//      wx.onMenuShareQZone({
-//        title: document.title, // 分享标题
-//        desc: "分享描述", // 分享描述
-//        link: openAppUrl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-//        imgUrl:domianUrl + "/static/img/logo2.png", // 分享图标
-//        success: function () {
-//          // 用户确认分享后执行的回调函数
-//          alert("微信接口调通了，验证通过后注释此行代码");
-//          window.location.href = newAppUrl;
-//        },
-//        cancel: function () {
-//          // 用户取消分享后执行的回调函数
-//        }
-//      });
-//      wx.error(function (res) {
-//        console.log(res.errMsg + "错误信息");
-//      });
-//    });
-//  }
+      debug: true, // 开启调试模式为true后可以通过alert弹窗将公众号签名等结果反馈出来
+
+      appId: "wx393124fdad606b1d", // 必填，公众号的唯一标识
+
+      timestamp: timestamp, // 必填，生成签名的时间戳
+
+      nonceStr: nonceStr, // 必填，生成签名的随机串
+
+      signature: signature, // 必填，签名，见附录1
+
+      jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ', 'onMenuShareWeibo',
+        'onMenuShareQZone'
+      ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+
+    });
+    wx.ready(function () {
+      // 分享到朋友圈
+      wx.onMenuShareTimeline({
+        title: document.title, // 分享标题
+        desc: "分享描述", // 分享描述
+        link:paramUrl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+        imgUrl:domianUrl + "/static/img/logo2.png", // 分享图标
+        success: function () {
+          // 用户确认分享后执行的回调函数
+          alert("微信接口调通了，验证通过后注释此行代码"+domianUrl);
+          window.location.href = newAppUrl;
+        },
+        cancel: function () {
+          // 用户取消分享后执行的回调函数
+        }
+      });
+
+      // 分享给朋友
+      wx.onMenuShareAppMessage({
+        title: document.title, // 分享标题
+        desc: "分享描述", // 分享描述
+        link:paramUrl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+        imgUrl:domianUrl + "/static/img/logo2.png", // 分享图标
+        success: function () {
+          // 用户确认分享后执行的回调函数
+          alert("微信接口调通了，验证通过后注释此行代码"+domianUrl);
+          window.location.href = newAppUrl;
+        },
+        cancel: function () {
+          // 用户取消分享后执行的回调函数
+        }
+      });
+
+      // 分享到QQ
+      wx.onMenuShareQQ({
+        title: document.title, // 分享标题
+        desc: "分享描述", // 分享描述
+        link: paramUrl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+        imgUrl:domianUrl + "/static/img/logo2.png", // 分享图标
+        success: function () {
+          // 用户确认分享后执行的回调函数
+          alert("微信接口调通了，验证通过后注释此行代码");
+          window.location.href = newAppUrl;
+        },
+        cancel: function () {
+          // 用户取消分享后执行的回调函数
+        }
+      });
+
+      // 分享到腾讯微博
+      wx.onMenuShareWeibo({
+        title: document.title, // 分享标题
+        desc: "分享描述", // 分享描述
+        link:paramUrl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+        imgUrl:domianUrl + "/static/img/logo2.png", // 分享图标
+        success: function () {
+          // 用户确认分享后执行的回调函数
+          alert("微信接口调通了，验证通过后注释此行代码");
+          window.location.href = newAppUrl;
+        },
+        cancel: function () {
+          // 用户取消分享后执行的回调函数
+
+        }
+      });
+      // 分享到QQ空间
+      wx.onMenuShareQZone({
+        title: document.title, // 分享标题
+        desc: "分享描述", // 分享描述
+        link: openAppUrl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+        imgUrl:domianUrl + "/static/img/logo2.png", // 分享图标
+        success: function () {
+          // 用户确认分享后执行的回调函数
+          alert("微信接口调通了，验证通过后注释此行代码");
+          window.location.href = newAppUrl;
+        },
+        cancel: function () {
+          // 用户取消分享后执行的回调函数
+        }
+      });
+      wx.error(function (res) {
+        console.log(res.errMsg + "错误信息");
+      });
+    });
+  }
 
   function isWeixnQq() {
     var ua = navigator.userAgent.toLowerCase();
