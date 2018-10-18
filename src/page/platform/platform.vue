@@ -122,6 +122,9 @@ export default {
       getJsonData("/count/list", dataParam).then(res => {
         console.log(666);
         let bddList =  res.data;
+        localStorage.setItem("showTitle",bddList.title?bddList.title:"-");
+        let description = bddList.remark?bddList.remark:"-";
+        localStorage.setItem("showDescription",description);
         this.bddList = bddList;
         this.showDate = this.getLateDate(bddList.releaseTime);
       });

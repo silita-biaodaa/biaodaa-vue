@@ -61,7 +61,11 @@ import shuffling from '../../components/shuffling.vue';
         localStorage.setItem("openAppUrl",openAppUrl);
         getJsonData("/notice/queryArticleDetail", dataParam).then(res => {
           console.log(222);
+          let bddList =  res.data;
           this.bddList = res.data;
+          localStorage.setItem("showTitle",bddList.title?bddList.title:"-");
+          let description = bddList.content;
+          localStorage.setItem("showDescription",description);
 
         });
       }

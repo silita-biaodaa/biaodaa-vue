@@ -29,7 +29,7 @@
       <div onclick='downloadApp()' class="bdd_x">立即打开</div>
     </div>
   </nav>
-  
+
    <div id="IOSGuide" class="col-xs-12 col-sm-12" style="display: none">
     <img id="IOSGuideImg" src="../../assets/ios_guide.png">
   </div>
@@ -75,7 +75,11 @@
         console.log(222);
         getJsonData("/law/detail", dataParam).then(res => {
           console.log(777);
+          let bddList = res.data;
           this.bddList = res.data;
+          localStorage.setItem("showTitle",bddList.title?bddList.title:"-");
+          let description = bddList.content?bddList.content:"-";
+          localStorage.setItem("showDescription",description);
         });
       }
     }
