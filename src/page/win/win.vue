@@ -102,6 +102,7 @@
         getJsonData("/notice/detail/" + id, dataParam).then(res => {
           console.log(222);
           let dataArr = res.data;
+
           if (dataArr && dataArr.length > 0) {
             this.bddList = dataArr[0];
             let bdNum = dataArr.length;

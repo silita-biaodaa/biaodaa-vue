@@ -89,7 +89,7 @@
       "appid": "wx393124fdad606b1d",
       "url": paramUrl
     };
-    alert("appUrl1:"+paramUrl);
+//    alert("appUrl1:"+paramUrl);
     let paramJson = JSON.stringify(param);
     $.ajax({
       type: 'POST',
@@ -112,13 +112,13 @@
     let nonceStr = result.jsapiSignature.noncestr;
     let timestamp = result.jsapiSignature.timestamp;
     let appUrl = result.jsapiSignature.url;
-    alert("appUrl2:"+appUrl)
+//    alert("appUrl2:"+appUrl)
     let imageUrl = appUrl.split("#")[0] + "static/img/logo2.png";
     let signature = result.jsapiSignature.signature;
     let jsapiTicket = result.jsapiSignature.jsapiTicket
     wx.config({
 
-      debug: true, // 开启调试模式为true后可以通过alert弹窗将公众号签名等结果反馈出来
+      debug: false, // 开启调试模式为true后可以通过alert弹窗将公众号签名等结果反馈出来
 
       appId: "wx393124fdad606b1d", // 必填，公众号的唯一标识
 
@@ -143,7 +143,7 @@
         imgUrl:showImgUrl, // 分享图标
         success: function () {
           // 用户确认分享后执行的回调函数
-          alert("微信接口调通了，验证通过后注释此行代码"+newAppUrl);
+//          alert("微信接口调通了，验证通过后注释此行代码"+newAppUrl);
           window.location.href = newAppUrl;
         },
         cancel: function () {
@@ -159,7 +159,7 @@
         imgUrl: showImgUrl, // 分享图标,
         success: function () {
           // 用户确认分享后执行的回调函数
-          alert("微信接口调通了，验证通过后注释此行代码"+newAppUrl);
+//          alert("微信接口调通了，验证通过后注释此行代码"+newAppUrl);
           window.location.href = newAppUrl;
         },
         cancel: function () {
@@ -175,7 +175,7 @@
         imgUrl:showImgUrl, // 分享图标
         success: function () {
           // 用户确认分享后执行的回调函数
-          alert("微信接口调通了，验证通过后注释此行代码");
+//          ("微信接口调通了，验证通过后注释此行代码");alert
           window.location.href = newAppUrl;
         },
         cancel: function () {
@@ -191,7 +191,7 @@
         imgUrl:showImgUrl, // 分享图标
         success: function () {
           // 用户确认分享后执行的回调函数
-          alert("微信接口调通了，验证通过后注释此行代码");
+//          alert("微信接口调通了，验证通过后注释此行代码");
           window.location.href = newAppUrl;
         },
         cancel: function () {
@@ -206,7 +206,7 @@
         imgUrl:showImgUrl, // 分享图标
         success: function () {
           // 用户确认分享后执行的回调函数
-          alert("微信接口调通了，验证通过后注释此行代码");
+//          alert("微信接口调通了，验证通过后注释此行代码");
           window.location.href = newAppUrl;
         },
         cancel: function () {

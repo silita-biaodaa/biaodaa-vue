@@ -80,7 +80,6 @@
   import {
     getJsonData
   } from "../../api/index.js";
-
   export default {
     name: "tenders",
     data() {
@@ -106,7 +105,6 @@
         } else {
            source = this.$route.params.source
         }
-
         let openAppUrl = "com.yaobang.biaodada://?type="+type+"&id="+id+"&source="+source;
         localStorage.setItem("openAppUrl",openAppUrl);
         let dataParam = JSON.stringify({
@@ -117,6 +115,13 @@
         getJsonData("/notice/detail/" + id, dataParam).then(res => {
         if(res.data&&res.data.length>0) {
           let bddList = res.data[0];
+          localStorage.setItem("showTitle",bddList.title?bddList.title:"-");
+//          this.phoneF = this.phoneFilter(baseData.phone);
+
+          let description = "资质要求："(bddList.zzRank?bddList.zzRank:"-");
+
+          localStorage.setItem("showDescription",description);
+
           this.bdNum = res.data.length;
           this.bddList = bddList;
           let content = bddList.content;
