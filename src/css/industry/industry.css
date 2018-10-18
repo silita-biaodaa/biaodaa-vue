@@ -4,7 +4,6 @@ body{
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
-
 .bdd_p{
   clear:both;
   /* overflow:hidden; */
@@ -68,6 +67,19 @@ body{
 table{
   margin-bottom:338px;
 }
-.bdd_d_lop{
-  line-height: 3000px;
+.bdd_r_pol{
+  height: 1000px;
+  margin-left:10px;
+  margin-right:10px;
+  font-size: 32px;
+  margin-top:60px;
+
+}
+.bdd_r_aide{
+  font-size: 20px;
+  margin-left:20px;
+  margin-right:20px;
+  height: 1000px;
+  line-height: 30px;
+
 }
