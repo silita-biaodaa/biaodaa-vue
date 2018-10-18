@@ -18,7 +18,6 @@
   <title>标大大分享页面</title>
   <style>
 
-
   </style>
 </head>
 
@@ -31,9 +30,10 @@
 <div id="app"></div>
 <script type="text/javascript">
   console.log(111)
-  var openAppUrl = location.href;
-  var newAppUrl = checkUrl(openAppUrl);
-  var paramUrl = openAppUrl.split("#")[0];
+  var openAppUrl = location.href;//网页全路径
+  var newAppUrl = checkUrl(openAppUrl);//去除微信from相关参数的域名
+  var paramUrl = openAppUrl.split("#")[0];//去除参数且带from参数的域名
+  var domianUrl = newAppUrl.split("#")[0];//网页域名
   window.onload = function () {
     if (isWeixnQq()) {
       checkAuthorToWx();
@@ -41,8 +41,7 @@
     window.browser = {
       /*判断访问终端*/
       versions: function () {
-        var u = navigator.userAgent,
-          app = navigator.appVersion;
+        var u = navigator.userAgent;
         //if ((u.toLowerCase().indexOf('micromessenger')) > -1 || u.toLowerCase().match(/QQ/i) == "qq") {
         // }
         var curWwwPath = window.document.location.href;
@@ -144,10 +143,10 @@
         title: document.title, // 分享标题
         desc: "分享描述", // 分享描述
         link:paramUrl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-        imgUrl: location.href.split("#")[0] + "http://www.biaodaa.com/app_download/share_logo.png", // 分享图标
+        imgUrl:domianUrl + "/static/img/logo2.png", // 分享图标
         success: function () {
           // 用户确认分享后执行的回调函数
-          alert("微信接口调通了，验证通过后注释此行代码");
+          alert("微信接口调通了，验证通过后注释此行代码"+domianUrl);
           window.location.href = newAppUrl;
         },
         cancel: function () {
@@ -160,10 +159,10 @@
         title: document.title, // 分享标题
         desc: "分享描述", // 分享描述
         link:paramUrl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-        imgUrl: location.href.split("#")[0] + "http://www.biaodaa.com/app_download/share_logo.png", // 分享图标
+        imgUrl:domianUrl + "/static/img/logo2.png", // 分享图标
         success: function () {
           // 用户确认分享后执行的回调函数
-          alert("微信接口调通了，验证通过后注释此行代码");
+          alert("微信接口调通了，验证通过后注释此行代码"+domianUrl);
           window.location.href = newAppUrl;
         },
         cancel: function () {
@@ -176,7 +175,7 @@
         title: document.title, // 分享标题
         desc: "分享描述", // 分享描述
         link: paramUrl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-        imgUrl: location.href.split("#")[0] + "http://www.biaodaa.com/app_download/share_logo.png", // 分享图标
+        imgUrl:domianUrl + "/static/img/logo2.png", // 分享图标
         success: function () {
           // 用户确认分享后执行的回调函数
           alert("微信接口调通了，验证通过后注释此行代码");
@@ -192,7 +191,7 @@
         title: document.title, // 分享标题
         desc: "分享描述", // 分享描述
         link:paramUrl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-        imgUrl: location.href.split("#")[0] + "http://www.biaodaa.com/app_download/share_logo.png", // 分享图标
+        imgUrl:domianUrl + "/static/img/logo2.png", // 分享图标
         success: function () {
           // 用户确认分享后执行的回调函数
           alert("微信接口调通了，验证通过后注释此行代码");
@@ -208,7 +207,7 @@
         title: document.title, // 分享标题
         desc: "分享描述", // 分享描述
         link: openAppUrl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-        imgUrl: location.href.split("#")[0] + "http://www.biaodaa.com/app_download/share_logo.png", // 分享图标
+        imgUrl:domianUrl + "/static/img/logo2.png", // 分享图标
         success: function () {
           // 用户确认分享后执行的回调函数
           alert("微信接口调通了，验证通过后注释此行代码");
