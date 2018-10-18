@@ -65,7 +65,7 @@ import shuffling from '../../components/shuffling.vue';
           console.log(222);
           let bddList =  res.data;
           this.bddList = res.data;
-          localStorage.setItem("showTitle",bddList.title?bddList.title:"-");
+          localStorage.setItem("showTitle",bddList.contentDescribe?bddList.contentDescribe:"-");
           let description = bddList.content;
           localStorage.setItem("showDescription",description);
 
