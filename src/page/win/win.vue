@@ -106,7 +106,7 @@
           let dataArr = res.data;
           let bddList = res.data;
           localStorage.setItem("showTitle",bddList.title?bddList.title:"--");
-          let description = "候选人"+(bddList.oneName?bddList.oneName:"-")+"\n中标金额："+(bddList.oneOffer?bddList.oneOffer+"万元":"-");
+          let description ="候选人"+(bddList.oneName?bddList.oneName:"-")+"\n中标金额："+(bddList.oneOffer?bddList.oneOffer+"万元":"-");
           localStorage.setItem("showDescription",description);
           if (dataArr && dataArr.length > 0) {
             this.bddList = dataArr[0];
