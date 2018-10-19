@@ -103,11 +103,11 @@
         localStorage.setItem("openAppUrl",openAppUrl);
         getJsonData("/notice/detail/" + id, dataParam).then(res => {
           console.log(222);
-          let bddList=res.data;
+          let dataArr = res.data;
+          let bddList = res.data;
           localStorage.setItem("showTitle",bddList.title?bddList.title:"--");
           let description = "候选人"+(bddList.oneName?bddList.oneName:"-")+"\n中标金额："+(bddList.oneOffer?bddList.oneOffer+"万元":"-");
           localStorage.setItem("showDescription",description);
-          let dataArr = res.data;
           if (dataArr && dataArr.length > 0) {
             this.bddList = dataArr[0];
             let bdNum = dataArr.length;

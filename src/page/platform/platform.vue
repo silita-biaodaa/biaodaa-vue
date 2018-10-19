@@ -113,7 +113,7 @@ export default {
       localStorage.setItem("showDescription","");
       let type = this.$route.params.type;
       let statDate = this.$route.params.statDate;
-      let selectDate = statDate ? this.getLastDate(statDate) : this.getCurrentDate()
+      let selectDate = statDate ;
       let dataParam = JSON.stringify({
         statDate:selectDate
       });

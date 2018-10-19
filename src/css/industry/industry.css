@@ -68,6 +68,7 @@ table{
   margin-bottom:338px;
 }
 .bdd_r_pol{
+  width: 100%;
   height: 1000px;
   margin-left:10px;
   margin-right:10px;
@@ -76,10 +77,14 @@ table{
 
 }
 .bdd_r_aide{
+  width:100%;
   font-size: 20px;
   margin-left:20px;
   margin-right:20px;
   height: 1000px;
   line-height: 30px;
-
+}
+.bdd_a{
+  width: 100%;
+  text-align: left;
 }
