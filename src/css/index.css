@@ -13,7 +13,7 @@
 .share-body {
   height: calc(100% - 120px);
   overflow-x: hidden;
-  overflow-y: hidden; 
+  overflow-y: hidden;
 }
 
 .bdd_header{
