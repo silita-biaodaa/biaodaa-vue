@@ -90,7 +90,7 @@
       },
 
       getLateDate: function(lateDate) {
-        if(lateDate&&lateDate.indexOf("~")){
+        if(lateDate&&lateDate.indexOf("~")&&lateDate.length>10){
           lateDate=lateDate.split("~")[1];
         }
         let dateArr = lateDate.split("-");
