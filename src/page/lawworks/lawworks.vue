@@ -16,8 +16,6 @@
       <div class="bdd_l_hold bdd_l_ar"  v-html="bddList.content"></div>
     <!-- <div class="bdd_l_ho"></div> -->
   </div>
-
-
   <nav id="bdd_nav" class="navbar navbar-default navbar-fixed-bottom share-download" >
     <div class="bdd_one">
       <img class="bdd_img" src="../../assets/logo.png" /> </div>
@@ -29,7 +27,6 @@
       <div onclick='downloadApp()' class="bdd_x">立即打开</div>
     </div>
   </nav>
-
    <div id="IOSGuide" class="col-xs-12 col-sm-12" style="display: none">
     <img id="IOSGuideImg" src="../../assets/ios_guide.png">
   </div>
@@ -80,7 +77,7 @@
           let bddList = res.data;
           this.bddList = res.data;
           localStorage.setItem("showTitle",bddList.title?bddList.title:"-");
-          let description = "案号:"+(bddList.caseNo?bddList.caseNo:"-")+"\n法院："+(bddList.court?bddList.court:"-");
+          let description = "案号:"+(bddList.caseNo?bddList.caseNo:"-")+"\n法院："+(bddList.court?bddList.court:"-")+"\n时间："+(bddList.dateStr?bddList.dateStr:"-");
           localStorage.setItem("showDescription",description);
         });
       }

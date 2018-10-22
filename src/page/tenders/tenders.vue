@@ -6,8 +6,8 @@
       <div class="bdd_r_si">
         <div class="bdd_r_one">
           <div>
-            <div class="bdd_s bdd_m "><span class="bdd_time bdd_spc">项目金额</span><span class="bdd_ri">{{bddList.projSum?bddList.projSum+"万元":"-"}}</span></div>
-            <div class="bdd_s bdd_m "><span class="bdd_time bdd_let">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;区</span><span class="bdd_ri">{{bddList.projDq?bddList.projDq:"-"}}</span></div>
+            <!--<div class="bdd_s bdd_m "><span class="bdd_time bdd_spc">项目金额</span><span class="bdd_ri">{{bddList.projSum?bddList.projSum+"万元":"-"}}</span></div>-->
+            <div class="bdd_s bdd_m "><span class="bdd_time bdd_let">项目地区</span><span class="bdd_ri">{{bddList.projDq?bddList.projDq:"-"}}</span></div>
             <div class="bdd_s bdd_m "><span class="bdd_time">评标办法</span><span class="bdd_ri">{{bddList.pbMode?bddList.pbMode:"-"}}</span></div>
             <div class="bdd_main_u">
               <span class="bdd_title bdd_t_yo">资质要求</span>
@@ -15,34 +15,35 @@
             </div>
           </div>
         </div>
-        <div class="bdd_r_text">更多详细信息</div>
-        <div class="bdd_r_one">
-          <div>
-            <div class="bdd_v-img"><img class="bdd_k_img" src="../../assets/bdd_one.png" /></div>
-            <div class="bdd_s bdd_m "><span class="bdd_time bdd_spc">报名截止</span><span class="bdd_ri">{{bddList.bmEndDate?bddList.bmEndDate:"-"}}&nbsp;{{bmEndWeek}}&nbsp;{{bddList.bmEndTime?bddList.bmEndTime:"-"}}</span></div>
-            <div class="bdd_s bdd_m "><span class="bdd_time bdd_spc">报名地址</span><span class="bdd_ri">{{bddList.bmSite?bddList.bmSite:"&#45;&#45;"}}</span></div>
-          </div>
-        </div>
-        <div style="padding-bottom: 20px;" class="bdd_r_one">
-          <div>
-            <div class="bdd_v-img"><img class="bdd_k_img" src="../../assets/bdd_tow.png" /></div>
-            <div class="bdd_s bdd_m "><span class="bdd_time bdd_spc">保证金截止</span><span class="bdd_ri">{{bddList.tbAssureEndDate?bddList.tbAssureEndDate:"-"}}&nbsp;{{tbAssureEndWeek}}&nbsp;{{bddList.tbAssureEndTime?bddList.tbAssureEndTime:""}}</span></div>
-            <div class="bdd_s bdd_m "><span class="bdd_time bdd_spc">金&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;额</span><span class="bdd_ri">{{bddList.tbAssureSum?bddList.tbAssureSum+"万元":"-"}}</span></div>
-            <div class="bdd_s bdd_m "><span class="bdd_time bdd_spc">递交方式</span><span class="bdd_ri">保证金</span></div>
-          </div>
-        </div>
-        <div class="bdd_r_one">
-          <div>
-            <div class="bdd_v-img"><img class="bdd_k_img" src="../../assets/bdd_three.png" /></div>
-            <div class="bdd_s bdd_m "><span class="bdd_time bdd_spc">开标截止</span><span class="bdd_ri">{{bddList.kbDate?bddList.kbDate:""}}&nbsp;{{kbWeek}}&nbsp;{{bddList.kbTime?bddList.kbTime:""}}</span></div>
-            <div class="bdd_s bdd_m "><span class="bdd_time bdd_spc">开标人员</span><span class="bdd_ri">{{bddList.kbStaffAsk?bddList.kbStaffAsk:"-"}}</span></div>
-            <div class="bdd_main_u">
-              <span class="bdd_title bdd_t_yo">开标地址</span>
-              <span class="bdd_content bdd_t_conter">{{bddList.kbSite?bddList.kbSite:"-"}}</span>
-            </div>
-          </div>
-        </div>
-        <div class="bdd_r_footer">共 <span class="bdd_size" style="color:#CEA63F;"> {{bdNum}} </span> 个标段，打开标大大app可查看更多详情</div>
+        <!--<div class="bdd_r_text">更多详细信息</div>-->
+        <!--<div class="bdd_r_one">-->
+          <!--<div>-->
+            <!--<div class="bdd_v-img"><img class="bdd_k_img" src="../../assets/bdd_one.png" /></div>-->
+            <!--<div class="bdd_s bdd_m "><span class="bdd_time bdd_spc">报名截止</span><span class="bdd_ri">{{bddList.bmEndDate?bddList.bmEndDate:"-"}}&nbsp;{{bmEndWeek}}&nbsp;{{bddList.bmEndTime?bddList.bmEndTime:"-"}}</span></div>-->
+            <!--<div class="bdd_s bdd_m "><span class="bdd_time bdd_spc">报名地址</span><span class="bdd_ri">{{bddList.bmSite?bddList.bmSite:"&#45;&#45;"}}</span></div>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div style="padding-bottom: 20px;" class="bdd_r_one">-->
+          <!--<div>-->
+            <!--<div class="bdd_v-img"><img class="bdd_k_img" src="../../assets/bdd_tow.png" /></div>-->
+            <!--<div class="bdd_s bdd_m "><span class="bdd_time bdd_spc">保证金截止</span><span class="bdd_ri">{{bddList.tbAssureEndDate?bddList.tbAssureEndDate:"-"}}&nbsp;{{tbAssureEndWeek}}&nbsp;{{bddList.tbAssureEndTime?bddList.tbAssureEndTime:""}}</span></div>-->
+            <!--<div class="bdd_s bdd_m "><span class="bdd_time bdd_spc">金&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;额</span><span class="bdd_ri">{{bddList.tbAssureSum?bddList.tbAssureSum+"万元":"-"}}</span></div>-->
+            <!--<div class="bdd_s bdd_m "><span class="bdd_time bdd_spc">递交方式</span><span class="bdd_ri">保证金</span></div>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="bdd_r_one">-->
+          <!--<div>-->
+            <!--<div class="bdd_v-img"><img class="bdd_k_img" src="../../assets/bdd_three.png" /></div>-->
+            <!--<div class="bdd_s bdd_m "><span class="bdd_time bdd_spc">开标截止</span><span class="bdd_ri">{{bddList.kbDate?bddList.kbDate:""}}&nbsp;{{kbWeek}}&nbsp;{{bddList.kbTime?bddList.kbTime:""}}</span></div>-->
+            <!--<div class="bdd_s bdd_m "><span class="bdd_time bdd_spc">开标人员</span><span class="bdd_ri">{{bddList.kbStaffAsk?bddList.kbStaffAsk:"-"}}</span></div>-->
+            <!--<div class="bdd_main_u">-->
+              <!--<span class="bdd_title bdd_t_yo">开标地址</span>-->
+              <!--<span class="bdd_content bdd_t_conter">{{bddList.kbSite?bddList.kbSite:"-"}}</span>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="bdd_r_footer">共 <span class="bdd_size" style="color:#CEA63F;"> {{bdNum}} </span> 个标段，打开标大大app可查看更多详情</div>-->
+        <div class="bdd_r_footer">打开标大大app可查看更多详情</div>
 
       </div>
       <div class="bdd_r_one bdd_r_foo">
@@ -118,7 +119,7 @@
           if(res.data&&res.data.length>0) {
             let bddList = res.data[0];
             localStorage.setItem("showTitle",bddList.title?bddList.title:"-");
-            let description = "资质要求"+(bddList.zzRank?bddList.zzRank:"-");
+            let description = "资质要求："+(bddList.zzRank?bddList.zzRank:"-");
             localStorage.setItem("showDescription",description);
 
             this.bdNum = res.data.length;
