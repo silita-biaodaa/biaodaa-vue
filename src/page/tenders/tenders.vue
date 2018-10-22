@@ -117,6 +117,7 @@
 //        let id = this.$route.params.id;
         getJsonData("/notice/detail/" + id, dataParam).then(res => {
           if(res.data&&res.data.length>0) {
+            console.log(22222);
             let bddList = res.data[0];
             localStorage.setItem("showTitle",bddList.title?bddList.title:"-");
             let description = "资质要求："+(bddList.zzRank?bddList.zzRank:"-");
