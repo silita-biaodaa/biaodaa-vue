@@ -76,7 +76,7 @@
           console.log(777);
           let bddList = res.data;
           this.bddList = res.data;
-          ("showTitle",bddList.title?bddList.title:"-");
+          localStorage.setItem("showTitle",bddList.title?bddList.title:"-");
           let description = "案号:"+(bddList.caseNo?bddList.caseNo:"-")+"\n法院："+(bddList.court?bddList.court:"-")+"\n时间："+(bddList.dateStr?bddList.dateStr:"-");
           localStorage.setItem("showDescription",description);
         });
