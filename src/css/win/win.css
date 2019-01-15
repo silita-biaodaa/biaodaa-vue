@@ -1,0 +1,145 @@
+#{
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.share-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.share-body {
+  height: calc(100% - 120px);
+  overflow-x: hidden;
+  overflow: auto;
+}
+
+.share-container{
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+}
+.share-body{
+  height:calc(100%-120px);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.bdd_a_row{
+  height:32px;
+  font-size:32px;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(102,102,102,1);
+  line-height:23px;
+  margin-left:50px;
+}
+ .bdd_r_ta{
+   text-align: center;
+ }
+.bdd_r_img{
+  width: 320px;
+  height: 48px;
+}
+
+
+.bdd_p_img{
+  width: 40px;
+  height: 40px;
+  margin-left:30px;
+}
+.bdd_p_ki{
+  width:416px;
+  height:32px;
+  font-size:32px;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(102,102,102,1);
+  line-height:32px;
+  margin-left:30px;
+  vertical-align: middle;
+}
+.bdd_p_o{
+  height:28px;
+  font-size:28px;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(102,102,102,1);
+  line-height:32px;
+  margin-left:100px;
+  margin-top:16px;
+}
+.bdd_r_h{
+  margin-top:32px;
+}
+.bdd_r_x{
+  width:128px;
+  height:32px;
+  font-size:32px;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(102,102,102,1);
+  line-height:60px;
+  padding-left:32px;
+}
+.bdd_r_m{
+  width:188px;
+  height:32px;
+  font-size:32px;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(102,102,102,1);
+  line-height:60px;
+  padding-left:48px;
+}
+.bdd_r_e{
+  margin-top:32px;
+}
+.bdd_r_v{
+  margin-top:24px;
+}
+.bdd_span{
+  padding-left:32px;
+  padding-right:32px;
+}
+.bdd_r_u{
+  clear:both;
+  overflow:hidden;
+  width: 90%;
+  font-size:36px;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(51,51,51,1);
+  margin-left:32px;
+  margin-right:32px;
+}
+.bdd_span_po{
+  float:left;
+  line-height:60px;
+  display: inline-block;
+}
+.bdd_i_fot{
+  margin-top:200px;
+}
+.bdd_w_yi{
+  margin-left:40px;
+  font-size:28px;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(212,97,93,1);
+  line-height:28px;
+}
+.bdd_p_header{
+  margin-left:32px;
+  margin-right:32px;
+  color: red;
+  text-align: center;
+  margin-top:40px;
+  font-size: 32px;
+}
+.bdd_p_jo{
+  padding-bottom:200px;
+}
