@@ -6,6 +6,7 @@ import tenders from '@/page/tenders/tenders'
 import win from '@/page/win/win'
 import platform from '@/page/platform/platform'
 import lawworks from '@/page/lawworks/lawworks'
+import Award from '@/page/award/award'
 Vue.use(Router)
 
 export default new Router({
@@ -34,10 +35,16 @@ export default new Router({
       path: '/platform/:type/:statDate',
       name: 'platform',
       component: platform
-    },{
+    },
+    {
       path: '/lawworks/:type/:id',
       name: 'lawworks',
       component: lawworks
     },
+    {
+      path: '/award/:days/:code',
+      name: 'award',
+      component: Award
+    }
   ]
 })

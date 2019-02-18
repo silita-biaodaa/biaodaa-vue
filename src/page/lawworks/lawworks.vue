@@ -72,9 +72,7 @@
         let dataParam = JSON.stringify({
           "id":id
         });
-        console.log(222);
         getJsonData("/law/detail", dataParam).then(res => {
-          console.log(777);
           this.bddList = res.data;
         });
       }

@@ -1,0 +1,46 @@
+ .award {
+   background: url(../../assets/award.jpg) no-repeat;
+   height: 100vh;
+   background-size: cover;
+   display: flex;
+   justify-content: center;
+   position: relative;
+ }
+ .invi {
+   height: 248px;
+   width: 500px;
+   color:#fff;
+   position: absolute;
+   top: 20%;
+   text-align: center;
+ }
+ .t-title {
+    margin-top: 5px;
+    height: 90px;
+    line-height: 90px;
+    font-size: 68px;
+    font-weight: 500;
+ }
+ .t-contant {
+   margin-top: 25px;
+   font-size: 26px;
+ }
+ .a-code {
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color:red;
+    position: absolute;
+    bottom: 18%;
+    font-size: 48px;
+    font-weight: 550;
+ }
+ .c-btn {
+    position: absolute;
+    bottom: 4%;
+    background: url(../../assets/btn.png) no-repeat;
+    background-size: cover;
+    width: 574px;
+    height: 92px;
+ }

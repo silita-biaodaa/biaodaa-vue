@@ -61,7 +61,6 @@ import shuffling from '../../components/shuffling.vue';
         let openAppUrl = "com.yaobang.biaodada://?type="+type+"&id="+id;
         localStorage.setItem("openAppUrl",openAppUrl);
         getJsonData("/notice/queryArticleDetail", dataParam).then(res => {
-          console.log(222);
           this.bddList = res.data;
 
         });
