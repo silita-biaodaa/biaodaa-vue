@@ -2,9 +2,9 @@
     var openAppUrl = "";
     window.onload = function () {
 
-      //if (isWeixnQq()) {
-      // checkAuthorToWx();
-      // }
+      if (isWeixnQq()) {
+      checkAuthorToWx();
+      }
       window.browser = {
         /*判断访问终端*/
         versions: function () {
@@ -55,6 +55,7 @@
     }
     function checkAuthorToWx() {
       let url = location.href.split("#")[0];
+      // console.log(url)
       // alert(url)
 
       let param = {
@@ -63,14 +64,15 @@
       };
       let paramJson = JSON.stringify(param);
       $.ajax({
-        type: 'GET',
+        type: 'post',
         dataType: 'json',
         async: true,
         cache: false,
         url: "http://wx.biaodaa.com/weixin/fetchJsapiSignature",
         data: paramJson,
         contentType: "application/json",
-        success: function (data) {
+        success: function (data) { 
+          console.log(data)
           parseResult(data);
         },
         error: function (data) {
@@ -112,12 +114,12 @@
         ]
       });
       wx.ready(function () {
-        appUrl = appUrl + "company/5d86f82e66452e2db067e42ca327c629";
-        alert(appUrl);
+        // appUrl = appUrl + "company/5d86f82e66452e2db067e42ca327c629";
+        // alert(appUrl);
 
         //分享好友
         var shareData = {
-          // title: document.title,
+          title: document.title,
           desc: '分享描述',
           link: location.href.split("#")[0],
           imgUrl: "static/img/logo.png"
