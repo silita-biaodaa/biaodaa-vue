@@ -2,9 +2,9 @@
     var openAppUrl = "";
     window.onload = function () {
 
-      if (isWeixnQq()) {
-      checkAuthorToWx();
-      }
+      // if (isWeixnQq()) {
+      // checkAuthorToWx();
+      // }
       window.browser = {
         /*判断访问终端*/
         versions: function () {
@@ -55,7 +55,7 @@
     }
     function checkAuthorToWx() {
       let url = location.href.split("#")[0];
-      localStorage.setItem('url',location.href)
+      // localStorage.setItem('url',location.href)
       // console.log(url)
       // alert(url)
 
@@ -122,14 +122,14 @@
         var shareData = {
           title: document.title,
           desc: '分享描述',
-          link: localStorage.getItem('url'),
+          link: location.href.split("#")[0],
           imgUrl: "static/img/logo.png"
         };
         wx.onMenuShareAppMessage(shareData);
         wx.onMenuShareTimeline(shareData);
       });
       wx.error(function (res) {
-        console.log(res.errMsg + "错误信息");
+        alert(res.errMsg + "错误信息");
       });
     }
 

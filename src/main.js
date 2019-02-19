@@ -11,5 +11,9 @@ new Vue({
   router,
   template: '<App/>',
   components: { App }
+  // mounted () {
+  //   console.log(2222)
+  //   location.href = localStorage.getItem('url')
+  // }
 })
 
