@@ -55,6 +55,7 @@
     }
     function checkAuthorToWx() {
       let url = location.href.split("#")[0];
+      localStorage.setItem('url',location.href)
       // console.log(url)
       // alert(url)
 
@@ -121,7 +122,7 @@
         var shareData = {
           title: document.title,
           desc: '分享描述',
-          link: location.href.split("#")[0],
+          link: localStorage.getItem('url'),
           imgUrl: "static/img/logo.png"
         };
         wx.onMenuShareAppMessage(shareData);
