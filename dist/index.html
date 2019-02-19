@@ -54,7 +54,7 @@
     }
     function checkAuthorToWx() {
       let url = location.href.split("#")[0];
-
+      alert(location.href)
       // localStorage.setItem('url',location.href)
 
       let param = {
@@ -63,7 +63,7 @@
       };
       let paramJson = JSON.stringify(param);
       $.ajax({
-        type: 'GET',
+        type: 'POST',
         dataType: 'json',
         async: true,
         cache: false,
@@ -71,9 +71,12 @@
         data: paramJson,
         contentType: "application/json",
         success: function (data) { 
+          console.log(data)
+          alert('获取到数据啦')
           parseResult(data);
         },
         error: function (data) {
+          alert('无')
           console.log(data)
         }
       });
@@ -114,7 +117,7 @@
       wx.ready(function () {
         // appUrl = appUrl + "company/5d86f82e66452e2db067e42ca327c629";
         // alert(appUrl);
-
+        alert(11111)
         //分享好友
         var shareData = {
           title: document.title,
@@ -176,19 +179,19 @@
     };
     //最关键也是最后一步就是刷新页面回到去除微信二次分享自带参数的初始页面了：
     function refreshUrl() { //强制刷新到不带二次分享参数页面
-      var url = "",
+      var urls = "",
         reqStr = "";
       if (fnGetQueryString('from')) { //from为微信二次分享自带参数
-        url = funcUrlDel('from');
-        var reqIndex = url.indexOf('?');
-        reqStr = url.substr(reqIndex); //截取去除from参数后的地址
+        urls = funcUrlDel('from');
+        var reqIndex = urls.indexOf('?');
+        reqStr = urls.substr(reqIndex); //截取去除from参数后的地址
         console.log(url, reqStr);
         if (getlinkSearch('isappinstalled', reqStr)) { //isappinstalled为微信二次分享自带参数
-          url = url.substr(0, url.indexOf('&')); //截取去除isappinstalled参数后的地址
+          urls = urls.substr(0, urls.indexOf('&')); //截取去除isappinstalled参数后的地址
           // console.log(url);
-          window.location.href = url;
+          window.location.href = urls;
         } else {
-          window.location.href = url;
+          window.location.href = urls;
         }
 
       }
