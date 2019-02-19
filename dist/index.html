@@ -55,7 +55,7 @@
     function checkAuthorToWx() {
       let url = location.href.split("#")[0];
       alert(location.href)
-      // localStorage.setItem('url',location.href)
+      localStorage.setItem('url',location.href)
 
       let param = {
         "appid": "wx393124fdad606b1d",
@@ -76,7 +76,7 @@
           parseResult(data);
         },
         error: function (data) {
-          alert('无')
+          // alert('')
           console.log(data)
         }
       });
@@ -115,14 +115,14 @@
         ]
       });
       wx.ready(function () {
-        // appUrl = appUrl + "company/5d86f82e66452e2db067e42ca327c629";
+        appUrl = appUrl + "company/5d86f82e66452e2db067e42ca327c629";
         // alert(appUrl);
-        alert(11111)
+        // alert(11111)
         //分享好友
         var shareData = {
           title: document.title,
           desc: '分享描述',
-          link: location.href.split("#")[0],
+          link: localStorage.getItem('url'),
           imgUrl: "static/img/logo.png"
         };
         wx.onMenuShareAppMessage(shareData);
