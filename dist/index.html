@@ -55,6 +55,7 @@
     }
     function checkAuthorToWx() {
       let url = location.href.split("#")[0];
+      // alert(url)
 
       let param = {
         "appid": "wx393124fdad606b1d",
@@ -70,6 +71,7 @@
         data: paramJson,
         contentType: "application/json",
         success: function (data) {
+          // console.log(data,1)
           parseResult(data);
           // alert(data);
         },
@@ -87,7 +89,7 @@
       let jsapiTicket = result.jsapiSignature.jsapiTicket;
       wx.config({
 
-        debug: false, // 开启调试模式为true后可以通过alert弹窗将公众号签名等结果反馈出来
+        debug: true, // 开启调试模式为true后可以通过alert弹窗将公众号签名等结果反馈出来
 
         appId: "wx393124fdad606b1d", // 必填，公众号的唯一标识
 
@@ -340,4 +342,4 @@
       setTimeout(function () {
         document.body.removeChild(ifr);
       }, 2000);
-    }</script><script type=text/javascript src=/static/js/manifest.d4ea0f25fb176f7f8dfa.js></script><script type=text/javascript src=/static/js/vendor.c85d2f3da72e25ca014b.js></script><script type=text/javascript src=/static/js/app.8a24a85f47c29b032638.js></script></body></html>
+    }</script><script type=text/javascript src=/static/js/manifest.b5527706c9c0842640b5.js></script><script type=text/javascript src=/static/js/vendor.c85d2f3da72e25ca014b.js></script><script type=text/javascript src=/static/js/app.1b22374598cb14069196.js></script></body></html>
