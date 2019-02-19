@@ -32,9 +32,9 @@
     var openAppUrl = "";
     window.onload = function () {
 
-      if (isWeixnQq()) {
+      // if (isWeixnQq()) {
       checkAuthorToWx();
-      }
+      // }
       window.browser = {
         /*判断访问终端*/
         versions: function () {
@@ -85,11 +85,8 @@
     }
     function checkAuthorToWx() {
       let url = location.href.split("#")[0];
-    // console.log(111)
 
       // localStorage.setItem('url',location.href)
-      // console.log(url)
-      // alert(url)
 
       let param = {
         "appid": "wx393124fdad606b1d",
@@ -153,7 +150,7 @@
         var shareData = {
           title: document.title,
           desc: '分享描述',
-          link: location.href,
+          link: location.href.split("#")[0],
           imgUrl: "static/img/logo.png"
         };
         wx.onMenuShareAppMessage(shareData);
