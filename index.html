@@ -21,16 +21,11 @@
 </head>
 
 <body>
-  <div style="display:none" class="i-img">
+  <div style="display:none;width: 300px; height: 300px;" >
      <img src="./static/img/logo.png" alt="" />
   </div>
     <style>
-      .i-img {
-        img {
-          width: 300px;
-          height: 300px;
-        }
-      }
+   
   </style>
   <!-- 构建文件将会注入这里 -->
   <div id="app"></div>
@@ -161,7 +156,7 @@
           title: document.title,
           desc: '分享描述',
           link: localStorage.getItem('url'),
-          imgUrl: "./static/img/logo.png"
+          imgUrl: 'http://prefile.biaodaa.com/images/1.png'
         };
         wx.onMenuShareAppMessage(shareData);
         wx.onMenuShareTimeline(shareData);

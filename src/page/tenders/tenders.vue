@@ -1,5 +1,6 @@
 <template>
   <div class="share-container" >
+   
     <div id="bdd_app" class="share-body">
     <div class="bdd_p" style="margin-top:20px;"><span class="bdd_r_g">{{bddList.title?bddList.title:"-"}}</span></div>
     <div class="bdd_r_a">发布日期：{{bddList.opendate?bddList.opendate:"-"}}</div>

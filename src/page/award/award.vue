@@ -1,5 +1,8 @@
 <template>
   <div class="award">
+    <div style="display:none;width: 300px; height: 300px;" >
+     <img src="../../assets/logo.png" alt="" />
+    </div>
     <div class="invi">
        <div class="t-title" >
          邀新送会员啦
