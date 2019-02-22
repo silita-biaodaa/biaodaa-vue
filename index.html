@@ -86,7 +86,6 @@
     }
     function checkAuthorToWx() {
       let url = location.href.split("#")[0];
-      alert(location.href)
       localStorage.removeItem('url')
       localStorage.setItem('url',location.href)
 
@@ -104,12 +103,9 @@
         data: paramJson,
         contentType: "application/json",
         success: function (data) { 
-          // console.log(data)
-          // alert('获取到数据啦')
           parseResult(data);
         },
         error: function (data) {
-          // alert('')
           console.log(data)
         }
       });
@@ -149,9 +145,6 @@
       });
       wx.ready(function () {
         appUrl = appUrl + "company/5d86f82e66452e2db067e42ca327c629";
-        // alert(appUrl);
-        // alert(11111)
-        //分享好友
         var shareData = {
           title: document.title,
           desc: '分享描述',
@@ -234,7 +227,7 @@
 
     function downloadApp() {
       alert(111)
-      // console.log(1111)
+      
       if (browser.versions.mobile || browser.versions.android || browser.versions.ios) {
         if (browser.versions.weixin) {
           //微信
@@ -290,7 +283,6 @@
           });
         }
       } else {
-        //PC
         $("#bdd_app").show();
       }
 
