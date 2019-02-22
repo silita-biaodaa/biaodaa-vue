@@ -1,8 +1,6 @@
 <template>
-  <div class="award">
-    <!-- <div style="display:none;width: 300px; height: 300px;" >
-     <img src="../../assets/logo.png" alt="" />
-    </div> -->
+  <div >
+   <div class="award"  id="bdd_app" >
     <div class="invi">
        <div class="t-title" >
          邀新送会员啦
@@ -18,7 +16,15 @@
     </div>
     <div class="c-btn" onclick='downloadApp()' >
       
-    </div>  
+    </div>
+   </div>
+   <div id="IOSGuide" class="col-xs-12 col-sm-12" style="display: none">
+    <img id="IOSGuideImg" src="../../assets/ios_guide.png">
+  </div>
+  <!-- andriod -->
+  <div id="andriodGuide" class="col-xs-12 col-sm-12  hidden-lg hidden-md img-responsive" style="display: none">
+    <img id="andriodGuideImg" src="../../assets/andriod_guide.png">
+  </div>   
   </div>
 </template>
 <script>
