@@ -194,7 +194,6 @@
     refreshUrl();
 
     function downloadApp() {
-      alert(111)
       
       if (browser.versions.mobile || browser.versions.android || browser.versions.ios) {
         if (browser.versions.weixin) {
@@ -205,7 +204,6 @@
             $("#bdd_app").hide();
             $("#bdd_nav").hide();
           } else if (browser.versions.ios) {
-            alert('出来')
             $("#IOSGuide").show();
             $("#IOSGuideImg").css("width", "100%");
             $("#bdd_app").hide();
