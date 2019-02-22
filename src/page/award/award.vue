@@ -17,6 +17,7 @@
       {{this.code}}
     </div>
     <div class="c-btn" onclick='downloadApp()' >
+      
     </div>  
   </div>
 </template>

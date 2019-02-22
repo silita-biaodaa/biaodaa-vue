@@ -44,5 +44,6 @@
     background-size: cover;
     width: 574px;
     height: 92px;
+    overflow: hidden;
     z-index: 999;
  }
