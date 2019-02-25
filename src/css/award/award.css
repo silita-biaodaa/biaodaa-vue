@@ -1,17 +1,28 @@
- .award {
+.full {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.award {
    background: url(../../assets/award.jpg) no-repeat;
    height: 100vh;
    background-size: 100% 100%;
-   display: flex;
-   justify-content: center;
+   /* display: flex;
+   justify-content: center; */
+   /* margin: 0 auto; */
    position: relative;
    background-position: center;
  }
  .invi {
    height: 248px;
+   /* margin: 0 auto; */
    width: 500px;
    color:#fff;
    position: absolute;
+   left: 50%;
+   transform: translateX(-50%);
    top: 20%;
    text-align: center;
  }
@@ -35,6 +46,8 @@
     position: absolute;
     bottom: 17%;
     font-size: 48px;
+    left: 50%;
+    transform: translateX(-50%);
     font-weight: 550;
  }
  .c-btn {
@@ -44,5 +57,6 @@
     background-size: cover;
     width: 574px;
     height: 92px;
-
+    left: 50%;
+    transform: translateX(-50%);
  }

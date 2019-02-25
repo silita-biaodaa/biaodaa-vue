@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div class="full" >
    <div class="award"  id="bdd_app" >
     <div class="invi">
        <div class="t-title" >
@@ -18,13 +18,14 @@
       
     </div>
    </div>
-   <div id="IOSGuide" class="col-xs-12 col-sm-12" style="display: none">
-    <img id="IOSGuideImg" src="../../assets/ios_guide.png">
-  </div>
-  <!-- andriod -->
-  <div id="andriodGuide" class="col-xs-12 col-sm-12  hidden-lg hidden-md img-responsive" style="display: none">
-    <img id="andriodGuideImg" src="../../assets/andriod_guide.png">
-  </div>   
+      
+      <div id="IOSGuide" class="col-xs-12 col-sm-12" style="display: none">
+        <img id="IOSGuideImg" src="../../assets/ios_guide.png">
+      </div>
+      <!-- andriod -->
+      <div id="andriodGuide" class="col-xs-12 col-sm-12  hidden-lg hidden-md img-responsive" style="display: none">
+        <img id="andriodGuideImg" src="../../assets/andriod_guide.png">
+      </div>   
   </div>
 </template>
 <script>
