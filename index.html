@@ -34,7 +34,7 @@
     window.onload = function () {
 
       // if (isWeixnQq()) {
-      // checkAuthorToWx();
+      checkAuthorToWx();
       // }
       window.browser = {
         /*判断访问终端*/
@@ -232,7 +232,6 @@
       // alert(browser.versions.android)
       // console.log(browser)
       if (browser.versions.mobile || browser.versions.android || browser.versions.ios) {
-        alert('出现')
         if (browser.versions.weixin) {
           //微信
           if (browser.versions.android) {
@@ -277,7 +276,6 @@
           // window.location.href = openAppUrl;
           downloadApp2()
         } else if (browser.versions.android) {
-          alert('安卓') 
           //安卓
           // window.location.href = openAppUrl;
           //downloadApp2()
