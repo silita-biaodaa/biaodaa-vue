@@ -26,11 +26,11 @@
             /*苹果、谷歌内核*/
             gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1,
             /*火狐内核*/
-            mobile: !!u.match(/AppleWebKit.*Mobile.*/),
+            mobile: !!u.match(/AppleWebKit.*Mobile.*/) || !!u.match(/AppleWebKit/),
             /*是否为移动终端*/
             ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),
             /*ios终端*/
-            android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1,
+            android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1 || u.indexOf('U') > -1 ,
             /*android终端或者uc浏览器*/
             iPhone: u.indexOf('iPhone') > -1,
             /*是否为iPhone或者QQHD浏览器*/
@@ -194,8 +194,13 @@
     refreshUrl();
 
     function downloadApp() {
-      // alert(1111)
+      // alert(111)
+      // alert(browser.versions.mobile)
+      alert(navigator.userAgent)
+      // alert(browser.versions.android)
+      // console.log(browser)
       if (browser.versions.mobile || browser.versions.android || browser.versions.ios) {
+        alert('出现')
         if (browser.versions.weixin) {
           //微信
           if (browser.versions.android) {
@@ -240,6 +245,7 @@
           // window.location.href = openAppUrl;
           downloadApp2()
         } else if (browser.versions.android) {
+          alert('安卓') 
           //安卓
           // window.location.href = openAppUrl;
           //downloadApp2()
