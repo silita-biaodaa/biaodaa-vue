@@ -39,7 +39,10 @@ export default {
   methods: {
     gainCode () {
       this.days = this.$route.params.days
-      this.code = this.$route.params.code
+      this.code = this.$route.params.code;
+      localStorage.removeItem('openAppUrl')
+      let openAppUrl = "com.yaobang.biaodada://"
+      localStorage.setItem("openAppUrl",openAppUrl);
     }
   },
   created () {

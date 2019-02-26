@@ -103,6 +103,7 @@
         data: paramJson,
         contentType: "application/json",
         success: function (data) { 
+          console.log(data)
           parseResult(data);
         },
         error: function (data) {
