@@ -111,16 +111,14 @@ export default {
     getUp: function() {
       let type = this.$route.params.type;
       let statDate = this.$route.params.statDate;
-      let selectDate = statDate ? this.getLastDate(statDate) : this.getCurrentDate()
+      let selectDate = statDate ? statDate : this.getCurrentDate()
       let dataParam = JSON.stringify({
         statDate:selectDate
       });
-      console.log(2222);
       let openAppUrl =
         "com.yaobang.biaodada://?type=" + type + "&statDate=" + statDate;
       localStorage.setItem("openAppUrl", openAppUrl);
       getJsonData("/count/list", dataParam).then(res => {
-        console.log(666);
         let bddList =  res.data;
         this.bddList = bddList;
         this.showDate = this.getLateDate(bddList.releaseTime);
