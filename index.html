@@ -103,7 +103,6 @@
         data: paramJson,
         contentType: "application/json",
         success: function (data) { 
-          console.log(data)
           parseResult(data);
         },
         error: function (data) {
@@ -227,11 +226,6 @@
     refreshUrl();
 
     function downloadApp() {
-      // alert(111)
-      // alert(browser.versions.mobile)
-      alert(navigator.userAgent)
-      // alert(browser.versions.android)
-      // console.log(browser)
       if (browser.versions.mobile || browser.versions.android || browser.versions.ios) {
         if (browser.versions.weixin) {
           //微信
