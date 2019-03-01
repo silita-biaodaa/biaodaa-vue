@@ -53,9 +53,8 @@
       };
     }
     function checkAuthorToWx() {
-      let url = 'http://share.biaodaa.com/';
-      alert(url,1)
-      console.log(url,1)      
+      let url = location.href.split("#")[0];
+     
       localStorage.removeItem('url')
       localStorage.setItem('url',location.href)
 
@@ -126,7 +125,7 @@
         wx.onMenuShareTimeline(shareData);
       });
       wx.error(function (res) {
-        console.log(res,3)
+        
         alert(res.errMsg + "错误信息");
       });
     }
