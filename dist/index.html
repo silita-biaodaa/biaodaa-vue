@@ -2,7 +2,7 @@
     window.onload = function () {
 
       // if (isWeixnQq()) {
-       checkAuthorToWx();
+      //  checkAuthorToWx();
       // }
       window.browser = {
         /*判断访问终端*/
@@ -64,7 +64,7 @@
       };
       let paramJson = JSON.stringify(param);
       $.ajax({
-        type: 'POST',
+        type: 'GET',
         dataType: 'json',
         async: true,
         cache: false,
@@ -73,6 +73,7 @@
         contentType: "application/json",
         success: function (data) { 
           console.log(data,2)
+
           parseResult(data);
         },
         error: function (data) {
