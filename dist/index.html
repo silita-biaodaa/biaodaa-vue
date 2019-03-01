@@ -2,7 +2,7 @@
     window.onload = function () {
 
       // if (isWeixnQq()) {
-      //  checkAuthorToWx();
+       checkAuthorToWx();
       // }
       window.browser = {
         /*判断访问终端*/
@@ -54,7 +54,7 @@
     }
     function checkAuthorToWx() {
       let url = location.href.split("#")[0];
-     
+      alert(url)
       localStorage.removeItem('url')
       localStorage.setItem('url',location.href)
 
@@ -73,10 +73,11 @@
         contentType: "application/json",
         success: function (data) { 
           console.log(data,2)
-
+          alert(data)
           parseResult(data);
         },
         error: function (data) {
+          alert(data)
           console.log(data)
         }
       });
