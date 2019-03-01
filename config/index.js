@@ -29,7 +29,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/proxy': {
-        target: 'http://share.biaodaa.com/',
+        target: 'http://api.biaodaa.com/',
         changeOrigin: true,
         pathRewrite: {
           '^/proxy': ''
