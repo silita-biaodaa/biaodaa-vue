@@ -86,6 +86,8 @@
     }
     function checkAuthorToWx() {
       let url = location.href.split("#")[0];
+      alert(url,1)
+      console.log(url,1)      
       localStorage.removeItem('url')
       localStorage.setItem('url',location.href)
 
@@ -103,6 +105,7 @@
         data: paramJson,
         contentType: "application/json",
         success: function (data) { 
+          console.log(data,2)
           parseResult(data);
         },
         error: function (data) {
@@ -119,7 +122,7 @@
       let jsapiTicket = result.jsapiSignature.jsapiTicket;
       wx.config({
 
-        debug: false, // 开启调试模式为true后可以通过alert弹窗将公众号签名等结果反馈出来
+        debug: true, // 开启调试模式为true后可以通过alert弹窗将公众号签名等结果反馈出来
 
         appId: "wx393124fdad606b1d", // 必填，公众号的唯一标识
 

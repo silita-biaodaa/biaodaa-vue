@@ -7,8 +7,8 @@
        </div>
        <div class="t-contant">
           <p>成功邀请到1位好友</p>
-           <p>奖励您{{this.days}}天会员</p>
-           <p>邀请好友越多,积累奖励时长越多</p>
+          <p>奖励您{{this.days}}天会员</p>
+          <p>邀请好友越多,积累奖励时长越多</p>
        </div>
     </div>
     <div class="a-code">
@@ -32,8 +32,8 @@
 export default {
   data () {
     return {
-      days: '0',
-      code: '123ABC'
+      days: '',
+      code: ''
     }
   },
   methods: {
