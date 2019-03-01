@@ -4,7 +4,6 @@ import axios from 'axios'
 const baseURL = 'http://api.biaodaa.com/.'
 // const baseURL = 'http://120.78.253.169/'
 // const baseURL = 'http://pre.biaodaa.com'
-// const baseURL = 'http://share.biaodaa.com/'
 
 
 

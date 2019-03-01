@@ -33,9 +33,9 @@
     var openAppUrl = "";
     window.onload = function () {
 
-      // if (isWeixnQq()) {
+      if (isWeixnQq()) {
        checkAuthorToWx();
-      // }
+      }
       window.browser = {
         /*判断访问终端*/
         versions: function () {
@@ -159,7 +159,7 @@
         wx.onMenuShareTimeline(shareData);
       });
       wx.error(function (res) {
-        
+      
         alert(res.errMsg + "错误信息");
       });
     }
