@@ -115,6 +115,9 @@ export default {
       let dataParam = JSON.stringify({
         statDate:selectDate
       });
+      if(selectDate=='2019-03-04'){
+        dataParam.type='2'
+      }
       let openAppUrl =
         "com.yaobang.biaodada://?type=" + type + "&statDate=" + statDate;
       localStorage.setItem("openAppUrl", openAppUrl);
