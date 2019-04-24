@@ -91,12 +91,13 @@ body{
 }
 .bdd_p_foo{
   /* height:50px; */
-  font-size:28px;
+  font-size:24px;
   font-family:PingFangSC-Regular;
   font-weight:400;
+  padding: 0 30px;
   color:rgba(153,153,153,1);
   /* line-height:10px; */
-  text-align: center;
+  /* text-align: center; */
 }
 .bdd_p_footer{
   padding-top:100px;
