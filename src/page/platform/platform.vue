@@ -2,24 +2,46 @@
   <div class="share-container">
     <div id="bdd_app" class="share-body">
     <div class="bdd_p"  style="margin-top:20px;"><span class="bdd_r_g">{{bddList.title?bddList.title:"-"}}</span></div>
-    <div class="bdd_r_a">发布日期：{{showDate?showDate:"-"}}</div>
+    <div class="bdd_r_a" v-if="">{{showDate?showDate:"-"}}</div>
     <div class="bdd_p_le"><span class="bdd_r_g_ro"></span>{{bddList.remark?bddList.remark:"-"}}</div>
-    <table width="100%" class="bdd_p_table">
-      <tr>
-      <th style="width: 17%" class="bdd_p_th_o">排名</th>
-      <th style="width: 60%" class="bdd_p_th_o">中标公司名称</th>
-      <th style="width: 23%" class="bdd_p_th_o">中标个数  </th>
-      </tr>
-      <tr v-for="(item,index) in bddList.list"  :key="item.comName">
-        <td style="width: 17%;" class="bdd_p_th_l">{{index+1}}</td>
-        <td style="width: 60%" class="bdd_p_th_l">{{item.comName}}</td>
-        <td style="width: 23%" class="bdd_p_th_l">{{item.num}}</td>
-      </tr>
-    </table>
-    <div class="bdd_p_footer">
-    <div class="bdd_p_foo">湖南企信数据研究院</div>
-    <div class="bdd_p_foo">建筑业经营数据研究中心</div>
-    </div>
+    <template v-if="!isPrestige">
+      <table width="100%" class="bdd_p_table">
+        <tr>
+        <th style="width: 17%" class="bdd_p_th_o">排名</th>
+        <th style="width: 60%" class="bdd_p_th_o">中标公司名称</th>
+        <th style="width: 23%" class="bdd_p_th_o">中标个数  </th>
+        </tr>
+        <tr v-for="(item,index) in bddList.list"  :key="item.comName">
+          <td style="width: 17%;" class="bdd_p_th_l">{{index+1}}</td>
+          <td style="width: 60%" class="bdd_p_th_l">{{item.comName}}</td>
+          <td style="width: 23%" class="bdd_p_th_l">{{item.num}}</td>
+        </tr>
+      </table>
+      <div class="bdd_p_footer">
+        <div class="bdd_p_foo">湖南企信数据研究院</div>
+        <div class="bdd_p_foo">建筑业经营数据研究中心</div>
+      </div>
+    </template>
+    <template v-else>
+      <table width="100%" class="bdd_p_table">
+        <tr>
+          <th  class="bdd_p_th_o" style="width:10%">排名</th>
+          <th class="bdd_p_th_o">企业名称</th>
+          <th class="bdd_p_th_o" style="width: 10%" >评分</th>
+          <th style="width: 13%" class="bdd_p_th_o">获奖数量</th>
+        </tr>
+        <tr v-for="(item,index) in bddList.list"  :key="item.comName">
+          <td class="bdd_p_th_l">{{index+1}}</td>
+          <td class="bdd_p_th_l">{{item.comName}}</td>
+          <td class="bdd_p_th_l">{{item.score}}</td>
+          <td class="bdd_p_th_l">{{item.num}}</td>
+        </tr>
+      </table>
+      <div class="bdd_p_footer">
+        <div class="bdd_p_foo">重要声明：本排行榜内容是湖南省住房和建设厅公开信息所得结果，标大大不对排行结果的准确、真实性负责。</div>
+      </div>
+    </template>
+    
     </div>
     <nav id="bdd_nav" class=" navbar navbar-default navbar-fixed-bottom share-download" >
       <div class="bdd_one">
@@ -53,11 +75,18 @@ export default {
     return {
       showDate:"",
       bddList: {},
-      statDate: {}
+      statDate: {},
+      isPrestige:false
     };
   },
   mounted() {
     this.getUp();
+  },
+  created(){
+    let type = this.$route.params.type;
+    if(type!=5){
+      this.isPrestige=true;
+    }
   },
   methods: {
     getCurrentDate: function() {
@@ -94,6 +123,7 @@ export default {
       if (dateArr && dateArr.length > 2) {
         let year = dateArr[0];
         let month = dateArr[1];
+        let day=dateArr[2]
         month = Number(month) + 1;
         if (month < 10) {
           month = "0" + month;
@@ -101,7 +131,7 @@ export default {
           month = "01";
           year =Number(year)+1;
         }
-        return year + "-" + month + "-01";
+        return year + "-" + month +'-'+ day;
       }
 
       return lateDate;
@@ -111,13 +141,18 @@ export default {
     getUp: function() {
       let type = this.$route.params.type;
       let statDate = this.$route.params.statDate;
-      let selectDate = statDate ? statDate : this.getCurrentDate()
-      let dataParam = JSON.stringify({
+      let selectDate = statDate ? statDate : this.getCurrentDate();
+      let data={
         statDate:selectDate
-      });
-      if(selectDate=='2019-03-04'){
-        dataParam.type='2'
       }
+      if(type!='5'){
+        data.type='2'
+      }
+      let dataParam = JSON.stringify(data);
+      
+      // if(type!='5'){
+      //   dataParam.type='2'
+      // }
       let openAppUrl =
         "com.yaobang.biaodada://?type=" + type + "&statDate=" + statDate;
       localStorage.setItem("openAppUrl", openAppUrl);
