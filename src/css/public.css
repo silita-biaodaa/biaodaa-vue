@@ -7,9 +7,34 @@ html,body {
   overflow-x: hidden;
   font-family: "HanHei SC", "PingFang SC", "Lantinghei SC", "Open Sans", Arial, "Hiragino Sans GB", "Microsoft YaHei", 微软雅黑, STHeiti, "WenQuanYi Micro Hei", SimSun, sans-serif;
 }
+body{
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
 .app-bg{
     width: 100%;
+}
+.bdd_foo{
+  width:148px;
+  height:64px;
+  background:#FE6603;
+  border-radius:8px;
+}
+.bdd_x{
+  width:150px;
+  height:24px;
+  font-size:24px;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(255,255,255,1);
+  line-height:15px;
+  margin:26px;
 
 
-
+}
+#bdd_nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

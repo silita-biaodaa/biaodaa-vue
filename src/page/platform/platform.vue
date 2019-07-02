@@ -2,7 +2,7 @@
   <div class="share-container">
     <div id="bdd_app" class="share-body">
     <div class="bdd_p"  style="margin-top:20px;"><span class="bdd_r_g">{{bddList.title?bddList.title:"-"}}</span></div>
-    <div class="bdd_r_a" v-if="">{{showDate?showDate:"-"}}</div>
+    <div class="bdd_r_a" v-if="showDate">{{showDate?showDate:"-"}}</div>
     <div class="bdd_p_le"><span class="bdd_r_g_ro"></span>{{bddList.remark?bddList.remark:"-"}}</div>
     <template v-if="!isPrestige">
       <table width="100%" class="bdd_p_table">
@@ -66,7 +66,6 @@
 
 </template>
 <script>
-import shuffling from "../../components/shuffling.vue";
 import { getJsonData } from "../../api/index.js";
 
 export default {
@@ -165,5 +164,107 @@ export default {
   }
 };
 </script>
-<style src = "../../css/platform/platform.css">
+<style scoped>
+.bdd_p{
+  clear:both;
+  overflow:hidden;
+  width: 90%;
+  font-size:36px;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(51,51,51,1);
+  margin-left:32px;
+  margin-right:32px;
+  margin-top:20px;
+
+}
+.share-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.share-body {
+  height: calc(100% - 120px);
+  overflow-x: hidden;
+  overflow: auto;
+
+}
+.bdd_r_g{
+  float:left;
+  line-height:60px;
+  display: inline-block;
+}
+.bdd_r_a{
+  margin-top:30px;
+  height:24px;
+  font-size:28px;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(153,153,153,1);
+  line-height:24px;
+
+}
+.bdd_p_le{
+  clear:both;
+  overflow:hidden;
+  width: 90%;
+  font-size:28px;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+  margin-left:32px;
+  margin-right:25px;
+  line-height:50px;
+  margin-top:48px;
+ text-indent: 2em;
+}
+.bdd_r_g_ro{
+  float:left;
+  line-height:60px;
+  display: inline-block;
+}
+.bdd_p_th_o,.bdd_p_th_l{
+  height:32px;
+  font-size:24px;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(51,51,51,1);
+  line-height:32px;
+  text-align: center;
+}
+.bdd_p_table{
+  width: 100%;
+  margin-top:100px;
+  margin-bottom: 0;
+}
+
+.bdd_p_th_o{
+  font-weight: 500;
+
+}
+.bdd_p_th_l{
+  padding-top:40px;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+
+}
+.bdd_p_foo{
+  /* height:50px; */
+  font-size:24px;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  padding: 0 30px;
+  color:rgba(153,153,153,1);
+  /* line-height:10px; */
+  /* text-align: center; */
+}
+.bdd_p_footer{
+  padding-top:100px;
+}
+.bdd_p_m{
+  margin-bottom:48px;
+}
+
 </style>
