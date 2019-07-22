@@ -1,9 +1,9 @@
 <template>
 <div class="share-container">
-  <div id="bdd_app" class="share-body">
-   <div class="bdd_p "  style="margin-top:20px;"><span class="bdd_r_g">{{bddList.title?bddList.title:"-"}}</span></div>
-    <div class="bdd_r_a">发布日期：{{bddList.time?bddList.time:"-"}}</div>
-    <div class="bdd_p_leo"><div v-html='bddList.content'></div></div>
+  <div id="biaodaa-app" class="share-body">
+   <div class="biaodaa-p "  style="margin-top:20px;"><span class="biaodaa-r_g">{{bddList.title?bddList.title:"-"}}</span></div>
+    <div class="biaodaa-r_a">发布日期：{{bddList.time?bddList.time:"-"}}</div>
+    <div class="biaodaa-p_leo"><div v-html='bddList.content'></div></div>
    
   </div>
  <!-- IOS -->
@@ -15,15 +15,15 @@
     <div id="andriodGuide" class="col-xs-12 col-sm-12  hidden-lg hidden-md img-responsive" style="display: none">
       <img id="andriodGuideImg" src="../../assets/andriod_guide.png">
     </div>
-  <nav id="bdd_nav" class="navbar navbar-default navbar-fixed-bottom share-download">
-    <div class="bdd_one">
-      <img class="bdd_img" src="../../assets/logo.png" /> </div>
-    <div class="bdd_two">
-      <div class="bdd_g">标大大</div>
-      <div class="bdd_n">打开App了解更多资讯</div>
+  <nav id="biaodaa-nav" class="navbar navbar-default navbar-fixed-bottom share-download">
+    <div class="biaodaa-one">
+      <img class="biaodaa-img" src="../../assets/logo.png" /> </div>
+    <div class="biaodaa-two">
+      <div class="biaodaa-g">标大大</div>
+      <div class="biaodaa-n">打开App了解更多资讯</div>
     </div>
-    <div class="bdd_foo">
-      <div onclick='downloadApp()' class="bdd_x">立即打开</div>
+    <div class="biaodaa-foo">
+      <div onclick='downloadApp()' class="biaodaa-x">立即打开</div>
     </div>
   </nav>
 </div>
@@ -70,7 +70,7 @@ import shuffling from '../../components/shuffling.vue';
 </script>
 <style scoped>
 
-.bdd_p{
+.biaodaa-p{
   clear:both;
   overflow:hidden;
   width: 90%;
@@ -95,12 +95,12 @@ import shuffling from '../../components/shuffling.vue';
   overflow-x: hidden;
   overflow: auto;
 }
-.bdd_r_g{
+.biaodaa-r_g{
   float:left;
   line-height:60px;
   display: inline-block;
 }
-.bdd_r_a{
+.biaodaa-r_a{
   margin-top:30px;
   height:24px;
   font-size:28px;
@@ -110,7 +110,7 @@ import shuffling from '../../components/shuffling.vue';
   line-height:24px;
 
 }
-.bdd_p_leo{
+.biaodaa-p_leo{
   clear:both;
   /*overflow:hidden;*/
   width: 90%;
@@ -125,7 +125,7 @@ import shuffling from '../../components/shuffling.vue';
   padding-bottom:334px;
 
 }
-.bdd_r_g_ro{
+.biaodaa-r_g_ro{
   float:left;
   line-height:300px;
   display: inline-block;
@@ -133,7 +133,29 @@ import shuffling from '../../components/shuffling.vue';
 table{
   margin-bottom:338px;
 }
-.bdd_R_mess{
+.biaodaa-R_mess{
   line-height: 100px;
+}
+.biaodaa-foo{
+  width:148px;
+  height:64px;
+  background:#FE6603;
+  border-radius:8px;
+}
+.biaodaa-x{
+  width:150px;
+  height:24px;
+  font-size:24px;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(255,255,255,1);
+  line-height:15px;
+  margin:26px;
+}
+.biaodaa-one img{
+	width: 108px;
+}
+.biaodaa-two{
+	font-size: 16px;
 }
 </style>

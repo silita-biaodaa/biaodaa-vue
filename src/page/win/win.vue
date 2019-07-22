@@ -1,38 +1,38 @@
 <template>
   <div class="share-container" >
-    <div id="bdd_app" class="share-body" >
-      <div class="bdd_p_header">查行贿，查围标串标，就上标大大</div>
-      <div class="bdd_r_u" style="margin-top:20px;"><span class="bdd_span_po">{{bddList.title?bddList.title:"--"}}</span></div>
-      <div class="bdd_r_a">发布日期：{{bddList.opendate?bddList.opendate:"--"}}</div>
-      <div class="bdd_r_si">
-        <div class="bdd_r_one">
+    <div id="biaodaa-app" class="share-body" >
+      <div class="biaodaa-p_header">查行贿，查围标串标，就上标大大</div>
+      <div class="biaodaa-r_u" style="margin-top:20px;"><span class="biaodaa-span_po">{{bddList.title?bddList.title:"--"}}</span></div>
+      <div class="biaodaa-r_a">发布日期：{{bddList.opendate?bddList.opendate:"--"}}</div>
+      <div class="biaodaa-r_si">
+        <div class="biaodaa-r_one">
           <div>
-            <div class="bdd_r_ta"><img class="bdd_r_img" src="../../assets/share_zhongb_icon_tabel.png" alt=""></div>
-            <div class="bdd_r_e"><span class="bdd_r_x">项目金额</span><span class="bdd_r_m">{{bddList.projSum?bddList.projSum+"万元":"-"}}</span></div>
-            <div><span class="bdd_r_x">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;区</span><span class="bdd_r_m">{{bddList.projDq?bddList.projDq:"-"}}</span></div>
-            <div><span class="bdd_r_x">评标办法</span><span class="bdd_r_m">{{bddList.pbMode?bddList.pbMode:"-"}}</span></div>
+            <div class="biaodaa-r_ta"><img class="biaodaa-r_img" src="../../assets/share_zhongb_icon_tabel.png" alt=""></div>
+            <div class="biaodaa-r_e"><span class="biaodaa-r_x">项目金额</span><span class="biaodaa-r_m">{{bddList.projSum?bddList.projSum+"万元":"-"}}</span></div>
+            <div><span class="biaodaa-r_x">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;区</span><span class="biaodaa-r_m">{{bddList.projDq?bddList.projDq:"-"}}</span></div>
+            <div><span class="biaodaa-r_x">评标办法</span><span class="biaodaa-r_m">{{bddList.pbMode?bddList.pbMode:"-"}}</span></div>
           </div>
-          <div class="bdd_r_v"><span><img class="bdd_p_img"  src="../../assets/share_zhongb_icon_1.png" alt=""></span><span class="bdd_p_ki">{{bddList.oneName?bddList.oneName:"-"}}</span>
-            <div class="bdd_p_o">{{bddList.oneOffer?bddList.oneOffer+"万元":"-"}}<span class="bdd_w_yi">{{bddList.oneLaw?"疑似风险("+bddList.oneLaw+")":""}}</span></div>
+          <div class="biaodaa-r_v"><span><img class="biaodaa-p_img"  src="../../assets/share_zhongb_icon_1.png" alt=""></span><span class="biaodaa-p_ki">{{bddList.oneName?bddList.oneName:"-"}}</span>
+            <div class="biaodaa-p_o">{{bddList.oneOffer?bddList.oneOffer+"万元":"-"}}<span class="biaodaa-w_yi">{{bddList.oneLaw?"疑似风险("+bddList.oneLaw+")":""}}</span></div>
           </div>
-          <div class="bdd_r_v"><span><img  class="bdd_p_img" src="../../assets/share_zhongb_icon_2.png" alt=""></span><span class="bdd_p_ki">{{bddList.twoName?bddList.twoName:"-"}}</span>
-            <div class="bdd_p_o">{{bddList.twoOffer?bddList.twoOffer+"万元":"-"}}<span class="bdd_w_yi">{{bddList.twoLaw?"疑似风险("+bddList.twoLaw+")":""}}</span></div>
+          <div class="biaodaa-r_v"><span><img  class="biaodaa-p_img" src="../../assets/share_zhongb_icon_2.png" alt=""></span><span class="biaodaa-p_ki">{{bddList.twoName?bddList.twoName:"-"}}</span>
+            <div class="biaodaa-p_o">{{bddList.twoOffer?bddList.twoOffer+"万元":"-"}}<span class="biaodaa-w_yi">{{bddList.twoLaw?"疑似风险("+bddList.twoLaw+")":""}}</span></div>
           </div>
 
-          <div class="bdd_r_v"><span><img   class="bdd_p_img" src="../../assets/share_zhongb_icon_3.png" alt=""></span><span class="bdd_p_ki">{{bddList.threeName?bddList.threeName:"-"}}</span>
-            <div class="bdd_p_o">{{bddList.threeOffer?bddList.threeOffer+"万元":"-"}}<span class="bdd_w_yi">{{bddList.threeLaw?"疑似风险("+bddList.threeLaw+")":""}}</span></div>
+          <div class="biaodaa-r_v"><span><img   class="biaodaa-p_img" src="../../assets/share_zhongb_icon_3.png" alt=""></span><span class="biaodaa-p_ki">{{bddList.threeName?bddList.threeName:"-"}}</span>
+            <div class="biaodaa-p_o">{{bddList.threeOffer?bddList.threeOffer+"万元":"-"}}<span class="biaodaa-w_yi">{{bddList.threeLaw?"疑似风险("+bddList.threeLaw+")":""}}</span></div>
           </div>
         </div>
-        <div class="bdd_r_footer">共<span class="bdd_size" style="color:#CEA63F;"> {{bdNum}}</span> 个标段，打开标大大app可查看更多详情</div>
+        <div class="biaodaa-r_footer">共<span class="biaodaa-size" style="color:#CEA63F;"> {{bdNum}}</span> 个标段，打开标大大app可查看更多详情</div>
 
       </div>
-      <div class="bdd_r_one bdd_r_foo">
+      <div class="biaodaa-r_one biaodaa-r_foo">
         <div>
-          <div class="bdd_s bdd_m "><span class="bdd_time bdd_spc bdd_r_aise">公告原文：</span></div>
-          <div class="bdd_s bdd_m bdd_p_jo" v-html="bddList.content"></div>
+          <div class="biaodaa-s biaodaa-m "><span class="biaodaa-time biaodaa-spc biaodaa-r_aise">公告原文：</span></div>
+          <div class="biaodaa-s biaodaa-m biaodaa-p_jo" v-html="bddList.content"></div>
         </div>
       </div>
-      <div class="bdd_i_fot"></div>
+      <div class="biaodaa-i_fot"></div>
 
     </div>
     <!-- IOS -->
@@ -44,15 +44,15 @@
     <div id="andriodGuide" class="col-xs-12 col-sm-12  hidden-lg hidden-md img-responsive" style="display: none">
       <img id="andriodGuideImg" src="../../assets/andriod_guide.png">
     </div>
-    <nav id="bdd_nav" class="navbar navbar-default navbar-fixed-bottom">
-      <div class="bdd_one">
-        <img class="bdd_img" src="../../assets/logo.png" /> </div>
-      <div class="bdd_two">
-        <div class="bdd_g">标大大</div>
-        <div class="bdd_n">打开App了解更多资讯</div>
+    <nav id="biaodaa-nav" class="navbar navbar-default navbar-fixed-bottom">
+      <div class="biaodaa-one">
+        <img class="biaodaa-img" src="../../assets/logo.png" /> </div>
+      <div class="biaodaa-two">
+        <div class="biaodaa-g">标大大</div>
+        <div class="biaodaa-n">打开App了解更多资讯</div>
       </div>
-      <div class="bdd_foo">
-        <div onclick='downloadApp()' class="bdd_x">立即打开</div>
+      <div class="biaodaa-foo">
+        <div onclick='downloadApp()' class="biaodaa-x">立即打开</div>
       </div>
     </nav>
   </div>
@@ -132,7 +132,7 @@
   overflow-x: hidden;
   overflow-y: auto;
 }
-.bdd_a_row{
+.biaodaa-a_row{
   height:32px;
   font-size:32px;
   font-family:PingFangSC-Medium;
@@ -141,21 +141,21 @@
   line-height:23px;
   margin-left:50px;
 }
- .bdd_r_ta{
+ .biaodaa-r_ta{
    text-align: center;
  }
-.bdd_r_img{
+.biaodaa-r_img{
   width: 320px;
   height: 48px;
 }
 
 
-.bdd_p_img{
+.biaodaa-p_img{
   width: 40px;
   height: 40px;
   margin-left:30px;
 }
-.bdd_p_ki{
+.biaodaa-p_ki{
   width:416px;
   height:32px;
   font-size:32px;
@@ -166,7 +166,7 @@
   margin-left:30px;
   vertical-align: middle;
 }
-.bdd_p_o{
+.biaodaa-p_o{
   height:28px;
   font-size:28px;
   font-family:PingFangSC-Regular;
@@ -176,10 +176,10 @@
   margin-left:100px;
   margin-top:16px;
 }
-.bdd_r_h{
+.biaodaa-r_h{
   margin-top:32px;
 }
-.bdd_r_x{
+.biaodaa-r_x{
   width:128px;
   height:32px;
   font-size:32px;
@@ -189,7 +189,7 @@
   line-height:60px;
   padding-left:32px;
 }
-.bdd_r_m{
+.biaodaa-r_m{
   width:188px;
   height:32px;
   font-size:32px;
@@ -199,17 +199,17 @@
   line-height:60px;
   padding-left:48px;
 }
-.bdd_r_e{
+.biaodaa-r_e{
   margin-top:32px;
 }
-.bdd_r_v{
+.biaodaa-r_v{
   margin-top:24px;
 }
-.bdd_span{
+.biaodaa-span{
   padding-left:32px;
   padding-right:32px;
 }
-.bdd_r_u{
+.biaodaa-r_u{
   clear:both;
   overflow:hidden;
   width: 90%;
@@ -220,15 +220,15 @@
   margin-left:32px;
   margin-right:32px;
 }
-.bdd_span_po{
+.biaodaa-span_po{
   float:left;
   line-height:60px;
   display: inline-block;
 }
-.bdd_i_fot{
+.biaodaa-i_fot{
   margin-top:200px;
 }
-.bdd_w_yi{
+.biaodaa-w_yi{
   margin-left:40px;
   font-size:28px;
   font-family:PingFangSC-Regular;
@@ -236,7 +236,7 @@
   color:rgba(212,97,93,1);
   line-height:28px;
 }
-.bdd_p_header{
+.biaodaa-p_header{
   margin-left:32px;
   margin-right:32px;
   color: red;
@@ -244,8 +244,29 @@
   margin-top:40px;
   font-size: 32px;
 }
-.bdd_p_jo{
+.biaodaa-p_jo{
   padding-bottom:200px;
 }
-
+.biaodaa-foo{
+  width:148px;
+  height:64px;
+  background:#FE6603;
+  border-radius:8px;
+}
+.biaodaa-x{
+  width:150px;
+  height:24px;
+  font-size:24px;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(255,255,255,1);
+  line-height:15px;
+  margin:26px;
+}
+.biaodaa-one img{
+	width: 108px;
+}
+.biaodaa-two{
+	font-size: 16px;
+}
 </style>

@@ -1,46 +1,46 @@
 <template>
   <div class="share-container">
-    <div id="bdd_app" class="share-body">
-      <div class="bdd_i_o" style="margin-top:20px;"><span class="bdd_k_o">{{comBaseData?comBaseData.comName:"-"}}</span></div>
-      <div class="bdd_c"><span class="bdd_a">{{comBaseData.legalPerson?comBaseData.legalPerson:"--"}}</span><span class="bdd_b">{{comBaseData.regisCapital?comBaseData.regisCapital:"--"}}</span></div>
-      <div class="bdd_plone">联系信息</div>
-      <div class="bdd_v"><span class="bdd_pl">联系电话</span><span class="bdd_k">{{phoneF?phoneF:"-"}}</span></div>
-      <div class="bdd_v"><span class="bdd_pl">官网地址</span><span class="bdd_k">{{comBaseData.comUrl?comBaseData.comUrl:"-"}}</span></div>
-      <div class="bdd_v"><span class="bdd_pl">邮箱地址</span><span class="bdd_k">{{comBaseData.email?comBaseData.email:"-"}}</span></div>
-      <div class="bdd_main">
-        <span class="bdd_pl bdd_title">公司地址</span>
-        <span class="bdd_content bdd_k">{{comBaseData.comAddress?comBaseData.comAddress:"-"}}</span>
+    <div id="biaodaa-app" class="share-body">
+      <div class="biaodaa-i_o" style="margin-top:20px;"><span class="biaodaa-k_o">{{comBaseData?comBaseData.comName:"-"}}</span></div>
+      <div class="biaodaa-c"><span class="biaodaa-a">{{comBaseData.legalPerson?comBaseData.legalPerson:"--"}}</span><span class="biaodaa-b">{{comBaseData.regisCapital?comBaseData.regisCapital:"--"}}</span></div>
+      <div class="biaodaa-plone">联系信息</div>
+      <div class="biaodaa-v"><span class="biaodaa-pl">联系电话</span><span class="biaodaa-k">{{phoneF?phoneF:"-"}}</span></div>
+      <div class="biaodaa-v"><span class="biaodaa-pl">官网地址</span><span class="biaodaa-k">{{comBaseData.comUrl?comBaseData.comUrl:"-"}}</span></div>
+      <div class="biaodaa-v"><span class="biaodaa-pl">邮箱地址</span><span class="biaodaa-k">{{comBaseData.email?comBaseData.email:"-"}}</span></div>
+      <div class="biaodaa-main">
+        <span class="biaodaa-pl biaodaa-title">公司地址</span>
+        <span class="biaodaa-content biaodaa-k">{{comBaseData.comAddress?comBaseData.comAddress:"-"}}</span>
       </div>
-      <div class="bdd_d"></div>
+      <div class="biaodaa-d"></div>
       <div style='padding-top:25px;'>
-        <div><span class='bdd_plone'>资质信息</span><span class="bdd_p_kip">({{dataList.length}})</span>
+        <div><span class='biaodaa-plone'>资质信息</span><span class="biaodaa-p_kip">({{dataList.length}})</span>
         </div>
       </div>
-      <div class="bdd_zi" v-for="item in dataList" :key="item.qualName">
+      <div class="biaodaa-zi" v-for="item in dataList" :key="item.qualName">
 
         {{item.qualName}}
 
       </div>
-      <div class="bdd_plone">基本信息</div>
-      <div class="bdd_ji">
-        <div class="bdd_s bdd_color"><span class="bdd_time ">注&nbsp;册&nbsp;号 </span><span class="bdd_ri">{{comBaseData.businessNum?comBaseData.businessNum:"-"}}</span></div>
-        <div class="bdd_main_u">
-          <span class="bdd_title bdd_i_color">企业类型</span>
-          <span class="bdd_content bdd_i_po">{{comBaseData.economicType?comBaseData.economicType:"-"}}</span>
+      <div class="biaodaa-plone">基本信息</div>
+      <div class="biaodaa-ji">
+        <div class="biaodaa-s biaodaa-color"><span class="biaodaa-time ">注&nbsp;册&nbsp;号 </span><span class="biaodaa-ri">{{comBaseData.businessNum?comBaseData.businessNum:"-"}}</span></div>
+        <div class="biaodaa-main_u">
+          <span class="biaodaa-title biaodaa-i_color">企业类型</span>
+          <span class="biaodaa-content biaodaa-i_po">{{comBaseData.economicType?comBaseData.economicType:"-"}}</span>
         </div>
-        <div class="bdd_s bdd_color"><span class="bdd_time ">安许证号</span><span class="bdd_ri">{{comBaseData.certNo?comBaseData.certNo:"&#45;&#45;"}}</span></div>
-        <div class="bdd_s "><span class="bdd_time ">有&nbsp;效&nbsp;期&nbsp;</span><span class="bdd_ri">{{comBaseData.validDate?comBaseData.validDate:"-"}}</span></div>
-        <div class="bdd_main_u">
-          <span class="bdd_title  bdd_i_color ">经营范围</span>
-          <span class="bdd_content bdd_i_po">{{shortComRange?shortComRange:"-"}}<span class="bdd_h" v-show="isShowAllBtn" @click="showAll()">{{textBtn}}</span></span>
+        <div class="biaodaa-s biaodaa-color"><span class="biaodaa-time ">安许证号</span><span class="biaodaa-ri">{{comBaseData.certNo?comBaseData.certNo:"&#45;&#45;"}}</span></div>
+        <div class="biaodaa-s "><span class="biaodaa-time ">有&nbsp;效&nbsp;期&nbsp;</span><span class="biaodaa-ri">{{comBaseData.validDate?comBaseData.validDate:"-"}}</span></div>
+        <div class="biaodaa-main_u">
+          <span class="biaodaa-title  biaodaa-i_color ">经营范围</span>
+          <span class="biaodaa-content biaodaa-i_po">{{shortComRange?shortComRange:"-"}}<span class="biaodaa-h" v-show="isShowAllBtn" @click="showAll()">{{textBtn}}</span></span>
         </div>
       </div>
-      <div class="bdd_plone">分支机构</div>
-      <div class="bdd_f">该公司有 <span class="bdd_size bdd_col">{{bddList.branchCompanyTotal?bddList.branchCompanyTotal:"-"}} </span>家分支机构，打开标大大app可查看详情</div>
-      <div class="bdd_plone">人员信息</div>
-      <div class="bdd_f">该公司有 <span class="bdd_size bdd_col"> {{bddList.personTotal?bddList.personTotal:"-" }} </span>家人员信息，打开标大大app可查看详情</div>
-      <div class="bdd_plone">业绩信息</div>
-      <div class="bdd_f">该公司有 <span class="bdd_size" style="color:#CEA63F "> {{bddList.projectTotal?bddList.projectTotal:'-'}} </span>家业绩信息，打开标大大app可查看详情</div>
+      <div class="biaodaa-plone">分支机构</div>
+      <div class="biaodaa-f">该公司有 <span class="biaodaa-size biaodaa-col">{{bddList.branchCompanyTotal?bddList.branchCompanyTotal:"-"}} </span>家分支机构，打开标大大app可查看详情</div>
+      <div class="biaodaa-plone">人员信息</div>
+      <div class="biaodaa-f">该公司有 <span class="biaodaa-size biaodaa-col"> {{bddList.personTotal?bddList.personTotal:"-" }} </span>家人员信息，打开标大大app可查看详情</div>
+      <div class="biaodaa-plone">业绩信息</div>
+      <div class="biaodaa-f">该公司有 <span class="biaodaa-size" style="color:#CEA63F "> {{bddList.projectTotal?bddList.projectTotal:'-'}} </span>家业绩信息，打开标大大app可查看详情</div>
     </div>
 
     <!-- IOS -->
@@ -52,15 +52,15 @@
     <div id="andriodGuide" class="col-xs-12 col-sm-12  hidden-lg hidden-md img-responsive" style="display: none">
       <img id="andriodGuideImg" src="../assets/andriod_guide.png">
     </div>
-    <nav id="bdd_nav" class="navbar navbar-default navbar-fixed-bottom share-download">
-      <div class="bdd_one">
-        <img class="bdd_img" src="../assets/logo.png" /> </div>
-      <div class="bdd_two">
-        <div class="bdd_g">标大大</div>
-        <div class="bdd_n">打开App了解更多资讯</div>
+    <nav id="biaodaa-nav" class="navbar navbar-default navbar-fixed-bottom share-download">
+      <div class="biaodaa-one">
+        <img class="biaodaa-img" src="../assets/logo.png" /> </div>
+      <div class="biaodaa-two">
+        <div class="biaodaa-g">标大大</div>
+        <div class="biaodaa-n">打开App了解更多资讯</div>
       </div>
-      <div class="bdd_foo">
-        <div onclick='downloadApp()' class="bdd_x">立即打开</div>
+      <div class="biaodaa-foo">
+        <div onclick='downloadApp()' class="biaodaa-x">立即打开</div>
       </div>
     </nav>
   </div>
@@ -188,7 +188,7 @@
   overflow-y: hidden; 
 }
 
-.bdd_header{
+.biaodaa-header{
   width: 100%;
   height: 36px;
   font-size:36px;
@@ -198,38 +198,38 @@
   margin-top:26px;
 
 }
-.bdd_news{
+.biaodaa-news{
   width:100%;
   margin-top:100px;
 
 }
-.bdd_span{
+.biaodaa-span{
   font-size:36px;
   font-family:PingFangSC-Medium;
   color:rgba(51,51,51,1);
   margin-top:32px;
 }
 
-.bdd_header{
+.biaodaa-header{
   text-align: center;
 }
-.bdd_c{
+.biaodaa-c{
   font-size: 28px;
   margin-top:30px;
   margin-left:32px;
 
 }
-.bdd_a,.bdd_b{
+.biaodaa-a,.biaodaa-b{
   background:rgba(245,245,245,1);
   width: 52px;
   padding:10px;
   text-align: center;
 }
-.bdd_b{
+.biaodaa-b{
   width: 172px;
   margin:10px;
 }
-.bdd_plone{
+.biaodaa-plone{
   margin-top:60px;
   height:48px;
   font-size:48px;
@@ -240,13 +240,13 @@
   margin-left:32px;
   margin-right:32px;
 }
-.bdd_v{
+.biaodaa-v{
   margin-top:30px;
   margin-left:32px;
   margin-right:32px;
   border-bottom: 1px solid #ccc;
 }
-.bdd_pl,.bdd_k{
+.biaodaa-pl,.biaodaa-k{
   width:128px;
   height:32px;
   font-size:32px;
@@ -255,25 +255,25 @@
   color:rgba(153,153,153,1);
   line-height:80px;
 }
-.bdd_k{
+.biaodaa-k{
   margin-left:50px;
   height:60px;
   color:rgba(51,51,51,1);
 
 }
-.bdd_hr{
+.biaodaa-hr{
   margin-top:20px;
   width:718px;
   height:1px;
   background:rgba(230,230,230,1);
 
 }
-.bdd_d{
+.biaodaa-d{
   margin-top:30px;
   width:750px;
   background:rgba(245,245,245,1);
 }
-.bdd_zi{
+.biaodaa-zi{
   margin-top:20px;
   width:100%;
   font-size:32px;
@@ -282,14 +282,14 @@
   color:rgba(102,102,102,1);
   margin-left:32px;
 }
-.bdd_ji{
+.biaodaa-ji{
   margin-top:20px;
   border:2px solid rgba(235,235,235,1);
   margin-left: 32px;
   margin-right: 32px;
 
 }
-.bdd_time{
+.biaodaa-time{
   width:128px;
   font-size:32px;
   font-family:PingFangSC-Medium;
@@ -297,7 +297,7 @@
   color:rgba(102,102,102,1);
 
 }
-.bdd_ri{
+.biaodaa-ri{
   width:174px;
   height:32px;
   font-size:32px;
@@ -308,14 +308,14 @@
 
 
 }
-.bdd_s{
+.biaodaa-s{
   padding:32px;
   width: 100%;
 }
-.bdd_color{
+.biaodaa-color{
   background:rgba(248,248,248,1);
 }
-.bdd_o{
+.biaodaa-o{
   float:right;
   font-size:32px;
   font-family:PingFangSC-Regular;
@@ -324,10 +324,10 @@
   margin-left:80px;
   width:70%;
 }
-.bdd_h{
+.biaodaa-h{
   color:#CEA63F ;
 }
-.bdd_f{
+.biaodaa-f{
   margin-top:20px;
   height:28px;
   font-size:28px;
@@ -337,18 +337,18 @@
   line-height:28px;
   margin-left:32px;
 }
-.bdd_img{
+.biaodaa-img{
   width:104px;
   height:104px;
   margin-top:13px;
 }
-.bdd_footer{
+.biaodaa-footer{
   height:128px;
   background:rgba(255,255,255,1);
   box-shadow:0px -8px 44px -20px rgba(0,0,0,0.3);
 
 }
-.bdd_g{
+.biaodaa-g{
   width:110px;
   height:32px;
   font-size:32px;
@@ -359,7 +359,7 @@
 
 
 }
-.bdd_n{
+.biaodaa-n{
   height:20px;
   font-size:20px;
   font-family:PingFangSC-Regular;
@@ -367,16 +367,16 @@
   color:rgba(102,102,102,1);
   line-height:13px;
 }
-.bdd_col{
+.biaodaa-col{
   color:#CEA63F;
 }
-.bdd_w{
+.biaodaa-w{
   letter-spacing:100px;
 }
-.bdd_p_kip{
+.biaodaa-p_kip{
   font-size: 28px;
 }
-.bdd_p{
+.biaodaa-p{
   font-family:PingFangSC-Regular;
   font-weight:400;
   color:rgba(102,102,102,1);
@@ -385,10 +385,10 @@
   margin-right:32px;
   font-size:32px;
 }
-.bdd_i_fot{
+.biaodaa-i_fot{
   margin-top:40px;
 }
-.bdd_i_o{
+.biaodaa-i_o{
   clear:both;
   overflow:hidden;
   width: 90%;
@@ -400,12 +400,12 @@
   margin-right:32px;
 
 }
-.bdd_k_o{
+.biaodaa-k_o{
   float:left;
   line-height:60px;
   display: inline-block;
 }
-.bdd_main{
+.biaodaa-main{
   clear:both;
   overflow:hidden;
   width:100%;
@@ -415,7 +415,7 @@
   margin-right:32px;
   padding-bottom:23px;
 }
-.bdd_title{
+.biaodaa-title{
   width:20%;
   height:32px;
   font-size:32px;
@@ -424,18 +424,18 @@
   color:rgba(153,153,153,1);
   line-height:32px;
 }
-.bdd_content{
+.biaodaa-content{
   width:70%;
   font-size:32px;
   line-height:40px;
   margin-left:22px;
 }
-.bdd_title,.bdd_content{
+.biaodaa-title,.biaodaa-content{
   float:left;
   line-height:50px;
   display: inline-block;
 }
-.bdd_main_u{
+.biaodaa-main_u{
   clear:both;
   overflow:hidden;
   width:100%;
@@ -445,7 +445,7 @@
   padding-bottom:23px;
 
 }
-.bdd_i_color{
+.biaodaa-i_color{
   height:32px;
   font-size:32px;
   font-family:PingFangSC-Medium;
@@ -453,20 +453,41 @@
   color:rgba(102,102,102,1);
 
 }
-.bdd_i_po{
+.biaodaa-i_po{
   font-size:32px;
   font-family:PingFangSC-Regular;
   font-weight:400;
   color:rgba(102,102,102,1);
   line-height:40px;
 }
-.bdd_i_fot{
+.biaodaa-i_fot{
   margin-top:20px;
 }
 
-.bdd_t_ipo{
+.biaodaa-t_ipo{
   margin-bottom:200px;
   font-size: 32px;
 }
-
+.biaodaa-foo{
+  width:148px;
+  height:64px;
+  background:#FE6603;
+  border-radius:8px;
+}
+.biaodaa-x{
+  width:150px;
+  height:24px;
+  font-size:24px;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(255,255,255,1);
+  line-height:15px;
+  margin:26px;
+}
+.biaodaa-one img{
+	width: 108px;
+}
+.biaodaa-two{
+	font-size: 16px;
+}
 </style>

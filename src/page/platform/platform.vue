@@ -1,57 +1,57 @@
 <template>
   <div class="share-container">
-    <div id="bdd_app" class="share-body">
-    <div class="bdd_p"  style="margin-top:20px;"><span class="bdd_r_g">{{bddList.title?bddList.title:"-"}}</span></div>
-    <div class="bdd_r_a" v-if="showDate">{{showDate?showDate:"-"}}</div>
-    <div class="bdd_p_le"><span class="bdd_r_g_ro"></span>{{bddList.remark?bddList.remark:"-"}}</div>
+    <div id="biaodaa-app" class="share-body">
+    <div class="biaodaa-p"  style="margin-top:20px;"><span class="biaodaa-r_g">{{bddList.title?bddList.title:"-"}}</span></div>
+    <div class="biaodaa-r_a" v-if="showDate">{{showDate?showDate:"-"}}</div>
+    <div class="biaodaa-p_le"><span class="biaodaa-r_g_ro"></span>{{bddList.remark?bddList.remark:"-"}}</div>
     <template v-if="!isPrestige">
-      <table width="100%" class="bdd_p_table">
+      <table width="100%" class="biaodaa-p_table">
         <tr>
-        <th style="width: 17%" class="bdd_p_th_o">排名</th>
-        <th style="width: 60%" class="bdd_p_th_o">中标公司名称</th>
-        <th style="width: 23%" class="bdd_p_th_o">中标个数  </th>
+        <th style="width: 17%" class="biaodaa-p_th_o">排名</th>
+        <th style="width: 60%" class="biaodaa-p_th_o">中标公司名称</th>
+        <th style="width: 23%" class="biaodaa-p_th_o">中标个数  </th>
         </tr>
         <tr v-for="(item,index) in bddList.list"  :key="item.comName">
-          <td style="width: 17%;" class="bdd_p_th_l">{{index+1}}</td>
-          <td style="width: 60%" class="bdd_p_th_l">{{item.comName}}</td>
-          <td style="width: 23%" class="bdd_p_th_l">{{item.num}}</td>
+          <td style="width: 17%;" class="biaodaa-p_th_l">{{index+1}}</td>
+          <td style="width: 60%" class="biaodaa-p_th_l">{{item.comName}}</td>
+          <td style="width: 23%" class="biaodaa-p_th_l">{{item.num}}</td>
         </tr>
       </table>
-      <div class="bdd_p_footer">
-        <div class="bdd_p_foo">湖南企信数据研究院</div>
-        <div class="bdd_p_foo">建筑业经营数据研究中心</div>
+      <div class="biaodaa-p_footer">
+        <div class="biaodaa-p_foo">湖南企信数据研究院</div>
+        <div class="biaodaa-p_foo">建筑业经营数据研究中心</div>
       </div>
     </template>
     <template v-else>
-      <table width="100%" class="bdd_p_table">
+      <table width="100%" class="biaodaa-p_table">
         <tr>
-          <th  class="bdd_p_th_o" style="width:10%">排名</th>
-          <th class="bdd_p_th_o">企业名称</th>
-          <th class="bdd_p_th_o" style="width: 10%" >评分</th>
-          <th style="width: 13%" class="bdd_p_th_o">获奖数量</th>
+          <th  class="biaodaa-p_th_o" style="width:10%">排名</th>
+          <th class="biaodaa-p_th_o">企业名称</th>
+          <th class="biaodaa-p_th_o" style="width: 10%" >评分</th>
+          <th style="width: 13%" class="biaodaa-p_th_o">获奖数量</th>
         </tr>
         <tr v-for="(item,index) in bddList.list"  :key="item.comName">
-          <td class="bdd_p_th_l">{{index+1}}</td>
-          <td class="bdd_p_th_l">{{item.comName}}</td>
-          <td class="bdd_p_th_l">{{item.score}}</td>
-          <td class="bdd_p_th_l">{{item.num}}</td>
+          <td class="biaodaa-p_th_l">{{index+1}}</td>
+          <td class="biaodaa-p_th_l">{{item.comName}}</td>
+          <td class="biaodaa-p_th_l">{{item.score}}</td>
+          <td class="biaodaa-p_th_l">{{item.num}}</td>
         </tr>
       </table>
-      <div class="bdd_p_footer">
-        <div class="bdd_p_foo">重要声明：本排行榜内容是湖南省住房和建设厅公开信息所得结果，标大大不对排行结果的准确、真实性负责。</div>
+      <div class="biaodaa-p_footer">
+        <div class="biaodaa-p_foo">重要声明：本排行榜内容是湖南省住房和建设厅公开信息所得结果，标大大不对排行结果的准确、真实性负责。</div>
       </div>
     </template>
     
     </div>
-    <nav id="bdd_nav" class=" navbar navbar-default navbar-fixed-bottom share-download" >
-      <div class="bdd_one">
-        <img class="bdd_img" src="../../assets/logo.png" /> </div>
-      <div class="bdd_two">
-        <div class="bdd_g">标大大</div>
-        <div class="bdd_n">打开App了解更多资讯</div>
+    <nav id="biaodaa-nav" class=" navbar navbar-default navbar-fixed-bottom share-download" >
+      <div class="biaodaa-one">
+        <img class="biaodaa-img" src="../../assets/logo.png" /> </div>
+      <div class="biaodaa-two">
+        <div class="biaodaa-g">标大大</div>
+        <div class="biaodaa-n">打开App了解更多资讯</div>
       </div>
-      <div class="bdd_foo">
-        <div onclick='downloadApp()' class="bdd_x">立即打开</div>
+      <div class="biaodaa-foo">
+        <div onclick='downloadApp()' class="biaodaa-x">立即打开</div>
       </div>
     </nav>
 
@@ -165,7 +165,7 @@ export default {
 };
 </script>
 <style scoped>
-.bdd_p{
+.biaodaa-p{
   clear:both;
   overflow:hidden;
   width: 90%;
@@ -191,12 +191,12 @@ export default {
   overflow: auto;
 
 }
-.bdd_r_g{
+.biaodaa-r_g{
   float:left;
   line-height:60px;
   display: inline-block;
 }
-.bdd_r_a{
+.biaodaa-r_a{
   margin-top:30px;
   height:24px;
   font-size:28px;
@@ -206,7 +206,7 @@ export default {
   line-height:24px;
 
 }
-.bdd_p_le{
+.biaodaa-p_le{
   clear:both;
   overflow:hidden;
   width: 90%;
@@ -220,12 +220,12 @@ export default {
   margin-top:48px;
  text-indent: 2em;
 }
-.bdd_r_g_ro{
+.biaodaa-r_g_ro{
   float:left;
   line-height:60px;
   display: inline-block;
 }
-.bdd_p_th_o,.bdd_p_th_l{
+.biaodaa-p_th_o,.biaodaa-p_th_l{
   height:32px;
   font-size:24px;
   font-family:PingFangSC-Medium;
@@ -234,23 +234,23 @@ export default {
   line-height:32px;
   text-align: center;
 }
-.bdd_p_table{
+.biaodaa-p_table{
   width: 100%;
   margin-top:100px;
   margin-bottom: 0;
 }
 
-.bdd_p_th_o{
+.biaodaa-p_th_o{
   font-weight: 500;
 
 }
-.bdd_p_th_l{
+.biaodaa-p_th_l{
   padding-top:40px;
   font-family:PingFangSC-Regular;
   font-weight:400;
 
 }
-.bdd_p_foo{
+.biaodaa-p_foo{
   /* height:50px; */
   font-size:24px;
   font-family:PingFangSC-Regular;
@@ -260,11 +260,32 @@ export default {
   /* line-height:10px; */
   /* text-align: center; */
 }
-.bdd_p_footer{
+.biaodaa-p_footer{
   padding-top:100px;
 }
-.bdd_p_m{
+.biaodaa-p_m{
   margin-bottom:48px;
 }
-
+.biaodaa-foo{
+  width:148px;
+  height:64px;
+  background:#FE6603;
+  border-radius:8px;
+}
+.biaodaa-x{
+  width:150px;
+  height:24px;
+  font-size:24px;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(255,255,255,1);
+  line-height:15px;
+  margin:26px;
+}
+.biaodaa-one img{
+	width: 108px;
+}
+.biaodaa-two{
+	font-size: 16px;
+}
 </style>

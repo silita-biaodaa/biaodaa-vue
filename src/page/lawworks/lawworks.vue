@@ -1,32 +1,32 @@
 <template>
 <div class="share-container">
-  <div id="bdd_app" class="share-body">
-    <div class="bdd_l_header">
-      <div class="bdd_l_loge">
+  <div id="biaodaa-app" class="share-body">
+    <div class="biaodaa-l_header">
+      <div class="biaodaa-l_loge">
         <div class="main">
         <span class="title">标题</span>
         <span class="content">{{bddList.title?bddList.title:"-" }}</span>
        </div>
-        <div><span class="bdd_l_mews">法院</span><span class="bdd_l_mess">{{bddList.court?bddList.court:"-" }}</span></div>
-        <div><span class="bdd_l_mews">案号</span><span style="margin-left: 25px;" class="bdd_l_mess">{{bddList.caseNo?bddList.caseNo:"-" }}</span></div>
-        <div><span class="bdd_l_mews">时间</span><span class="bdd_l_mess">{{bddList.dateStr?bddList.dateStr:"-" }}</span></div>
+        <div><span class="biaodaa-l_mews">法院</span><span class="biaodaa-l_mess">{{bddList.court?bddList.court:"-" }}</span></div>
+        <div><span class="biaodaa-l_mews">案号</span><span style="margin-left: 25px;" class="biaodaa-l_mess">{{bddList.caseNo?bddList.caseNo:"-" }}</span></div>
+        <div><span class="biaodaa-l_mews">时间</span><span class="biaodaa-l_mess">{{bddList.dateStr?bddList.dateStr:"-" }}</span></div>
     </div>
     </div>
-      <div class="bdd_l_h">原文详情:</div>
-      <div class="bdd_l_hold bdd_l_ar"  v-html="bddList.content"></div>
-    <!-- <div class="bdd_l_ho"></div> -->
+      <div class="biaodaa-l_h">原文详情:</div>
+      <div class="biaodaa-l_hold biaodaa-l_ar"  v-html="bddList.content"></div>
+    <!-- <div class="biaodaa-l_ho"></div> -->
   </div>
 
 
-  <nav id="bdd_nav" class="navbar navbar-default navbar-fixed-bottom share-download" >
-    <div class="bdd_one">
-      <img class="bdd_img" src="../../assets/logo.png" /> </div>
-    <div class="bdd_two">
-      <div class="bdd_g">标大大</div>
-      <div class="bdd_n">打开App了解更多资讯</div>
+  <nav id="biaodaa-nav" class="navbar navbar-default navbar-fixed-bottom share-download" >
+    <div class="biaodaa-one">
+      <img class="biaodaa-img" src="../../assets/logo.png" /> </div>
+    <div class="biaodaa-two">
+      <div class="biaodaa-g">标大大</div>
+      <div class="biaodaa-n">打开App了解更多资讯</div>
     </div>
-    <div class="bdd_foo">
-      <div onclick='downloadApp()' class="bdd_x">立即打开</div>
+    <div class="biaodaa-foo">
+      <div onclick='downloadApp()' class="biaodaa-x">立即打开</div>
     </div>
   </nav>
   
@@ -122,13 +122,13 @@
   line-height:40px;
   margin-left:48px;
 }
-.bdd_l_header{
+.biaodaa-l_header{
   width: 100%;
   margin-bottom:10px;
   background-color: #F3F4F5;
   overflow: hidden;
 }
-.bdd_l_loge{
+.biaodaa-l_loge{
   width: 94%;
   background:rgba(255,255,255,1);
   margin: 32px auto;
@@ -136,7 +136,7 @@
   padding-left:32px;
   padding-right:32px;
 }
-.bdd_l_mews{
+.biaodaa-l_mews{
   width:64px;
   height:32px;
   font-size:32px;
@@ -146,7 +146,7 @@
   line-height:32px;
 
 }
-.bdd_l_mess{
+.biaodaa-l_mess{
   width: 80%;
   height:32px;
   font-size:32px;
@@ -156,7 +156,7 @@
   line-height:70px;
   margin-left:42px;
 }
-.bdd_l_h{
+.biaodaa-l_h{
   width:180px;
   height:36px;
   font-size:36px;
@@ -168,7 +168,7 @@
   margin-right:32px;
   margin-top:80px;
 }
-.bdd_l_hold{
+.biaodaa-l_hold{
   font-size:32px;
   font-family:PingFangSC-Regular;
   font-weight:400;
@@ -177,14 +177,35 @@
   margin-right:32px;
   margin-top:48px;
 }
-.bdd_l_ar{
+.biaodaa-l_ar{
   margin-bottom:200px;
 }
-.bdd_l_ho{
+.biaodaa-l_ho{
   padding-top:200px;
 }
-.bdd_l_pop{
+.biaodaa-l_pop{
   padding-bottom:200px;
 }
-
+.biaodaa-foo{
+  width:148px;
+  height:64px;
+  background:#FE6603;
+  border-radius:8px;
+}
+.biaodaa-x{
+  width:150px;
+  height:24px;
+  font-size:24px;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(255,255,255,1);
+  line-height:15px;
+  margin:26px;
+}
+.biaodaa-one img{
+	width: 108px;
+}
+.biaodaa-two{
+	font-size: 16px;
+}
 </style>

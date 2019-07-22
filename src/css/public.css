@@ -15,25 +15,7 @@ body{
 .app-bg{
     width: 100%;
 }
-.bdd_foo{
-  width:148px;
-  height:64px;
-  background:#FE6603;
-  border-radius:8px;
-}
-.bdd_x{
-  width:150px;
-  height:24px;
-  font-size:24px;
-  font-family:PingFangSC-Regular;
-  font-weight:400;
-  color:rgba(255,255,255,1);
-  line-height:15px;
-  margin:26px;
-
-
-}
-#bdd_nav{
+#biaodaa-nav{
   display: flex;
   justify-content: space-between;
   align-items: center;
