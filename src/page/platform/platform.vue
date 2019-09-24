@@ -144,8 +144,14 @@ export default {
       let data={
         statDate:selectDate
       }
-      if(type!='5'){
-        data.type='2'
+      if(type != '5') {
+        
+        if(statDate.indexOf(12) > 0) {
+           data.type='2'
+        } else {
+           data.type='3'
+        }
+       
       }
       let dataParam = JSON.stringify(data);
       
