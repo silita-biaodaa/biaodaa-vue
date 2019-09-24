@@ -144,9 +144,10 @@ export default {
       let data={
         statDate:selectDate
       }
+      let str = statDate.split('-')
       if(type != '5') {
         
-        if(statDate.indexOf(12) > 0) {
+        if( str[2] == 12 ) {
            data.type='2'
         } else {
            data.type='3'
