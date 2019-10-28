@@ -142,18 +142,20 @@ export default {
       let statDate = this.$route.params.statDate;
       let selectDate = statDate ? statDate : this.getCurrentDate();
       let data={
-        statDate:selectDate
+        pkid:selectDate
       }
       let str = statDate.split('-')
-      if(type != '5') {
+      console.log(str[2]);
+      
+      // if(type != '5') {
         
-        if( str[2] == 12 ) {
-           data.type='2'
-        } else {
-           data.type='3'
-        }
+      //   if( str[2] == 12 ) {
+      //      data.type='2'
+      //   } else {
+      //      data.type='3'
+      //   }
        
-      }
+      // }
       let dataParam = JSON.stringify(data);
       
       // if(type!='5'){
